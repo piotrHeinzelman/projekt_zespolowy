@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="SklepPodzespolyKomputerowe" version="4">
+  <OBJECT>
+    <ID name="SklepPodzespolyKomputerowe" mc="Infrastructure.DiagramSet" uid="57fcc436-b0cb-48ba-bf2b-b7deb600cf8e"/>
+    <PID name="SklepPodzespolyKomputerowe" mc="Standard.Project" uid="b5ba1119-3d71-4918-8780-a0e220248bfa"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[SklepPodzespolyKomputerowe]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

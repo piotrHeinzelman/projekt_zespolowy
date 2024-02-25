@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="ShopCore" version="4">
+  <OBJECT>
+    <ID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <PID name="skleppodzespolykomputerowe" mc="Standard.Package" uid="4c480f34-73e0-49cc-982d-ada6d81b3fc5"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[ShopCore]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Find Product" mc="Standard.UseCase" uid="aab40c4b-d243-45d1-ad3f-26ba242c2e07"/>
+        <COMPID name="Edit (my) Basket" mc="Standard.UseCase" uid="4037e365-ca87-4072-867c-43c8e0c5d78d"/>
+        <COMPID name="Add Product (toBasket)" mc="Standard.UseCase" uid="c1ee5a68-ce27-4e12-88ea-a52a4b406db2"/>
+        <COMPID name="Change Quantity (sel.Product)" mc="Standard.UseCase" uid="7bec8651-af6b-4e7d-ad79-ac77fad29b1c"/>
+        <COMPID name="Remove Product (fromBasket)" mc="Standard.UseCase" uid="93e5ea35-d786-4ad2-9f13-f741ab1792bc"/>
+        <COMPID name="checkout (my)Basket" mc="Standard.UseCase" uid="8b4e20a2-ba0c-452b-b5cf-6753a006cd51"/>
+        <COMPID name="drop Basket" mc="Standard.UseCase" uid="6c8484c1-972e-4843-a7b7-fd39d032195f"/>
+        <COMPID name="ListAll Product (ofCategoryWithFilter)" mc="Standard.UseCase" uid="ee55104d-b320-40e7-82d1-b18945a5359f"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Use Case Customer " mc="Standard.UseCaseDiagram" uid="8332171e-98a4-485c-8dae-14389514d936"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

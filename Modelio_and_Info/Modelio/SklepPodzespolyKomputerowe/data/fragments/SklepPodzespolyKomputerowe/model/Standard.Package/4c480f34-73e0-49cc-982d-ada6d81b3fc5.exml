@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="skleppodzespolykomputerowe" version="4">
+  <OBJECT>
+    <ID name="skleppodzespolykomputerowe" mc="Standard.Package" uid="4c480f34-73e0-49cc-982d-ada6d81b3fc5"/>
+    <PID name="SklepPodzespolyKomputerowe" mc="Standard.Project" uid="b5ba1119-3d71-4918-8780-a0e220248bfa"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[skleppodzespolykomputerowe]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Actors" mc="Standard.Package" uid="642ad004-ec3a-4399-81d5-552fe47c2039"/>
+        <COMPID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

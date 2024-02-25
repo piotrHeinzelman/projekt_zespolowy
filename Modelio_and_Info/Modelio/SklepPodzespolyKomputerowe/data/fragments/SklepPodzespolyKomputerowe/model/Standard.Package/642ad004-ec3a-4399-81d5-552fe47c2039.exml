@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Actors" version="4">
+  <OBJECT>
+    <ID name="Actors" mc="Standard.Package" uid="642ad004-ec3a-4399-81d5-552fe47c2039"/>
+    <PID name="skleppodzespolykomputerowe" mc="Standard.Package" uid="4c480f34-73e0-49cc-982d-ada6d81b3fc5"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Actors]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Admin" mc="Standard.Actor" uid="d42c35b6-8855-4382-9fe9-c8a96d667f43"/>
+        <COMPID name="Customer" mc="Standard.Actor" uid="603917a0-dae9-4d3e-8b2e-e4236920c596"/>
+        <COMPID name="Crew" mc="Standard.Actor" uid="13bae0e2-49ed-46e5-9503-dd4ca84e80b4"/>
+        <COMPID name="StoreKeeper" mc="Standard.Actor" uid="576e910e-05a9-45b1-8c17-7a3bd1a481d1"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
