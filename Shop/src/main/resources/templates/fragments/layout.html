@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html th:fragment="layout ( template )" lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Shop</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- CSS  -->
+  <link th:href="@{/css/style.css}" type="text/css" rel="stylesheet" />
+
+
+  <!-- JS -->
+
+  <script type="text/javascript" th:src="@{/js/???.js}"></script>
+
+
+</head>
+
+<body>
+
+<div id="menu_top">
+
+    <div>
+    <a href="/product/list">Lista produktów </a>
+    </div>
+
+    <div>
+    <a href="/?">??</a>
+    </div>
+
+</div>
+
+
+<div id="success"><p th:utext="${success}"></p></div>
+<div id="error">  <p th:utext="${errorMsg}"></p></div>
+
+
+
+  <div class="container_div">
+    <div class="container" >
+
+
+        <th:block th:include="${template}" />
+
+    </div>
+  </div>
+
+  <footer class="page-foot">
+   <br/><br/>
+  </footer>
+
+  </body>
+</html>

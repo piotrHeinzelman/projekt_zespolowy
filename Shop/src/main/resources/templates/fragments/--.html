@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<!--
+<th:block th:fragment="table_image_header( code )">
+<div th:if="${code!=null}" class="product_image" th_text="${code}" th:text="'/products/'+ ${code} +'.jpg'">
+    <img th:src="@{'/products/'+ ${code} +'.jpg'}"/>
+</div>
+</th:block>
+-->
+
+
+<th:block th:fragment="table_header()">
+
+    <th:block th:if="${codeId==null}" >
+        <table class="edit">
+            <tbody>
+            <form  action="@{'/edit'}" th:action="@{'/edit'}" th:object="${issueAddForm}" method="post"  enctype="multipart/form-data">
+
+                <tr class="two">
+                    <th colspan="9"></th>
+                    <th colspan="3">
+                        <input type="text"  name="codeString" id="codeString" placeholder="kod produktu" style="width: 100%;"  />
+                    </th>
+                    <th colspan="3">
+                        <input    type="submit" value="szukaj" style="width: 60px;" />
+                    </th>
+                </tr>
+            </form>
+            </tbody>
+        </table>
+    </th:block>
+
+
+
+    <th:block th:if="${codeId!=null}" >
+
+        <th:block th:replace="~{edit/fragments :: langrow( '/edit/item/' , ${codeId} , ${langId} )}" />
+
+        <form  action="@{'/edit/item'}" th:action="@{'/edit/item'}" th:object="${issueAddForm}" method="post"  enctype="multipart/form-data">
+
+            <table class="edit_form1">
+                <tbody>
+
+                <tr class="two">
+                    <th colspan="2" th:text="${codeId}" style="weight: normal; font-size: 90%"></th>
+                    <th></th>
+                    <th> <a th:href="@{'/indd/translate/'+${codeId}+'/'+${langId}}"> [AutoT] </a>  </th>
+                    <th> <a th:href="@{'/indd/translate/'+${codeId}+'/0'}"> [AutoT.*] </a>  </th>
+                    <th th:include="~{edit/fragments :: addChild( codeId ) }"></th>
+                    <th></th>
+                    <th colspan="3">
+                        <input  type="hidden" id="codeId" name="codeId" th:value="${codeId}">
+                        <input  type="hidden" id="langId" name="langId" th:value="${langId}">
+
+                        <input type="hidden" value="zapisz" style="margin: 0px; ">
+                        <input class="submit" type="submit" value="zapisz" style="margin: 0px; ">
+                    </th>
+
+                </tr>
+
+
+    </th:block>
+
+
+
+
+
+
+</th:block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+
+<!-- NEW VERSION -->
+<th:block  th:fragment="edit_text_as_combo (  tableName, fieldName , textValue , selectedId , label  ) ">
+
+    <!--         <div  th:fragment="as_text (  tableName, fieldName , value , selectedId, label   ) ">   -->
+    <label th:if="${not #strings.isEmpty(label)}" th:text="${label}" ></label>
+    <span th:text="${__${textValue}__}"></span>
+
+
+    <!--
+    <div>
+        <div class="comboLoader">
+            <span
+                    th:onclick="'labelToCombo( this, '+ ${__${selectedId}__} + ')'"
+                    th:dictName="${fieldName}"
+            ></span>
+            <label
+               th:name="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+               th:id="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+               th:text="${label} +' '+ ${__${textValue}__}"
+                >
+            </label>
+        </div>
+    </div>
+    -->
+</th:block>
+
+
+
+
+<!-- New Version -->
+<div  th:fragment="edit_text_input (  tableName, fieldName , value , label  ) ">
+    <label th:if="${not #strings.isEmpty(label)}" th:text="${label}" ></label>
+    <input type="text"
+           th:name="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+           th:id="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+           th:value="${__${value}__}" >
+</div>
+
+
+
+<!-- AsText -->
+<div  th:fragment="edit_text_input_ (  tableName, fieldName , value , label  ) ">
+    <label th:if="${not #strings.isEmpty(label)}" th:text="${label}" ></label>
+    <span th:text="${__${value}__}"></span>
+</div>
+
+
+
+
+<!-- New Version -->
+<div  th:fragment="edit_text_input_otherCodeId (  tableName, fieldName , value , label , otherCodeId ) ">
+    <label th:if="${not #strings.isEmpty(label)}" th:text="${label}" ></label>
+    <input type="text"
+           th:name="${'.'+tableName+'.'+fieldName+'.'+otherCodeId+'.'+langId+'.'+issueId+'.'}"
+           th:id="${'.'+tableName+'.'+fieldName+'.'+otherCodeId+'.'+langId+'.'+issueId+'.'}"
+           th:value="${__${value}__}" >
+</div>
+
+
+
+
+
+
+<!-- New Version -->
+<div  th:fragment="code_click_to_edit ( code_string, code_ident , langId )">
+    <a class="a_pencil" th:href="@{'/edit/item/' + ${__${code_ident}__} + '/' + ${__${langId}__} }"  th:text="${__${code_string}__}"></a>
+</div>
+
+<!--
+    &nbsp;</td><td>
+        <a class="a_pencil" th:href="@{'/edit/exact_item/' + ${__${code_ident}__} + '/' + ${__${langId}__} }">
+            <img src="/img/full_edit.png">
+        </a>
+-->
+
+
+
+<div  th:fragment="edit_text_input_lang (  tableName, fieldName , value , label , lang ) ">
+    <input type="text"
+           th:name="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+lang+'.'+issueId+'.'}"
+           th:id="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+lang+'.'+issueId+'.'}"
+           th:value="${__${value}__}">
+</div>
+
+
+
+<div  th:fragment="edit_text_area (  tableName, fieldName , value , label   ) ">
+    <textarea class="edit_textarea" rows="5" style="width: 100%;"
+              th:name="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+              th:id="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+              th:text="${__${value}__}"></textarea>
+</div>
+
+<div  th:fragment="as_text (  tableName, fieldName , value , label   ) ">
+    <span th:text="${__${value}__}"></span>
+</div>
+
+
+
+
+
+<th:block  th:fragment="addIChild ( parentId ) "><span th:onclick="'addIChild( '+ ${parentId} + ')'"  class="addIChild"></span></th:block>
+<th:blocc  th:fragment="addTChild ( parentId ) "><span th:onclick="'addTChild( '+ ${parentId} + ')'"  class="addTChild"></span></th:blocc>
+
+<td  th:fragment="removeIChild (  parentId  ) "><span th:onclick="'removeIChild( '+ ${__${parentId}__} + ')'" class="removeIChild"></span></td>
+<td  th:fragment="removeTChild (  parentId  ) "><span th:onclick="'removeTChild( '+ ${__${parentId}__} + ')'" class="removeTChild"></span></td>
+<!--
+ <a  th:fragment="removeXChild (  parentId, childrenId  ) " href="@{'/indd/cil/delete/'+${__${parentId}__}+'/'+${__${childrenId}__}}"><img src="/img/remove.png" class="removeTChild"/></a>
+-->
+
+<th:block th:fragment="addChild (  parentId ) ">
+    <th colspan="5">
+
+        <input type="text" class="c_input" th:some="${__${parentId}__}" ></input>
+        <span onclick="sendChild( this )"  class="c_span"></span>
+        <span onclick="addIChild( this )"  class="addIChild"></span>
+        <span onclick="addTChild( this )"  class="addTChild"></span>
+
+        <!--
+        <th:block th:include="~{edit/fragments  :: addIChild ( ${__${parentId}__} ) }"></th:block>
+        <th:block th:include="~{edit/fragments  :: addTChild ( ${__${parentId}__} ) }"></th:block>
+        -->
+    </th>
+</th:block>
+
+
+
+
+
+<!-- NEW VERSION -->
+<th:block  th:fragment="small_form_string_to_code_id () ">
+    <div>
+        <input type="text" id="string_to_id"></input>
+        <button onclick="searchCodeId();" class="std"></button>
+    </div>
+    <div>
+        <div class="comboLoader">
+            <span
+                    th:onclick="'labelToCombo( this, '+ ${__${selectedId}__} + ')'"
+                    th:dictName="${fieldName}"
+            ></span>
+            <label
+                    th:name="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+                    th:id="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+                    th:text="${label} +' '+ ${__${textValue}__}"
+            >
+            </label>
+        </div>
+    </div>
+
+</th:block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div  th:fragment="edit_combo_yes_no ( tableName , fieldName , value , label )">
+
+    <label th:if="${not #strings.isEmpty(label)}" th:text="${label}" ></label>
+    <span th:text="${__${value}__}"></span>
+    <!--
+    <label th:if="${not #strings.isEmpty(label)}" th:text="${label}" ></label>  <!*- th:text="${label}" -*>
+    <select th:name="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.1.'}"   th:id="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.1.'}" >
+
+        <th:block th:if="${__${value}__} == true ">
+            <option value="true"   selected="selected" >tak</option>
+            <option value="false" >nie</option>
+        </th:block>
+
+        <th:block th:unless="${__${value}__} == true ">
+            <option value="true"  >tak</option>
+            <option value="false" selected="selected" >nie</option>
+        </th:block>
+
+    </select>
+    -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<th:block th:fragment="langrow( prefix , codeId , langId )">
+    <div class="langrow">
+
+        <p  th:if="${langId!=null}" class="lang">
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/1'}" th:classappend="${langId==1} ? selected_lang">PL</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/2'}" th:classappend="${langId==2} ? selected_lang">CZ</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/3'}" th:classappend="${langId==3} ? selected_lang">EN</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/4'}" th:classappend="${langId==4} ? selected_lang">HU</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/5'}" th:classappend="${langId==5} ? selected_lang">LT</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/6'}" th:classappend="${langId==6} ? selected_lang">RO</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/7'}" th:classappend="${langId==7} ? selected_lang">LV</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/8'}" th:classappend="${langId==8} ? selected_lang">SK</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/17'}" th:classappend="${langId==17} ? selected_lang">SI</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/16'}" th:classappend="${langId==16} ? selected_lang">HR</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/15'}" th:classappend="${langId==15} ? selected_lang">UA</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/18'}" th:classappend="${langId==18} ? selected_lang">BG</a>
+
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/9'}" th:classappend="${langId==9} ? selected_lang">DE</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/10'}" th:classappend="${langId==10} ? selected_lang">EE</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/11'}" th:classappend="${langId==11} ? selected_lang">ES</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/12'}" th:classappend="${langId==12} ? selected_lang">FR</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/13'}" th:classappend="${langId==13} ? selected_lang">RU</a>
+            <a th:href="@{ ${prefix} + ''+${codeId}+'/14'}" th:classappend="${langId==14} ? selected_lang">NL</a>
+        <p>
+    </div>
+</th:block>
+
+
+
+
+
+
+
+
+
+</body>
+
+<nobody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <th> <p> th:text="${'session.langId: '+session.langId+'${langId}: '+ langId}"></p> </th>
+    <th> <p> th:text="${'session.issueId: '+session.issueId+'${issueId}: '+ issueId}"></p> </th>
+
+    <label th:text="${'Język:'+langs[(langId-1)].langCode+', Wydanie:'+issues[(issueId-1)].issueName}"></label>
+
+
+    <input type="text" th:name="${'.images_data.comment1.'+codeId+'.'+session.langId+'.'+session.issueId+'.'}"
+           th:id ="${'.images_data.comment1.'+codeId+'.'+session.langId+'.'+session.issueId+'.'}"
+           th:value="${images_data.getComment1()}">
+
+
+
+
+    <p>
+        th:field="*{__${myVar}__}"
+        th:attr="value = ${client.name}"
+
+    </p>
+
+</nobody>
+</html>

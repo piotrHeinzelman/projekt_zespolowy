@@ -26,5 +26,10 @@ public class Product {
     @Column(name="status")
     private Long status;
 
-
+    public Product() {}
+    public Product(String SKU, String name) {
+        this.SKU = SKU.toUpperCase();
+        this.name = name;
+        this.status = 1L;
+    }
 }

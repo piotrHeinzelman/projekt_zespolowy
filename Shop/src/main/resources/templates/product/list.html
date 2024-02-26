@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+
+<body>
+    <div class="product_list">
+        <th:block th:each="listProduct : ${listProducts}" >
+            <p th:utext="${listProduct.name}"></p>
+        </th:block>
+    </div>
+</body>
+
+
+</body>
+</html>

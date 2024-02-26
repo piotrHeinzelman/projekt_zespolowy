@@ -3,13 +3,19 @@ package com.example.Shop.service;
 import com.example.Shop.model.Product;
 import com.example.Shop.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class ProductService implements ProductRepo {
 
     @Autowired private ProductRepo repo;
 
+    @Override
+    public Optional<Product> getBySKU(String sku) {
+        return repo.getBySKU(sku);
+    }
 
     // ********* delegate *************
     @Override public <S extends Product> S save(S entity) {return repo.save(entity);}

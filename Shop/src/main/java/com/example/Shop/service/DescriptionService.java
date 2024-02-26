@@ -1,14 +1,15 @@
 package com.example.Shop.service;
 
 import com.example.Shop.model.Description;
-import com.example.Shop.model.Product;
 import com.example.Shop.repo.DescriptionRepo;
-import com.example.Shop.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-public class DesriptionService implements DescriptionRepo {
+
+@Service
+public class DescriptionService implements DescriptionRepo {
 
     @Autowired private DescriptionRepo repo;
 
