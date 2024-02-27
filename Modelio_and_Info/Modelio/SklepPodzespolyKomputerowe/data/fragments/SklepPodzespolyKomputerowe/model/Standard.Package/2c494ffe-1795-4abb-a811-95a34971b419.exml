@@ -21,7 +21,35 @@
         <COMPID name="Remove Product (fromBasket)" mc="Standard.UseCase" uid="93e5ea35-d786-4ad2-9f13-f741ab1792bc"/>
         <COMPID name="checkout (my)Basket" mc="Standard.UseCase" uid="8b4e20a2-ba0c-452b-b5cf-6753a006cd51"/>
         <COMPID name="drop Basket" mc="Standard.UseCase" uid="6c8484c1-972e-4843-a7b7-fd39d032195f"/>
-        <COMPID name="ListAll Product (ofCategoryWithFilter)" mc="Standard.UseCase" uid="ee55104d-b320-40e7-82d1-b18945a5359f"/>
+        <COMPID name="ListAll Product (ofCategory WithFilter)" mc="Standard.UseCase" uid="ee55104d-b320-40e7-82d1-b18945a5359f"/>
+        <COMPID name="Find Basket" mc="Standard.UseCase" uid="7249ee80-e806-46c7-898f-c15e5306f150"/>
+        <COMPID name="Edit Product (CREW)" mc="Standard.UseCase" uid="88723957-5355-407a-9f25-09a1199d39aa"/>
+        <COMPID name="Add Product (CREW)" mc="Standard.UseCase" uid="b9b8ecdc-254c-42f9-8157-623fab902db2"/>
+        <COMPID name="Find Category" mc="Standard.UseCase" uid="10db8d9f-27e2-4518-bc2f-4c4d5a3d6f1a"/>
+        <COMPID name="Add Category" mc="Standard.UseCase" uid="8d5646ad-0b34-4fdf-ba07-e653263d7b89"/>
+        <COMPID name="Edit Category" mc="Standard.UseCase" uid="d1179511-afd6-4737-872b-a67d8c053019"/>
+        <COMPID name="Put Product (to category)" mc="Standard.UseCase" uid="139cdf5f-6dd9-44b2-87c4-95f3f7726029"/>
+        <COMPID name="Find Price" mc="Standard.UseCase" uid="1fcf8e56-3dc5-4779-b644-bb957ce400c2"/>
+        <COMPID name="Edit Price" mc="Standard.UseCase" uid="11c0d70a-c624-407b-82c5-3a92d81cbbee"/>
+        <COMPID name="Add Price" mc="Standard.UseCase" uid="a86d7a46-e2c9-4304-a3c7-c980807a7fcc"/>
+        <COMPID name="Join with Product" mc="Standard.UseCase" uid="8510ea32-02fd-4483-a718-b0e8d371a3f9"/>
+        <COMPID name="Create Order" mc="Standard.UseCase" uid="718c4a07-abc4-44bd-9479-cc5f208e25b1"/>
+        <COMPID name="Find Order" mc="Standard.UseCase" uid="5c96283a-5041-45b0-b89d-94b9225e0e9e"/>
+        <COMPID name="Pay Order" mc="Standard.UseCase" uid="3b36b07b-48f8-417b-ae7d-c539f55c0d50"/>
+        <COMPID name="Change DeliveryAddress" mc="Standard.UseCase" uid="a3f6dc60-08b2-451a-af40-39a15240c9b2"/>
+        <COMPID name="Close Order (Crew)" mc="Standard.UseCase" uid="6b502aae-3aba-4577-b046-45b3df94209d"/>
+        <COMPID name="Create Delivery (Crew)" mc="Standard.UseCase" uid="f4dbeda1-ede9-4d24-a3ab-2146b6f70d3e"/>
+        <COMPID name="Edit Deliovery" mc="Standard.UseCase" uid="ab820dc0-96bf-4734-bb23-65ebc3c66039"/>
+        <COMPID name="Find Delivery" mc="Standard.UseCase" uid="82bdd43d-8405-4b7e-b3a2-1b18a8b65d58"/>
+        <COMPID name="Create WZ" mc="Standard.UseCase" uid="ca1b8f9c-2420-4a36-891e-27af9e254442"/>
+        <COMPID name="Find Delivery" mc="Standard.UseCase" uid="44bc14f4-b745-4cf9-8c0b-231a3bc3310c"/>
+        <COMPID name="Edit Delivery" mc="Standard.UseCase" uid="4279fbf1-0a7f-46a7-b3b0-8d6ebb10ba0d"/>
+        <COMPID name="Close Delivery" mc="Standard.UseCase" uid="f2da0610-2970-4d82-abdf-7c02d9e6d8ca"/>
+        <COMPID name="Create Account" mc="Standard.UseCase" uid="a9486937-c43d-421b-ad19-e857130467e0"/>
+        <COMPID name="Login (to) Account" mc="Standard.UseCase" uid="b40c8bb0-dea2-4f75-8c3f-c6cdc8725bf0"/>
+        <COMPID name="Find Account (crew)" mc="Standard.UseCase" uid="8d8e9a4f-c34b-4a66-856a-18fcb8269c4a"/>
+        <COMPID name="Block Account" mc="Standard.UseCase" uid="67868363-f60c-44f0-b197-ff661c4b36ff"/>
+        <COMPID name="Edit Account" mc="Standard.UseCase" uid="97c26f2c-05a9-4834-8881-29fcfa16d18a"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Use Case Customer " mc="Standard.UseCaseDiagram" uid="8332171e-98a4-485c-8dae-14389514d936"/>
