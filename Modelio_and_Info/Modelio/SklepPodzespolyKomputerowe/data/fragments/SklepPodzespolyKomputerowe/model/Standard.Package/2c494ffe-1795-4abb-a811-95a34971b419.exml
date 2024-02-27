@@ -50,6 +50,9 @@
         <COMPID name="Find Account (crew)" mc="Standard.UseCase" uid="8d8e9a4f-c34b-4a66-856a-18fcb8269c4a"/>
         <COMPID name="Block Account" mc="Standard.UseCase" uid="67868363-f60c-44f0-b197-ff661c4b36ff"/>
         <COMPID name="Edit Account" mc="Standard.UseCase" uid="97c26f2c-05a9-4834-8881-29fcfa16d18a"/>
+        <COMPID name="Receipt of Goods" mc="Standard.UseCase" uid="75458c9b-375e-4585-bba4-5a1e39be44d6"/>
+        <COMPID name="Add to Stock" mc="Standard.UseCase" uid="e010e0a4-b09a-4523-bbb0-6061a9f6d786"/>
+        <COMPID name="Spend from Stock" mc="Standard.UseCase" uid="6998f0b4-efbb-4739-86e2-d17d02b265a3"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Use Case Customer " mc="Standard.UseCaseDiagram" uid="8332171e-98a4-485c-8dae-14389514d936"/>
