@@ -4,3 +4,10 @@ SKLEP z podzespołami elektronicznymi
 Spring
 
 ![Run test](https://github.com/piotrHeinzelman/projekt_zespolowy/blob/main/Modelio_and_Info/Info/runTest.jpg?raw=true)
+![Run APP (in IDE)](https://github.com/piotrHeinzelman/projekt_zespolowy/blob/main/Modelio_and_Info/Info/runApp_in_IDE.jpg?raw=true)
+![build JAR.jpg](https://github.com/piotrHeinzelman/projekt_zespolowy/blob/main/Modelio_and_Info/Info/build JAR.jpg?raw=true)
+![projectStructure](https://github.com/piotrHeinzelman/projekt_zespolowy/blob/main/Modelio_and_Info/Info/projectStructure.jpg?raw=true)
+
+
+
+
