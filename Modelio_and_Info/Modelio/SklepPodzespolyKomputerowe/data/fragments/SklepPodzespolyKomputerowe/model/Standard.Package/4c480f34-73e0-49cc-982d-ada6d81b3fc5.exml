@@ -16,6 +16,12 @@
       <COMP relation="OwnedElement">
         <COMPID name="Actors" mc="Standard.Package" uid="642ad004-ec3a-4399-81d5-552fe47c2039"/>
         <COMPID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+        <COMPID name="Accounts" mc="Standard.Component" uid="88c702bb-159c-4a4f-9c90-4ca539bc52ab"/>
+        <COMPID name="Products" mc="Standard.Component" uid="12b774c3-7315-46be-8c6d-58f4ad20a0c4"/>
+        <COMPID name="Prices" mc="Standard.Component" uid="537246c0-7629-4b86-8d05-f7b1aad2956d"/>
+        <COMPID name="Basket" mc="Standard.Component" uid="abb4b5e5-90c6-48d9-9f57-ae028ddf40d9"/>
+        <COMPID name="Order" mc="Standard.Component" uid="be377d26-3b6b-4ed1-a47f-826a219e176d"/>
+        <COMPID name="storehouse" mc="Standard.Component" uid="56cbf7d8-3e74-46b8-9b37-fc4a56600c54"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

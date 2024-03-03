@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Edit Category" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Edit Category  PU62" version="4">
   <OBJECT>
-    <ID name="Edit Category" mc="Standard.UseCase" uid="d1179511-afd6-4737-872b-a67d8c053019"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Edit Category  PU62" mc="Standard.UseCase" uid="d1179511-afd6-4737-872b-a67d8c053019"/>
+    <PID name="Products" mc="Standard.Component" uid="12b774c3-7315-46be-8c6d-58f4ad20a0c4"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Edit Category]]></ATT>
+      <ATT name="Name"><![CDATA[Edit Category  PU62]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Find Product" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Find Product PU10" version="4">
   <OBJECT>
-    <ID name="Find Product" mc="Standard.UseCase" uid="aab40c4b-d243-45d1-ad3f-26ba242c2e07"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Find Product PU10" mc="Standard.UseCase" uid="aab40c4b-d243-45d1-ad3f-26ba242c2e07"/>
+    <PID name="Products" mc="Standard.Component" uid="12b774c3-7315-46be-8c6d-58f4ad20a0c4"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Find Product]]></ATT>
+      <ATT name="Name"><![CDATA[Find Product PU10]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -22,7 +22,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="ListAll Product (ofCategory WithFilter)" mc="Standard.UseCase" uid="ee55104d-b320-40e7-82d1-b18945a5359f"/>
+              <ID name="ListAll Product (ofCategory WithFilter) PU13" mc="Standard.UseCase" uid="ee55104d-b320-40e7-82d1-b18945a5359f"/>
             </LINK>
             <LINK relation="Extension">
               <FOREIGNID name="include" mc="Infrastructure.Stereotype" uid="00000000-0000-9c49-0000-000000000000"/>
@@ -50,7 +50,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Add Product (toBasket)" mc="Standard.UseCase" uid="c1ee5a68-ce27-4e12-88ea-a52a4b406db2"/>
+              <ID name="Add Product (toBasket) PU14" mc="Standard.UseCase" uid="c1ee5a68-ce27-4e12-88ea-a52a4b406db2"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -111,7 +111,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Change Quantity (sel.Product)" mc="Standard.UseCase" uid="7bec8651-af6b-4e7d-ad79-ac77fad29b1c"/>
+              <ID name="Change Quantity (sel.Product) PU15" mc="Standard.UseCase" uid="7bec8651-af6b-4e7d-ad79-ac77fad29b1c"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -172,7 +172,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Remove Product (fromBasket)" mc="Standard.UseCase" uid="93e5ea35-d786-4ad2-9f13-f741ab1792bc"/>
+              <ID name="Remove Product (fromBasket) PU16" mc="Standard.UseCase" uid="93e5ea35-d786-4ad2-9f13-f741ab1792bc"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -233,7 +233,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Edit Product" mc="Standard.UseCase" uid="88723957-5355-407a-9f25-09a1199d39aa"/>
+              <ID name="Edit Product (CREW) PU12" mc="Standard.UseCase" uid="88723957-5355-407a-9f25-09a1199d39aa"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -294,7 +294,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Add Product" mc="Standard.UseCase" uid="b9b8ecdc-254c-42f9-8157-623fab902db2"/>
+              <ID name="Add Product (CREW) PU11" mc="Standard.UseCase" uid="b9b8ecdc-254c-42f9-8157-623fab902db2"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>

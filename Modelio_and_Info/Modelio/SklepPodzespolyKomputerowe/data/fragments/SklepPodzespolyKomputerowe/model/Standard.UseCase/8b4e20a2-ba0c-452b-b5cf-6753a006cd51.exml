@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="checkout (my)Basket" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="checkout (my)Basket PU18" version="4">
   <OBJECT>
-    <ID name="checkout (my)Basket" mc="Standard.UseCase" uid="8b4e20a2-ba0c-452b-b5cf-6753a006cd51"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="checkout (my)Basket PU18" mc="Standard.UseCase" uid="8b4e20a2-ba0c-452b-b5cf-6753a006cd51"/>
+    <PID name="Basket" mc="Standard.Component" uid="abb4b5e5-90c6-48d9-9f57-ae028ddf40d9"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[checkout (my)Basket]]></ATT>
+      <ATT name="Name"><![CDATA[checkout (my)Basket PU18]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -33,7 +33,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Find Product" mc="Standard.UseCase" uid="aab40c4b-d243-45d1-ad3f-26ba242c2e07"/>
+              <ID name="Find Product PU10" mc="Standard.UseCase" uid="aab40c4b-d243-45d1-ad3f-26ba242c2e07"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -94,7 +94,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Create Order" mc="Standard.UseCase" uid="718c4a07-abc4-44bd-9479-cc5f208e25b1"/>
+              <ID name="Create Order PU33" mc="Standard.UseCase" uid="718c4a07-abc4-44bd-9479-cc5f208e25b1"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>

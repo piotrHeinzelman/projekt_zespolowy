@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Find Account (crew)" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Find Account (crew) PU03" version="4">
   <OBJECT>
-    <ID name="Find Account (crew)" mc="Standard.UseCase" uid="8d8e9a4f-c34b-4a66-856a-18fcb8269c4a"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Find Account (crew) PU03" mc="Standard.UseCase" uid="8d8e9a4f-c34b-4a66-856a-18fcb8269c4a"/>
+    <PID name="Accounts" mc="Standard.Component" uid="88c702bb-159c-4a4f-9c90-4ca539bc52ab"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Find Account (crew)]]></ATT>
+      <ATT name="Name"><![CDATA[Find Account (crew) PU03]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -33,7 +33,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Block Account" mc="Standard.UseCase" uid="67868363-f60c-44f0-b197-ff661c4b36ff"/>
+              <ID name="Block Account PU04" mc="Standard.UseCase" uid="67868363-f60c-44f0-b197-ff661c4b36ff"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -94,7 +94,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Edit Account" mc="Standard.UseCase" uid="97c26f2c-05a9-4834-8881-29fcfa16d18a"/>
+              <ID name="Edit Account PU05" mc="Standard.UseCase" uid="97c26f2c-05a9-4834-8881-29fcfa16d18a"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>

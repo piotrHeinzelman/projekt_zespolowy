@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Login (to) Account" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Login (to) Account PU02" version="4">
   <OBJECT>
-    <ID name="Login (to) Account" mc="Standard.UseCase" uid="b40c8bb0-dea2-4f75-8c3f-c6cdc8725bf0"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Login (to) Account PU02" mc="Standard.UseCase" uid="b40c8bb0-dea2-4f75-8c3f-c6cdc8725bf0"/>
+    <PID name="Accounts" mc="Standard.Component" uid="88c702bb-159c-4a4f-9c90-4ca539bc52ab"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Login (to) Account]]></ATT>
+      <ATT name="Name"><![CDATA[Login (to) Account PU02]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

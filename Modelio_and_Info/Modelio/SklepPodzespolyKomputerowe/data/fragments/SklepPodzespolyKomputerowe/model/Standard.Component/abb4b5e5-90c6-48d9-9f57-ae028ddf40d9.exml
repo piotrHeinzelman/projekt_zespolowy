@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Basket" version="4">
+  <OBJECT>
+    <ID name="Basket" mc="Standard.Component" uid="abb4b5e5-90c6-48d9-9f57-ae028ddf40d9"/>
+    <PID name="skleppodzespolykomputerowe" mc="Standard.Package" uid="4c480f34-73e0-49cc-982d-ada6d81b3fc5"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Basket]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Edit (my) Basket PU17" mc="Standard.UseCase" uid="4037e365-ca87-4072-867c-43c8e0c5d78d"/>
+        <COMPID name="Change Quantity (sel.Product) PU15" mc="Standard.UseCase" uid="7bec8651-af6b-4e7d-ad79-ac77fad29b1c"/>
+        <COMPID name="checkout (my)Basket PU18" mc="Standard.UseCase" uid="8b4e20a2-ba0c-452b-b5cf-6753a006cd51"/>
+        <COMPID name="drop Basket PU19" mc="Standard.UseCase" uid="6c8484c1-972e-4843-a7b7-fd39d032195f"/>
+        <COMPID name="Find Basket PU1A" mc="Standard.UseCase" uid="7249ee80-e806-46c7-898f-c15e5306f150"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

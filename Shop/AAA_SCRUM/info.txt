@@ -1,0 +1,14 @@
+
+
+Sprint 1
+Prace projektowe
+Przygotowanie środowiska
+PU01 Create Account
+PU02 Login (to) Account
+PU03 Find Account (crew)
+PU04 Block Account
+PU05 Edit Account
+PU10 Find Product
+PU11 Add Product (CREW)
+PU12 Edit Product (CREW)
+PU13 ListAll Product (ofCategory WithFilter)

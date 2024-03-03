@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Spend from Stock" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Spend from Stock  PU51" version="4">
   <OBJECT>
-    <ID name="Spend from Stock" mc="Standard.UseCase" uid="6998f0b4-efbb-4739-86e2-d17d02b265a3"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Spend from Stock  PU51" mc="Standard.UseCase" uid="6998f0b4-efbb-4739-86e2-d17d02b265a3"/>
+    <PID name="storehouse" mc="Standard.Component" uid="56cbf7d8-3e74-46b8-9b37-fc4a56600c54"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Spend from Stock]]></ATT>
+      <ATT name="Name"><![CDATA[Spend from Stock  PU51]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

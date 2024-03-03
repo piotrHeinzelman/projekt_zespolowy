@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="ListAll Product (ofCategory WithFilter)" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="ListAll Product (ofCategory WithFilter) PU13" version="4">
   <OBJECT>
-    <ID name="ListAll Product (ofCategory WithFilter)" mc="Standard.UseCase" uid="ee55104d-b320-40e7-82d1-b18945a5359f"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="ListAll Product (ofCategory WithFilter) PU13" mc="Standard.UseCase" uid="ee55104d-b320-40e7-82d1-b18945a5359f"/>
+    <PID name="Products" mc="Standard.Component" uid="12b774c3-7315-46be-8c6d-58f4ad20a0c4"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[ListAll Product (ofCategory WithFilter)]]></ATT>
+      <ATT name="Name"><![CDATA[ListAll Product (ofCategory WithFilter) PU13]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

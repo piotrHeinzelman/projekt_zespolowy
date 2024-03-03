@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Edit Delivery" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Edit Delivery  PU53" version="4">
   <OBJECT>
-    <ID name="Edit Delivery" mc="Standard.UseCase" uid="4279fbf1-0a7f-46a7-b3b0-8d6ebb10ba0d"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Edit Delivery  PU53" mc="Standard.UseCase" uid="4279fbf1-0a7f-46a7-b3b0-8d6ebb10ba0d"/>
+    <PID name="Order" mc="Standard.Component" uid="be377d26-3b6b-4ed1-a47f-826a219e176d"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Edit Delivery]]></ATT>
+      <ATT name="Name"><![CDATA[Edit Delivery  PU53]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

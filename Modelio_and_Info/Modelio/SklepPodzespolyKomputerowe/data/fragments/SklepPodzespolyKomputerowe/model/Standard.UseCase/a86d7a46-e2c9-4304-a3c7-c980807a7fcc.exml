@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Add Price" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Add Issue PU20" version="4">
   <OBJECT>
-    <ID name="Add Price" mc="Standard.UseCase" uid="a86d7a46-e2c9-4304-a3c7-c980807a7fcc"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Add Issue PU20" mc="Standard.UseCase" uid="a86d7a46-e2c9-4304-a3c7-c980807a7fcc"/>
+    <PID name="Prices" mc="Standard.Component" uid="537246c0-7629-4b86-8d05-f7b1aad2956d"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Add Price]]></ATT>
+      <ATT name="Name"><![CDATA[Add Issue PU20]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

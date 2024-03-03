@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Find Basket" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Find Basket PU1A" version="4">
   <OBJECT>
-    <ID name="Find Basket" mc="Standard.UseCase" uid="7249ee80-e806-46c7-898f-c15e5306f150"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Find Basket PU1A" mc="Standard.UseCase" uid="7249ee80-e806-46c7-898f-c15e5306f150"/>
+    <PID name="Basket" mc="Standard.Component" uid="abb4b5e5-90c6-48d9-9f57-ae028ddf40d9"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Find Basket]]></ATT>
+      <ATT name="Name"><![CDATA[Find Basket PU1A]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -22,7 +22,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Edit (my) Basket" mc="Standard.UseCase" uid="4037e365-ca87-4072-867c-43c8e0c5d78d"/>
+              <ID name="Edit (my) Basket PU17" mc="Standard.UseCase" uid="4037e365-ca87-4072-867c-43c8e0c5d78d"/>
             </LINK>
             <LINK relation="Extension">
               <FOREIGNID name="include" mc="Infrastructure.Stereotype" uid="00000000-0000-9c49-0000-000000000000"/>

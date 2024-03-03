@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Put Product (to category)" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Put Product (to category)  PU63" version="4">
   <OBJECT>
-    <ID name="Put Product (to category)" mc="Standard.UseCase" uid="139cdf5f-6dd9-44b2-87c4-95f3f7726029"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Put Product (to category)  PU63" mc="Standard.UseCase" uid="139cdf5f-6dd9-44b2-87c4-95f3f7726029"/>
+    <PID name="Products" mc="Standard.Component" uid="12b774c3-7315-46be-8c6d-58f4ad20a0c4"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Put Product (to category)]]></ATT>
+      <ATT name="Name"><![CDATA[Put Product (to category)  PU63]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

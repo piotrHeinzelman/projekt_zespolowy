@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Change DeliveryAddress" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Change DeliveryAddress PU32" version="4">
   <OBJECT>
-    <ID name="Change DeliveryAddress" mc="Standard.UseCase" uid="a3f6dc60-08b2-451a-af40-39a15240c9b2"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Change DeliveryAddress PU32" mc="Standard.UseCase" uid="a3f6dc60-08b2-451a-af40-39a15240c9b2"/>
+    <PID name="Order" mc="Standard.Component" uid="be377d26-3b6b-4ed1-a47f-826a219e176d"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Change DeliveryAddress]]></ATT>
+      <ATT name="Name"><![CDATA[Change DeliveryAddress PU32]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Find Delivery" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Find Delivery PU36" version="4">
   <OBJECT>
-    <ID name="Find Delivery" mc="Standard.UseCase" uid="82bdd43d-8405-4b7e-b3a2-1b18a8b65d58"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Find Delivery PU36" mc="Standard.UseCase" uid="82bdd43d-8405-4b7e-b3a2-1b18a8b65d58"/>
+    <PID name="Order" mc="Standard.Component" uid="be377d26-3b6b-4ed1-a47f-826a219e176d"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Find Delivery]]></ATT>
+      <ATT name="Name"><![CDATA[Find Delivery PU36]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -33,7 +33,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Edit Deliovery" mc="Standard.UseCase" uid="ab820dc0-96bf-4734-bb23-65ebc3c66039"/>
+              <ID name="Edit Deliovery PU37" mc="Standard.UseCase" uid="ab820dc0-96bf-4734-bb23-65ebc3c66039"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -94,7 +94,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Create WZ" mc="Standard.UseCase" uid="ca1b8f9c-2420-4a36-891e-27af9e254442"/>
+              <ID name="Create WZ PU38" mc="Standard.UseCase" uid="ca1b8f9c-2420-4a36-891e-27af9e254442"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>

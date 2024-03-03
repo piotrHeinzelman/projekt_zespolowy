@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Change Quantity (sel.Product)" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Change Quantity (sel.Product) PU15" version="4">
   <OBJECT>
-    <ID name="Change Quantity (sel.Product)" mc="Standard.UseCase" uid="7bec8651-af6b-4e7d-ad79-ac77fad29b1c"/>
-    <PID name="ShopCore" mc="Standard.Package" uid="2c494ffe-1795-4abb-a811-95a34971b419"/>
+    <ID name="Change Quantity (sel.Product) PU15" mc="Standard.UseCase" uid="7bec8651-af6b-4e7d-ad79-ac77fad29b1c"/>
+    <PID name="Basket" mc="Standard.Component" uid="abb4b5e5-90c6-48d9-9f57-ae028ddf40d9"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Change Quantity (sel.Product)]]></ATT>
+      <ATT name="Name"><![CDATA[Change Quantity (sel.Product) PU15]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
