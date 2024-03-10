@@ -1,0 +1,32 @@
+
+01: Aktor wybiera zakładkę [ GET: / product / list              + / ( categoryId ) / ( filter ) ]
+			http://127.0.0.1:8088/product/list
+			wywołuje z klasy 
+			@Controller
+			@RequestMapping("/product")
+			public class ProductController {
+			...
+			metodę
+			@RequestMapping( value={"/list" } , method = RequestMethod.GET )
+			public String listAllProduct_GET(  Model model  ) {
+			...
+			metoda ta zwraca String "product/list"
+			czyli pokazany będzie widok z pliku: 
+			[ src/main/resources/templates/ ]  product/list.html
+			
+			i przekazuje jej obiekt o nazwie productList
+				model.addAttribute( "productList" , productService.findAll() );
+				
+				-- FRONT --
+				
+				 <th:block th:each="product : ${productList}" >
+					<span th:utext="${product.name}" ></span>
+				</th:block>
+			
+			
+
+
+https://stackoverflow.com/questions/54205486/how-to-avoid-sharing-is-only-supported-for-boot-loader-classes-because-bootstra
+
+
+

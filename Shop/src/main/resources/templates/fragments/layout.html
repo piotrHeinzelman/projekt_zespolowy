@@ -8,19 +8,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- CSS  -->
-  <link th:href="@{/css/style.css}" type="text/css" rel="stylesheet" />
+  <link href="/css/style.css" type="text/css" rel="stylesheet" />
+  <link href="/css/product.css" type="text/css" rel="stylesheet" />
 
 
   <!-- JS -->
+  <script type="text/javascript" src="/js/product.js"></script>
 
-  <script type="text/javascript" th:src="@{/js/???.js}"></script>
-
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
+    </style>
 
 </head>
 
 <body>
 
-<div id="menu_top">
+<header id="layout_header">
+
 
     <div>
     <a href="/product/list">Lista produktów </a>
@@ -30,25 +35,22 @@
     <a href="/?">??</a>
     </div>
 
-</div>
+</header>
 
 
-<div id="success"><p th:utext="${success}"></p></div>
-<div id="error">  <p th:utext="${errorMsg}"></p></div>
+<div id="status"><p th:utext="${status}"></p></div>
 
 
 
-  <div class="container_div">
-    <div class="container" >
 
+  <div id="container">
 
         <th:block th:include="${template}" />
 
-    </div>
   </div>
 
-  <footer class="page-foot">
-   <br/><br/>
+  <footer id="layout_footer">
+    OKNO 2024
   </footer>
 
   </body>

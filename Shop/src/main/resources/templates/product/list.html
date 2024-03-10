@@ -5,8 +5,11 @@
 
 <body>
     <div class="product_list">
-        <th:block th:each="listProduct : ${listProducts}" >
-            <p th:utext="${listProduct.name}"></p>
+        <th:block th:each="product : ${productList}" >
+            <div onClick="clickProduct( this )" th:productId="${product.id}">
+                <img th:src="@{'/img/'+${product.id}+'.jpg'}" >
+                <span th:utext="${product.name}" ></span>
+            </div>
         </th:block>
     </div>
 </body>
