@@ -8,7 +8,7 @@
         <th:block th:each="product : ${productList}" >
             <div onClick="clickProduct( this )" th:productId="${product.id}">
                 <img th:src="@{'/img/'+${product.id}+'.jpg'}" >
-                <span th:utext="${product.name}" ></span>
+                <span th:utext="${product.name}" >Nazwa aoaooaoa</span>
             </div>
         </th:block>
     </div>
