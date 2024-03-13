@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Optional;
 
 
-// https://www.baeldung.com/spring-data-rest-intro
 
-@Controller
-@RequestMapping("/product")
+
+//@Controller
+//@RequestMapping("/product")
 public class ProductController {
 
     @Autowired private final ProductService productService;
