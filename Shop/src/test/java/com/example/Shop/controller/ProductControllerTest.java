@@ -12,9 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductControllerTest {
 
     @Autowired
-    private ProductService productService;
-
-    @Autowired
     private ProductController productController;
 
     @Test
@@ -34,7 +31,7 @@ class ProductControllerTest {
         productController.add( "NVidia_RTX_3080", "Karta graficzna NVidia RTX 3080" );
 
 
-        System.out.println( "List size: " + productService.count() );
+
 
     }
 

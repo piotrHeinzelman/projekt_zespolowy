@@ -18,9 +18,8 @@ import java.util.Optional;
 
 
 
-
-//@Controller
-//@RequestMapping("/product")
+@Controller
+@RequestMapping("/product")
 public class ProductController {
 
     @Autowired private final ProductService productService;
@@ -37,7 +36,7 @@ public class ProductController {
 
 
     // Controller - called by request /product/list
-    @RequestMapping( value={"/list" } , method = RequestMethod.GET )
+    //@RequestMapping( value={"/list" } , method = RequestMethod.GET )
     public String listAllProduct_GET(  Model model  ) {
         return listAllProduct_Impl( model );
     }
@@ -53,7 +52,7 @@ public class ProductController {
 
 
 
-
+//    @RequestMapping( value={"/edit/exact_item/{codeId}/{langId}" } , method = RequestMethod.POST )
     public Product add(String sku, String name){
         sku=sku.toUpperCase();
         Optional<Product> OProd = productService.getBySKU(sku);
