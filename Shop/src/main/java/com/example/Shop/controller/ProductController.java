@@ -2,24 +2,20 @@ package com.example.Shop.controller;
 
 
 import com.example.Shop.model.Product;
-import com.example.Shop.repo.DescriptionRepo;
-import com.example.Shop.repo.ProductRepo;
 import com.example.Shop.service.DescriptionService;
 import com.example.Shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 
 
 @Controller
-@RequestMapping("/product")
+@RequestMapping("/api/products")
 public class ProductController {
 
     @Autowired private final ProductService productService;
@@ -30,30 +26,32 @@ public class ProductController {
         this.descriptionService = descriptionService;
     }
 
+     @RequestMapping( value={"/" } , method = RequestMethod.POST )
+     @ResponseStatus(HttpStatus.CREATED)
+     @ResponseBody
+     public String addProductByPOST( @RequestBody Product product ) {
+         System.out.println( "addProductByPOST( @RequestBody Product product )" );
+         Product newProduct = productService.save(product);
+         return ("CREATED "+newProduct.getId());
+     }
 
-   // @RequestMapping( value={"/edit/exact_item/{codeId}/{langId}" } , method = RequestMethod.GET )
-   // public String editExactItem(  @PathVariable Long codeId , @PathVariable Long langId ,  Model model  ) {
-
-
-    // Controller - called by request /product/list
-    //@RequestMapping( value={"/list" } , method = RequestMethod.GET )
-    public String listAllProduct_GET(  Model model  ) {
-        return listAllProduct_Impl( model );
+    @RequestMapping( value={"/{productId}" } , method = RequestMethod.PUT )
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public String updateProductByPUT( @PathVariable Long productId,  @RequestBody Product product ) {
+        if ( !productService.existsById( productId )) { return addProductByPOST(  product ); } // nie istnieje
+        Optional<Product> ObyId = productService.findById(productId);
+        if (ObyId.isPresent() ){
+            Product prod=ObyId.get();
+            prod.fullUpdate(product);
+            productService.save( prod );
+        }
+        return "UPDATED";
     }
-
-    private String listAllProduct_Impl( Model model ){
-        model.addAttribute( "productList" , productService.findAll() );
-        return "product/list";
-    }
-
-
-
-
-
 
 
 //    @RequestMapping( value={"/edit/exact_item/{codeId}/{langId}" } , method = RequestMethod.POST )
-    public Product add(String sku, String name){
+    public Product _add(String sku, String name){
         sku=sku.toUpperCase();
         Optional<Product> OProd = productService.getBySKU(sku);
         if (OProd.isEmpty()) {

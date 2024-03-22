@@ -30,14 +30,20 @@ public class SpringSecurityConfigNew {
                             .requestMatchers("/login").permitAll()
                             .requestMatchers("/product").permitAll()
                             .requestMatchers("/").permitAll()
+                            .requestMatchers("/api/*").permitAll()
                             .requestMatchers("*").permitAll()
                             .anyRequest().authenticated()
                     )
                     .httpBasic(Customizer.withDefaults())
-                    .formLogin(Customizer.withDefaults());
+                    .formLogin(Customizer.withDefaults())
+                    .csrf().disable();
+
 
             return http.build();
         }
+
+
+
 
         @Bean
         public AuthenticationManager authenticationManager(
