@@ -27,4 +27,5 @@ import java.util.Optional;
 public interface ProductRest extends PagingAndSortingRepository<Product, Long> {
     List<Product> findByName( @Param("name") String name );
     Optional<Product> findById(@Param("id") Long id );
+
 }
