@@ -15,7 +15,7 @@ class ShopApplicationTests {
 
 	@Autowired
 	private ProductService productService;
-
+/*
 	@Disabled
 	@Test
 	void contextLoads() {
@@ -34,5 +34,5 @@ class ShopApplicationTests {
 
 
 	}
-
+*/
 }

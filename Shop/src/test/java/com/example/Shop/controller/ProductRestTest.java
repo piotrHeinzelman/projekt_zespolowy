@@ -11,7 +11,7 @@ class ProductRestTest {
 
     @Autowired
     private ProductRest productRest;
-
+/*
     @Disabled
     @Test
     void findByName() {
@@ -25,4 +25,6 @@ class ProductRestTest {
     @Test
     void findById() {
     }
+
+ */
 }

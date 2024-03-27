@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @Controller
 @RequestMapping("/api/products")
 public class ProductController {
@@ -26,13 +26,14 @@ public class ProductController {
     public ProductController(ProductService productService, DescriptionService descriptionService) {
         this.productService = productService;
         this.descriptionService = descriptionService;
-        //autostart();
+        autostart();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping( value={"/{productId}" } , method = RequestMethod.PUT )
     @ResponseBody
     public String updateProductByPUT( @PathVariable Long productId,  @RequestBody Product product , Response response ) {
-        System.out.println( "updateProductByPUT" );
+        //System.out.println( "updateProductByPUT" );
         if ( !productService.existsById( productId )) { return addProductByPOST(  product, response ); } // nie istnieje
         Optional<Product> ObyId = productService.findById(productId);
         if (ObyId.isPresent() ){
@@ -44,10 +45,11 @@ public class ProductController {
         return "UPDATED";
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping( value={"/" } , method = RequestMethod.POST )
     @ResponseBody
     public String addProductByPOST(@RequestBody Product product, Response response) {
-        System.out.println( "addProductByPOST" );
+        //System.out.println( "addProductByPOST" );
         Product newProduct = productService.save(product);
         response.setStatus( HttpStatus.CREATED.value() );
         return ("CREATED "+newProduct.getId());
@@ -65,7 +67,7 @@ public class ProductController {
         return OProd.get();
     }
     */
-/*
+
     private void autostart(){
         if ( productService.count()>2 ) return;
         ArrayList<String> strings=new ArrayList<>();
@@ -94,5 +96,4 @@ public class ProductController {
         }
     }
 
- */
 }
