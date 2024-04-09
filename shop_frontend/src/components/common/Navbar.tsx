@@ -1,13 +1,54 @@
 import React, { type ReactElement } from 'react'
 import { Link } from 'react-router-dom'
-import { PRODUCT_LIST_PATH } from '../../constants/routes';
+import { PRODUCT_LIST_PATH, ADMIN_PANEL_PATH } from '../../constants/routes';
+import { Avatar, Dropdown, Navbar } from "flowbite-react";
 
-const Navbar = (): ReactElement => {
+const NavbarComponent = (): ReactElement => {
   return (
-    <div>
-      <Link to={PRODUCT_LIST_PATH}>Produkty</Link>
-    </div>
+      <Navbar fluid rounded>
+        <Navbar.Brand href="https://flowbite-react.com">
+          <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span>
+        </Navbar.Brand>
+        <div className="flex md:order-2">
+          <Dropdown
+            arrowIcon={false}
+            inline
+            label={
+              <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
+            }
+          >
+            <Dropdown.Header>
+              <span className="block text-sm">Bonnie Green</span>
+              <span className="block truncate text-sm font-medium">name@flowbite.com</span>
+            </Dropdown.Header>
+            <Dropdown.Item>Dashboard</Dropdown.Item>
+            <Dropdown.Item>Settings</Dropdown.Item>
+            <Dropdown.Item>
+              <Link to={ADMIN_PANEL_PATH}>Admin Panel</Link>
+            </Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item>Sign out</Dropdown.Item>
+          </Dropdown>
+          <Navbar.Toggle />
+        </div>
+        <Navbar.Collapse>
+          <Navbar.Link href={PRODUCT_LIST_PATH} active>
+            Products
+          </Navbar.Link>
+          <Navbar.Link href="#">About</Navbar.Link>
+          <Navbar.Link href="#">Services</Navbar.Link>
+          <Navbar.Link href="#">Pricing</Navbar.Link>
+          <Navbar.Link href="#">Contact</Navbar.Link>
+        </Navbar.Collapse>
+      </Navbar>
+
+
+  // <div className="flex justify-between">
+  //     <Link to={PRODUCT_LIST_PATH}>Produkty</Link>
+  //     <Link to={ADMIN_PANEL_PATH}>Panel Admina</Link>
+  //   </div>
   )
 }
 
-export default Navbar
+export default NavbarComponent
