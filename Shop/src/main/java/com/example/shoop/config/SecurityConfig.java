@@ -91,12 +91,11 @@ public class SecurityConfig {
                 .csrf(csrf-> csrf.ignoringRequestMatchers("/h2-console/**"))
                 .authorizeRequests( auth->auth
 
-
                         .requestMatchers( "/h2-console/**" ).permitAll()
                         .requestMatchers( "/admin/**" ).hasAnyRole("ADMIN")
                         .requestMatchers( "/crew/**" ).hasAnyRole("CREW")
                         .requestMatchers( "/**" ).permitAll()
-                        .anyRequest().authenticated()
+                        //.anyRequest().authenticated()
                 )
                 .headers(headers->headers.frameOptions().sameOrigin())
                 .formLogin(withDefaults())

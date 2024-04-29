@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+
 <body>
 <h3 th:text="${errorMsg}"></h3>
-<a href="/api">/api</a>
-
-
+<h3 th:text="${success}"></h3>
+<a href="/user/add">zarejestruj się</a>
 </body>
 </html>

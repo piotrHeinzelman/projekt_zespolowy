@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+<body>
+<th:block>
+<form  th:action="@{'/user/add'}" method="post"  enctype="multipart/form-data">
+    <input type="text"  name="mail" id="mail" />
+    <input type="password"  name="pass" id="pass" />
+    <input type="password"  name="pass2" id="pass2" />
+    <input type="submit" value="nowy" />
+</form>
+</th:block>
+
+</body>
+</html>

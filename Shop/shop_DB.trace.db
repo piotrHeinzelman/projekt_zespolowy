@@ -691,3 +691,7 @@ USERS [42001-214]
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Błąd składniowy w wyrażeniu SQL "[*]USERS"; oczekiwano "UPDATE, USE"
 Syntax error in SQL statement "[*]USERS"; expected "UPDATE, USE"; SQL statement:
 USERS [42001-214]
+2024-04-29 16:36:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "GROUPS" nie istnieje
+Table "GROUPS" not found; SQL statement:
+select group_name from groups [42102-214]
