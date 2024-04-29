@@ -29,6 +29,7 @@ public class SecurityConfig {
 
     @Bean
     JdbcUserDetailsManager users( DataSource dataSource , PasswordEncoder encoder ){
+    /*
         UserDetails admin = User.builder()
                 .username("admin")
                 .password(encoder.encode( "admin"))
@@ -44,16 +45,17 @@ public class SecurityConfig {
                 .password(encoder.encode( "user"))
                 .roles( "USER")
                 .build();
-
+        */
 
         JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager( dataSource );
-        jdbcUserDetailsManager.createUser( admin );
-        jdbcUserDetailsManager.createUser( crew );
-        jdbcUserDetailsManager.createUser( user );
+  //      jdbcUserDetailsManager.createUser( admin );
+   //     jdbcUserDetailsManager.createUser( crew );
+  //      jdbcUserDetailsManager.createUser( user );
 
         return jdbcUserDetailsManager;
     }
 
+    /*
     @Bean
     EmbeddedDatabase dataSource(){
     return new EmbeddedDatabaseBuilder()
@@ -63,6 +65,7 @@ public class SecurityConfig {
             .build();
 
     }
+     */
 
     @Bean
     PasswordEncoder passwordEncoder(){
@@ -96,3 +99,7 @@ public class SecurityConfig {
                 .build();
     }
 }
+
+// ** H2 **
+// RUNSCRIPT FROM 'test.sql'  <- load from SQL
+// SCRIPT TO 'fileName'  <- DUMP
