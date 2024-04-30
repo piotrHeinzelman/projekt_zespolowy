@@ -92,8 +92,8 @@ public class SecurityConfig {
                 .authorizeRequests( auth->auth
 
                         .requestMatchers( "/h2-console/**" ).permitAll()
-                        .requestMatchers( "/admin/**" ).hasAnyRole("ADMIN")
-                        .requestMatchers( "/crew/**" ).hasAnyRole("CREW")
+                        .requestMatchers( "/admin/**" ).hasAuthority("ROLE_ADMIN")
+                        .requestMatchers( "/crew/**" ).hasAnyAuthority("ROLE_ADMIN", "ROLE_CREW")
                         .requestMatchers( "/**" ).permitAll()
                         //.anyRequest().authenticated()
                 )

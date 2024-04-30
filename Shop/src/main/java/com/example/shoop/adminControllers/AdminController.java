@@ -1,4 +1,4 @@
-package com.example.shoop.controller;
+package com.example.shoop.adminControllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.example.shoop.controller;
+package com.example.shoop.crewControllers;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
