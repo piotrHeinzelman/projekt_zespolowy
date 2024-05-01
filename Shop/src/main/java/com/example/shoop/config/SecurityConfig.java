@@ -96,9 +96,10 @@ public class SecurityConfig {
                         .requestMatchers( "/crew/**" ).hasAnyAuthority("ROLE_ADMIN", "ROLE_CREW")
                         .requestMatchers( "/**" ).permitAll()
                         //.anyRequest().authenticated()
+
                 )
                 .headers(headers->headers.frameOptions().sameOrigin())
-                .formLogin(withDefaults())
+                .formLogin(form -> form.loginPage("/login").permitAll())
                 .build();
     }
 }
