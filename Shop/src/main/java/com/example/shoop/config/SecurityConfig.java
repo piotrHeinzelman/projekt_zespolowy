@@ -99,7 +99,8 @@ public class SecurityConfig {
 
                 )
                 .headers(headers->headers.frameOptions().sameOrigin())
-                .formLogin(form -> form.loginPage("/login").permitAll())
+                .formLogin(form -> form.loginPage("/user/login").permitAll())
+                //.formLogin(withDefaults())
                 .build();
     }
 }
