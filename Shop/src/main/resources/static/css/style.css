@@ -1,0 +1,7 @@
+
+* {   font-size: 1m; line-height: 1.5em; text-decoration: none;  }
+a {   color: #220099; }
+body { display: flex;
+   flex-direction: column;
+     justify-content: center;
+   }
