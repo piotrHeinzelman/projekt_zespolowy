@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+<body>
+
+<table>
+    <tr th:each="userName: ${userNames}">
+        <td>
+            <a th:href="@{'/admin/user/edit/'+${userName}}" th:text="${userName}" ></a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+

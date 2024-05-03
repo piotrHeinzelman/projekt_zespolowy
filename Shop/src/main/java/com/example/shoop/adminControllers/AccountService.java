@@ -10,19 +10,22 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.Map;
+import javax.sql.DataSource;
+import java.sql.*;
+import java.util.*;
 
 @Service
 public class AccountService {
 
     @Autowired private JdbcUserDetailsManager users;
     @Autowired private PasswordEncoder passwordEncoder;
+    @Autowired private UserDetailsService userDetailsService;
 
 
     public void addUser( Map<String,String> paramMap ) throws Error {
@@ -55,6 +58,24 @@ public class AccountService {
 
 
 
+
+    public List<String> getAllUserName(){
+        List<String> names = new ArrayList<>(10);
+        try {
+            DataSource dataSource = users.getDataSource();
+            Connection connection = dataSource.getConnection() ;
+            Statement stmt = null;
+            ResultSet rs = null;
+            stmt = connection.createStatement();
+            rs = stmt.executeQuery(" SELECT USERNAME FROM USERS  ");
+            while(rs.next()){
+                names.add( rs.getString(1 ) );
+            }
+            connection.close();
+        } catch(Throwable th) { System.out.println( th ) ; }
+        return names;
+    }
+
     public String getUserGroup(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
@@ -64,6 +85,7 @@ public class AccountService {
         // AuthorityUtils.createAuthorityList("ROLE_USER" );
 
         // System.out.println( " ROLE_USER ? : " + authorities.contains( AuthorityUtils.createAuthorityList("ROLE_USER" ).get(0) ) );
+
 
 
         return ""+currentPrincipalName + " has roles: " + authorities.toString() ;

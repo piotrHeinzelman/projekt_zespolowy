@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+<body>
+
+<h2>rejestracja użytkownika</h2>
+<form th:action="@{/admin/user/edit}" method="post">
+    <div class="form-group">
+        <label for="username">adres email:</label>
+        <input type="text" class="form-control" name="username" id="username" placeholder="e-mail">
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+    </div>
+    <div class="form-group">
+        <label for="password">Retype password:</label>
+        <input type="password" class="form-control" id="password2" name="password2" placeholder="Retype password">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+
+    <!--
+    <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+    </div>
+    -->
+</form>
+
+
+</body>
+</html>
+
