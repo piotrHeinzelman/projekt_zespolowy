@@ -37,24 +37,24 @@ public class HomeController {
     @RequestMapping( value={ "/user/add" } , method = RequestMethod.POST )
     public String editItem_POST( Model model , @RequestParam Map<String,String> paramMap ) {
 
-        String newUserMail = paramMap.get("mail");
-        String pass1 = paramMap.get("pass");
-        String pass2 = paramMap.get("pass2");
+        String newUserMail = paramMap.get("username");
+        String pass1 = paramMap.get("password");
+        String pass2 = paramMap.get("password2");
 
         try {
             accountService.addUser(newUserMail, pass1, pass2);
-        } catch ( Throwable th ){ model.addAttribute("errorMsg", th.getMessage() ); return "index"; }
+        } catch ( Throwable th ){ model.addAttribute("errorMsg", th.getMessage() ); return "/user/add"; }
 
-        model.addAttribute("success","dodano uzytkownika: " + newUserMail );
+        //model.addAttribute("success","dodano uzytkownika: " + newUserMail );
         return "index";
     }
-/*
+
     @RequestMapping( value={ "/user/info" } , method = RequestMethod.GET )
     public String homeUserInfo( Model model ){
         model.addAttribute("success", accountService.getUserGroup() );
         return "index";
     }
-*/
+
     @RequestMapping( value={ "/user/login" } , method = RequestMethod.GET )
     public String login() {
         return "user/login";

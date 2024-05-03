@@ -10,6 +10,7 @@
   <link rel="shortcut icon" type="image/png" href="/img/favicon.ico" >
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 
   <title>Shop</title>
@@ -31,6 +32,8 @@
 <th:block th:insert="~{ fragments/topmenu :: topmenu }" />
 
 <div id="container" >
+  <h4 th:if="${errorMsg!=null}" class="errorMsg" th:text="${errorMsg}"> </h4>
+  <h4 th:if="${success!=null}"  class="success"  th:text="${success}">  </h4>
     <th:block th:insert="${template}" />
 </div>
 

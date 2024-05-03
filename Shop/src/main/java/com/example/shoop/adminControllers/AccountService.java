@@ -35,7 +35,7 @@ public class AccountService {
 
         users.createUser( newUser );
     }
-/*
+
     public String getUserGroup(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
@@ -49,5 +49,5 @@ public class AccountService {
 
         return ""+currentPrincipalName + " has roles: " + authorities.toString() ;
     }
-*/
+
 }
