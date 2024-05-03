@@ -35,19 +35,31 @@ public class HomeController {
     }
 
     @RequestMapping( value={ "/user/add" } , method = RequestMethod.POST )
-    public String editItem_POST( Model model , @RequestParam Map<String,String> paramMap ) {
-
-        String newUserMail = paramMap.get("username");
-        String pass1 = paramMap.get("password");
-        String pass2 = paramMap.get("password2");
-
+    public String homeAddUserPOST( Model model , @RequestParam Map<String,String> paramMap ) {
         try {
-            accountService.addUser(newUserMail, pass1, pass2);
+            accountService.addUser(paramMap);
         } catch ( Throwable th ){ model.addAttribute("errorMsg", th.getMessage() ); return "/user/add"; }
-
-        //model.addAttribute("success","dodano uzytkownika: " + newUserMail );
         return "index";
     }
+
+
+
+
+    @RequestMapping( value={ "/user/login" } , method = RequestMethod.GET )
+    public String login() {
+        return "user/login";
+    }
+
+
+
+
+    @RequestMapping( value={ "/user/logout" } , method = RequestMethod.GET )
+    public String logout( HttpServletRequest request, HttpServletResponse response ) {
+        accountService.logout( request, response );
+        return "redirect:/index";
+    }
+
+
 
     @RequestMapping( value={ "/user/info" } , method = RequestMethod.GET )
     public String homeUserInfo( Model model ){
@@ -55,18 +67,6 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping( value={ "/user/login" } , method = RequestMethod.GET )
-    public String login() {
-        return "user/login";
-    }
 
-    @RequestMapping( value={ "/user/logout" } , method = RequestMethod.GET )
-    public String logout( HttpServletRequest request, HttpServletResponse response ) {
-                Authentication auth =
-                        SecurityContextHolder.getContext().getAuthentication();
-                if (auth != null){
-                    new SecurityContextLogoutHandler().logout( request, response, auth );
-                }
-        return "redirect:/index";
-    }
+
 }

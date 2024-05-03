@@ -1,6 +1,9 @@
 package com.example.shoop.adminControllers;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -9,9 +12,11 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Map;
 
 @Service
 public class AccountService {
@@ -20,7 +25,11 @@ public class AccountService {
     @Autowired private PasswordEncoder passwordEncoder;
 
 
-    public void addUser( String newUserMail, String pass1, String pass2 ) throws Error {
+    public void addUser( Map<String,String> paramMap ) throws Error {
+
+        String newUserMail = paramMap.get("username");
+        String pass1 = paramMap.get("password");
+        String pass2 = paramMap.get("password2");
 
         if (!pass1.equals(pass2)) { throw new VerifyError("niezgodne hasła"); }
         if (pass1.length()==0) { throw new VerifyError("puste hasło"); }
@@ -35,6 +44,16 @@ public class AccountService {
 
         users.createUser( newUser );
     }
+
+    public void logout( HttpServletRequest request, HttpServletResponse response ){
+            Authentication auth =
+                    SecurityContextHolder.getContext().getAuthentication();
+            if (auth != null){
+                new SecurityContextLogoutHandler().logout( request, response, auth );
+            }
+    }
+
+
 
     public String getUserGroup(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

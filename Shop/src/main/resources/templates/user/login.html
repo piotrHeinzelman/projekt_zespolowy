@@ -5,6 +5,10 @@
 <body>
 
 <h2>logowanie użytkownika</h2>
+
+<h3 class="errorMsg" th:if="${param.error}">Invalid username and password.</h3>
+<h3 class="errorMsg"  th:if="${param.logout}">You have been logged out.</h3>
+
 <form th:action="@{/user/login}" method="post">
     <div class="form-group">
         <label for="username">adres email:</label>
