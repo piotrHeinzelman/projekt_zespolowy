@@ -11,7 +11,7 @@ body { display: flex;
     align-items: stretch;
    }
 
-a, a:visited { color: #4169E1; }
+a, a:visited { color: #4169E1;  text-decoration: none !important; }
 a:hover > span { color: #191970; }
 
 div#top_menu a, div#crew_menu a  { padding: 12px; line-height: 40px; display: flex; justify-content: baseline; align-items: center; }

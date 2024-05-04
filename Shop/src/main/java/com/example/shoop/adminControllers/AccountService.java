@@ -59,7 +59,7 @@ public class AccountService {
 
 
 
-    public List<String> getAllUserName(){
+    private final List<String> executeQueryOnUserDb( String Query ){
         List<String> names = new ArrayList<>(10);
         try {
             DataSource dataSource = users.getDataSource();
@@ -67,7 +67,7 @@ public class AccountService {
             Statement stmt = null;
             ResultSet rs = null;
             stmt = connection.createStatement();
-            rs = stmt.executeQuery(" SELECT USERNAME FROM USERS  ");
+            rs = stmt.executeQuery( Query );
             while(rs.next()){
                 names.add( rs.getString(1 ) );
             }
@@ -75,6 +75,42 @@ public class AccountService {
         } catch(Throwable th) { /* System.out.println( th ) */ ; }
         return names;
     }
+
+
+    private final List<String> executeQueryOnUserDb2( String Query ){
+        List<String> names = new ArrayList<>(10);
+        try {
+            DataSource dataSource = users.getDataSource();
+            Connection connection = dataSource.getConnection() ;
+            Statement stmt = connection.createStatement();
+            stmt.execute( Query );
+            connection.close();
+        } catch(Throwable th) { /* System.out.println( th ) */ ; }
+        return names;
+    }
+
+
+    public List<String> getAllUserName(){
+        return executeQueryOnUserDb( " SELECT USERNAME FROM USERS  " );
+    }
+
+    public List<String> addGrant( String userName, String grantName ){
+        return executeQueryOnUserDb2( " INSERT INTO AUTHORITIES  VALUES ( '"+userName+"' ,  '"+grantName+"' ); " );
+        //INSERT INTO AUTHORITIES  VALUES ( 'a@b.pl' ,  'ROLE_USER' );
+    }
+
+    public List<String> removeGrant( String userName, String grantName ){
+        String s=" DELETE FROM AUTHORITIES  WHERE USERNAME='"+userName+"' AND AUTHORITY='"+grantName+"' ";
+        return executeQueryOnUserDb2( s );
+        //DELETE FROM AUTHORITIES  WHERE USERNAME='a@b.pl' AND AUTHORITY='ROLE_USER'
+    }
+
+    public List<String> setEnabled( String userName, Boolean enable ){
+        return executeQueryOnUserDb2( " UPDATE USERS  SET ENABLED="+enable+" WHERE USERNAME='"+userName+"'; " );
+        //UPDATE USERS  SET ENABLED=0 WHERE USERNAME='a@a'
+    }
+
+
 
     public String getUserGroup(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
