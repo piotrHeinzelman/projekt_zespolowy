@@ -72,7 +72,7 @@ public class AccountService {
                 names.add( rs.getString(1 ) );
             }
             connection.close();
-        } catch(Throwable th) { System.out.println( th ) ; }
+        } catch(Throwable th) { /* System.out.println( th ) */ ; }
         return names;
     }
 

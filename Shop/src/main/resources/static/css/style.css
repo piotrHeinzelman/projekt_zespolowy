@@ -14,21 +14,20 @@ body { display: flex;
 a, a:visited { color: #4169E1; }
 a:hover > span { color: #191970; }
 
-div#top_menu a, div#crew_menu  { padding: 12px; line-height: 40px; display: flex; justify-content: baseline; align-items: center; }
+div#top_menu a, div#crew_menu a  { padding: 12px; line-height: 40px; display: flex; justify-content: baseline; align-items: center; }
 div#top_menu a > span  { font-size: 200%; padding-left: 5px; padding-right: 5px; line-height: 0.7em;  font-family: 'Material Symbols Outlined'; /* https://fonts.google.com/icons 'Material Symbols Outlined'*/ }
-div#crew_menu a { padding: 2px 12px; }
+div#crew_menu a, div#admin_menu a { padding: 2px 12px; }
 
 
 
-div#top_menu, div#crew_menu {
+div#top_menu, div#crew_menu, div#admin_menu {
     display: flex;
     background-color: #f8f8f8;
     justify-content: flex-end;
     }
 
-div#crew_menu {
-    background-color: #e8e8e8;
-    }
+div#crew_menu { background-color: #e8e8e8; }
+div#admin_menu { background-color: #c8c8c8; }
 
 
 

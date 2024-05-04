@@ -14,8 +14,13 @@
 
 
 <div sec:authorize="hasRole('ROLE_CREW')" >
-  <th:block th:insert="~{ fragments/crewmenu :: crewmenu }"/>
+  <th:block th:insert="~{ menu/crewmenu :: crewmenu }"/>
 </div>
+
+<div sec:authorize="hasRole('ROLE_ADMIN')" >
+  <th:block th:insert="~{ menu/adminmenu :: adminmenu }"/>
+</div>
+
 
 </html>
 
