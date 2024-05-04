@@ -56,7 +56,7 @@ public class HomeController {
     @RequestMapping( value={ "/user/logout" } , method = RequestMethod.GET )
     public String logout( HttpServletRequest request, HttpServletResponse response ) {
         accountService.logout( request, response );
-        return "redirect:/index";
+        return "redirect:";
     }
 
 
