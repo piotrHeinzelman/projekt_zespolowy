@@ -1,5 +1,6 @@
 package com.example.shoop.config;
 
+import com.example.shoop.model.Picture;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,8 +20,8 @@ public class FileTool {
     }
 
 
-    public static void moveUploadedToFile( String targetFolder, String fileName, MultipartFile file ){
-        File destFile = new File( targetFolder + fileName );
+    public static void moveUploadedToFile( Picture picture, MultipartFile file ){
+        File destFile = new File( fileroot + picture.getPict_id() + ".png" );
         try (InputStream in = file.getInputStream();
              OutputStream out = new FileOutputStream(destFile)) {
             IOUtils.copy(in, out);

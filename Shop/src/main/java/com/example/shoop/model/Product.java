@@ -1,10 +1,13 @@
 package com.example.shoop.model;
 
+import com.example.shoop.config.FileTool;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -56,6 +59,8 @@ public class Product {
         this.setSKU( SKU );
         this.name = name;
     }
+
+
 
     public void setSKU(String SKU ) {
         this.SKU = SKU.toUpperCase();

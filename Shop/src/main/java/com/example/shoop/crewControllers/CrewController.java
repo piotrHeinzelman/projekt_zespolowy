@@ -1,13 +1,23 @@
 package com.example.shoop.crewControllers;
 
 import com.example.shoop.config.FileTool;
+import com.example.shoop.model.Picture;
+import com.example.shoop.model.Price;
+import com.example.shoop.model.Product;
+import com.example.shoop.repo.CategoryService;
+import com.example.shoop.repo.PictureService;
+import com.example.shoop.repo.PriceService;
+import com.example.shoop.repo.ProductService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.util.Random;
@@ -15,6 +25,14 @@ import java.util.Random;
 
 @Controller
 public class CrewController {
+
+    @Autowired private ProductService productService;
+    @Autowired private PictureService pictureService;
+    @Autowired private PriceService priceService;
+    @Autowired private CategoryService categoryService;
+
+
+
 
     //@PreAuthorize("hasRole('CREW')")
     @RequestMapping(value = {"/crew"}, method = RequestMethod.GET)
@@ -62,4 +80,32 @@ public class CrewController {
 
         return "redirect:";
     }
+
+
+
+
+
+    public void addPictureToProduct( Product product , String pictDescription, MultipartFile multipartFile ) {
+
+        Picture picture = new Picture( product,  pictDescription );
+        pictureService.save( picture );
+
+        FileTool.moveUploadedToFile( picture , multipartFile );
+
+        product.getPictures().add( picture );
+        productService.save( product );
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

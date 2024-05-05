@@ -1,11 +1,15 @@
 package com.example.shoop.model;
 
+import com.example.shoop.crewControllers.CrewController;
 import com.example.shoop.repo.PictureService;
 import com.example.shoop.repo.PriceService;
 import com.example.shoop.repo.ProductService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.*;
 
 @SpringBootTest
 class ProductTest {
@@ -13,6 +17,7 @@ class ProductTest {
     @Autowired private ProductService productService;
     @Autowired private PriceService priceService;
     @Autowired private PictureService pictureService;
+    @Autowired private CrewController crewController;
 
     @Test
     void createProduct() {
@@ -42,24 +47,36 @@ class ProductTest {
 
 
         // add picture to product
-        Picture picture = new Picture( product,  "new Picture");
+/*        Picture picture = new Picture( product,  "new Picture");
         pictureService.save( picture );
 
-        Picture picture2 = new Picture( product,  "second Picture");
-        pictureService.save( picture2 );
+
+            MF multipartFile = new MF();
+            try {
+                multipartFile.setInputStream( new FileInputStream( "F:\\ProjektZespolowy\\Shop\\src\\test\\java\\resources\\600.png"  ));
+            } catch (FileNotFoundException e) { throw new RuntimeException(e); }
+
+        FileTool.moveUploadedToFile( picture , multipartFile );
+
+
 
         product.getPictures().add( picture );
-        product.getPictures().add( picture2 );
         productService.save( product );
 
                                             System.out.println( product );
                                             System.out.println( pictureService.findAll() );
+*/
 
 
+                MF multipartFile = new MF();
+                try {
+                    multipartFile.setInputStream( new FileInputStream( "F:\\ProjektZespolowy\\Shop\\src\\test\\java\\resources\\600.png"  ));
+                } catch (FileNotFoundException e) { throw new RuntimeException(e); }
 
+        crewController.addPictureToProduct( product , " this is a picture ", multipartFile );
 
-
-
+        System.out.println( product );
+        System.out.println( product.getPictures().iterator().next() );
 
 
 
@@ -83,4 +100,29 @@ class ProductTest {
 
 
     }
+
+
+    private class MF implements MultipartFile {
+
+        private InputStream inputStream;
+
+        @Override
+        public InputStream getInputStream() throws IOException {
+            return inputStream;
+        }
+
+        public void setInputStream(InputStream inputStream) {
+            this.inputStream = inputStream;
+        }
+
+        @Override public String getName() {return null;}
+        @Override public String getOriginalFilename() {return null;}
+        @Override public String getContentType() {return null;}
+        @Override public boolean isEmpty() {return false;}
+        @Override public long getSize() {return 0;}
+        @Override public byte[] getBytes() throws IOException {return new byte[0];}
+        @Override public void transferTo(File dest) throws IOException, IllegalStateException {}
+    }
 }
+
+
