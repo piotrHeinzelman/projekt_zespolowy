@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity()
 @Getter
@@ -25,20 +27,29 @@ public class Product {
     @Column(name = "name")
     private String name;
 
-//    @Column(name = "description")
-//    private Long description;
+    @Column(name = "description")
+    private Long description;
+
+
 
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Price price;
 
-//    private Category category;
-
-//    private Picture picture;
-
-//    private ArrayList<Picture> pictures = new ArrayList<>();
 
 
+
+    @OneToMany(mappedBy="product")
+    private Set<Picture> pictures = new HashSet<>();
+
+
+    //    private Category category;
+
+
+
+
+// CART ONE to MANY
+//    https://www.baeldung.com/hibernate-one-to-many
 
     public Product() {}
     public Product( String SKU, String name ) {
