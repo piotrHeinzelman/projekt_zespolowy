@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+<body>
+
+<h2>wyslij obraz</h2>
+
+
+<th:block th:insert="~{fragments/form :: formS ( '/crew/img/send_file/' ) }"/>
+
+    <th:block th:insert="~{fragments/form :: text( 'SKU' , '' , 'SKU',  'SH123' ) }"/>
+
+    <div class="form-group">
+        <input type="file" class="form-control" th:name="uploadedFile" th:id="uploadedFile" />
+        <label th:for="file" th:utext="plik" />
+    </div>
+
+<th:block th:insert="~{fragments/form :: formE }"/>
+
+
+
+</body>
+</html>
+
