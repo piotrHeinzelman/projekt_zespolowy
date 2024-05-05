@@ -84,6 +84,11 @@ public class CrewController {
 
 
 
+    public void addPriceToProduct( Product product, Double priceValue ){
+        product.setPrice( new Price( product, priceValue ) );
+        productService.save( product );
+    }
+
 
     public void addPictureToProduct( Product product , String pictDescription, MultipartFile multipartFile ) {
 

@@ -32,18 +32,25 @@ class ProductTest {
         // add product
         String name="Mysz";
         String SKU="Sh1002";
+        Double priceValue = 0.2;
         Product product = new Product( SKU, name );
         productService.save( product );
                                             System.out.println( product );
 
 
         // add price to product
-        Price price = new Price( product, 0.2 );
+/*        Price price = new Price( product, 0.2 );
         product.setPrice( price );
         productService.save( product );
                                             System.out.println( product );
                                             System.out.println( product.getPrice() );
                                             System.out.println( priceService.findAll() );
+  */
+
+        crewController.addPriceToProduct(  product, priceValue );
+                                            System.out.println( product ) ;
+                                            System.out.println( priceService.findAll() );
+
 
 
         // add picture to product
@@ -77,6 +84,7 @@ class ProductTest {
 
         System.out.println( product );
         System.out.println( product.getPictures().iterator().next() );
+        System.out.println( pictureService.findAll() );
 
 
 
