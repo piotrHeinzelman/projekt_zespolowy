@@ -1,6 +1,7 @@
 package com.example.shoop.model;
 
 import com.example.shoop.crewControllers.CrewController;
+import com.example.shoop.repo.CategoryService;
 import com.example.shoop.repo.PictureService;
 import com.example.shoop.repo.PriceService;
 import com.example.shoop.repo.ProductService;
@@ -18,6 +19,7 @@ class ProductTest {
     @Autowired private PriceService priceService;
     @Autowired private PictureService pictureService;
     @Autowired private CrewController crewController;
+    @Autowired private CategoryService categoryService;
 
     @Test
     void createProduct() {
@@ -26,6 +28,7 @@ class ProductTest {
 
         priceService.deleteAll();
         pictureService.deleteAll();
+        categoryService.deleteAll();
         productService.deleteAll();
         //if (true) return;
 
@@ -85,6 +88,20 @@ class ProductTest {
         System.out.println( product );
         System.out.println( product.getPictures().iterator().next() );
         System.out.println( pictureService.findAll() );
+
+
+
+        Category category = new Category("kategogia 1");
+        categoryService.save( category );
+
+        product.setCategory( category );
+        productService.save( product );
+
+        //category.getProducts().add( product );
+        //categoryService.save( category );
+
+        System.out.println( category );
+        System.out.println( product );
 
 
 

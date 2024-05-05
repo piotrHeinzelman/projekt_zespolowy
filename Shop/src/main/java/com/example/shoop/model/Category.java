@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -22,6 +25,9 @@ public class Category {
 
     @Column( name = "description" )
     private Long description;
+
+    @OneToMany(targetEntity=Product.class, mappedBy="category",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Product> Products = new ArrayList<>();
 
     public Category() {}
     public Category( String name ) {

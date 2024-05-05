@@ -46,7 +46,10 @@ public class Product {
     private Set<Picture> pictures = new HashSet<>();
 
 
-    //    private Category category;
+
+    @ManyToOne()
+    @JoinColumn(name="category_id", referencedColumnName = "category_id", insertable = false, updatable = false)
+    private Category category;
 
 
 
