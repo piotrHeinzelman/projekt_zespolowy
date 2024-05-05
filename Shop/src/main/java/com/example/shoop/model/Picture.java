@@ -26,6 +26,9 @@ public class Picture {
     @Column( name = "name" , unique = true )
     private String name;
 
+    @Column( name = "ord3r" )
+    private String ord3r;
+
     public Picture() {}
 
     public Picture( Product product, String name ) {

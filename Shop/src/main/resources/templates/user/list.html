@@ -4,11 +4,13 @@
 <body>
 <h2>Users:</h2>
 <table>
+    <tbody>
     <tr th:each="userName: ${userNames}">
         <td>
             <a th:href="@{'/admin/user/edit/'+${userName}}" th:text="${userName}" ></a>
         </td>
     </tr>
+    </tbody>
 </table>
 </body>
 </html>

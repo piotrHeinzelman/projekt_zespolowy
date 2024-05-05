@@ -1,6 +1,7 @@
 package com.example.shoop.model;
 
 import com.example.shoop.crewControllers.CrewController;
+import com.example.shoop.crewControllers.ProductController;
 import com.example.shoop.repo.CategoryService;
 import com.example.shoop.repo.PictureService;
 import com.example.shoop.repo.PriceService;
@@ -19,6 +20,7 @@ class ProductTest {
     @Autowired private PriceService priceService;
     @Autowired private PictureService pictureService;
     @Autowired private CrewController crewController;
+    @Autowired private ProductController productController;
     @Autowired private CategoryService categoryService;
 
     @Test
@@ -50,7 +52,7 @@ class ProductTest {
                                             System.out.println( priceService.findAll() );
   */
 
-        crewController.addPriceToProduct(  product, priceValue );
+        productController.addPriceToProduct(  product, priceValue );
                                             System.out.println( product ) ;
                                             System.out.println( priceService.findAll() );
 
@@ -83,7 +85,7 @@ class ProductTest {
                     multipartFile.setInputStream( new FileInputStream( "F:\\ProjektZespolowy\\Shop\\src\\test\\java\\resources\\600.png"  ));
                 } catch (FileNotFoundException e) { throw new RuntimeException(e); }
 
-        crewController.addPictureToProduct( product , " this is a picture ", multipartFile );
+        productController.addPictureToProduct( product , " this is a picture ", multipartFile );
 
         System.out.println( product );
         System.out.println( product.getPictures().iterator().next() );
@@ -91,19 +93,45 @@ class ProductTest {
 
 
 
-        Category category = new Category("kategogia 1");
-        categoryService.save( category );
+        Category category = new Category("kategoria 1");
+        category = categoryService.save(category);
 
-        product.setCategory( category );
-        productService.save( product );
+        Category category2 = new Category("kategoria 2");
+        category2 = categoryService.save(category2);
+
+        Category category3 = new Category("kategoria 3");
+        category3 = categoryService.save(category3);
+
 
         //category.getProducts().add( product );
         //categoryService.save( category );
+
+
+        product.setCategory( category );
+        product=productService.save( product );
+
 
         System.out.println( category );
         System.out.println( product );
 
 
+
+
+
+
+        Product p2 = new Product( "SH1010","podkadka" );
+        p2.setStatus( Status.DESIGNED );
+        productService.save( p2 );
+        p2.setCategory( category );
+        productService.save( p2 );
+
+
+
+        Product p3 = new Product( "SH1011","modem 300" );
+        p3.setStatus( Status.DISCONTINUED );
+        productService.save( p3 );
+        p3.setCategory( category );
+        productService.save( p3 );
 
 
 

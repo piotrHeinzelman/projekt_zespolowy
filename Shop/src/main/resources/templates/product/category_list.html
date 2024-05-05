@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+<body>
+<h2>Kategorie</h2>
+
+
+
+
+<!-- list category -->
+<table class="padding5">
+    <tbody>
+    <tr th:each="category: ${categories}">
+        <td>
+            <a th:href="@{'/crew/category/edit/'+${category.id}}" th:utext="${category.name}"></a>
+        <td>
+        <td>
+            <span th:utext="${category.description}"></span>
+        <td>
+        <td>
+            <a th:href="@{'/crew/product/list/'+${category.id}}" th:utext="${'zobacz produkty ('+category.getSize()+')'}" > zobacz produkty </a>
+        <td>
+        <td> &nbsp; &nbsp; &nbsp; </td>
+        <td>
+            <a th:href="@{'/crew/category/delete/'+${category.id}}" style="color: red;"> usuń </a>
+        <td>
+    </tr>
+    </tbody>
+</table>
+
+
+<h2>nowa kategoria</h2>
+<!-- new category -->
+<th:block th:insert="~{fragments/form :: formS ( '/crew/category/new' ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'name' , '' , 'nazwa kategorii', '' ) }"/>
+<th:block th:insert="~{fragments/form :: formE }"/>
+
+</body>
+</html>
+

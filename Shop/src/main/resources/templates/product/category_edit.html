@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+<body>
+<h2>Kategorie</h2>
+
+
+
+
+<th:block th:insert="~{fragments/form :: formS ( '/crew/category/edit' ) }"/>
+<th:block th:insert="~{fragments/form :: hidden( categoryId , ${category.id} ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'name' , ${category.name} , 'nazwa kategorii', '' ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'description' , ${category.description} , 'opis kategorii', '' ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'ord3r' , ${category.ord3r} , 'kolejność', '' ) }"/>
+<th:block th:insert="~{fragments/form :: formE }"/>
+
+</body>
+</html>
+

@@ -33,6 +33,8 @@ public class Product {
     @Column(name = "description")
     private Long description;
 
+    @Column(name = "status")
+    private Status status;
 
 
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
@@ -47,8 +49,8 @@ public class Product {
 
 
 
-    @ManyToOne()
-    @JoinColumn(name="category_id", referencedColumnName = "category_id", insertable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="category_id", referencedColumnName = "id")
     private Category category;
 
 
@@ -61,11 +63,20 @@ public class Product {
     public Product( String SKU, String name ) {
         this.setSKU( SKU );
         this.name = name;
+        this.status=Status.ACTIVE;
     }
 
 
 
     public void setSKU(String SKU ) {
         this.SKU = SKU.toUpperCase();
+    }
+
+
+    public String getCategoryName() {
+        if (category!=null){
+            return category.getName();
+        }
+        return "  ";
     }
 }

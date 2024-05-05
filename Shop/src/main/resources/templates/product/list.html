@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+<body>
+<h2>Products</h2>
+<table class="padding5">
+    <tbody>
+    <tr th:each="product: ${products}" th:class="${product.status}" >
+        <td>
+            <a th:href="@{'/crew/product/edit/'+${product.id}}" th:utext="${product.SKU}"></a>
+        <td>
+        <td>
+            <span th:utext="${product.name}" ></span>
+        </td>
+        <td>
+            <span  ></span>
+        </td>
+        <td>
+            <span th:utext="${product.getCategoryName()}" ></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
