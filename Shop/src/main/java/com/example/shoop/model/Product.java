@@ -46,7 +46,7 @@ public class Product {
         this.name = name;
     }
 
-    public void setSKU( String SKU ) {
+    public void setSKU(String SKU ) {
         this.SKU = SKU.toUpperCase();
     }
 }

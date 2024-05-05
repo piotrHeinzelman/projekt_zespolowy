@@ -18,16 +18,24 @@ class ProductTest {
 
         productService.deleteAll();
         priceService.deleteAll();
-        if (true) return;
+        //if (true) return;
+        // add product
         String name="Mysz";
         String SKU="Sh1002";
         Product product = new Product( SKU, name );
-        //product.setPrice( new Price( 0.2 ) );
-        product = productService.save( product );
+        productService.save( product );
         System.out.println( product );
 
-        product.setPrice( new Price( product, 0.2 ) );
+
+        // add price to product
+        Price price = new Price( product, 0.2 );
+        product.setPrice( price );
         productService.save( product );
+
+
+        System.out.println( product.getPrice() );
+        System.out.println( priceService.findAll() );
+
 
 
    //     Price price=new Price(product, 0.2);
