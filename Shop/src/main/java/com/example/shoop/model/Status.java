@@ -25,6 +25,17 @@ public enum Status { DESIGNED, ACTIVE, INACTIVE, DISCONTINUED;
         }
         return 0L;
     }
+
+    public static Status getByLong( String str ){
+        switch ( str ){
+            case "0" -> { return DESIGNED; }
+            case "1" -> { return ACTIVE; }
+            case "2" -> { return INACTIVE; }
+            case "3" -> { return DISCONTINUED; }
+        }
+        return null;
+    }
+
 }
 
 

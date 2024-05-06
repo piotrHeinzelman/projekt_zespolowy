@@ -31,17 +31,7 @@ public class CrewController {
     @Autowired private PriceService priceService;
     @Autowired private CategoryService categoryService;
 
-
-
-
-    //@PreAuthorize("hasRole('CREW')")
-    @RequestMapping(value = {"/crew"}, method = RequestMethod.GET)
-    @ResponseBody
-    public String crew() {
-        return "Hello Crew!";
-    }
-
-
+/*
     @RequestMapping(value = {"/crew/img/send_file/"}, method = RequestMethod.GET)
     public String crewImgSendGET(){
         return "product/img_add";
@@ -80,7 +70,7 @@ public class CrewController {
 
         return "redirect:";
     }
-
+*/
 
 
 

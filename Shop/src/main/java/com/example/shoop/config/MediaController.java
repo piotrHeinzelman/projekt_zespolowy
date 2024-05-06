@@ -22,7 +22,7 @@ public class MediaController {
     public @ResponseBody
     byte[] getPng170( @PathVariable String imgId ) {
         String source=fileTool.getFileRoot()  + imgId + ".png";
-        System.out.println(  source );
+        //System.out.println(  source );
         try {
             FileInputStream fis = new FileInputStream( source );
             return IOUtils.toByteArray(fis);

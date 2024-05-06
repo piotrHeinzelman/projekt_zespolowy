@@ -1,14 +1,10 @@
 package com.example.shoop.model;
 
-import com.example.shoop.config.FileTool;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,7 +27,7 @@ public class Product {
     private String name;
 
     @Column(name = "description")
-    private Long description;
+    private String description;
 
     @Column(name = "status")
     private Status status;
@@ -89,5 +85,21 @@ public class Product {
 
     public Long getStatus() {
         return Status.getAsLong( status );
+    }
+
+
+    public Double getPriceVal(){
+        if (price==null) return null;
+        return price.getPrice();
+    }
+
+    public Double getPromoVal(){
+        if (price==null || price.getPromo()==null ) {return null;}
+        return price.getPromo();
+    }
+
+    public Double getValue() {
+        if (price==null) return null;
+        return price.getValue();
     }
 }

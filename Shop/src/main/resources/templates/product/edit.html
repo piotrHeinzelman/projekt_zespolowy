@@ -15,9 +15,24 @@
 <th:block th:insert="~{fragments/form :: text( 'name' , ${product.name} , 'nazwa produktu', '' ) }"/>
 <th:block th:insert="~{fragments/form :: text( 'description' , ${product.description} , 'opis produktu', '' ) }"/>
 
+<th:block th:insert="~{fragments/form :: textRO( '' , ${product.getValue()} , 'cena aktualna', '' ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'price' , ${product.getPriceVal()} , 'cena', '' ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'promo' , ${product.getPromoVal()} , 'cena promocyjna', '' ) }"/>
+
 <th:block th:insert="~{fragments/form :: combo( 'category' , ${categoryList} , ${product.getCategoryId()}, 'category' ) }"/>
 
 <th:block th:insert="~{fragments/form :: combo( 'status' , ${statusList} , ${product.getStatus()}, 'status' ) }"/>
+
+<!-- send file -->
+<div class="form-group">
+    <label th:for="file" >plik: (tylko PNG)</label>
+    <input type="file" class="form-control" th:name="uploadedFile" th:id="uploadedFile" />
+</div>
+<th:block th:insert="~{fragments/form :: text( 'caption' , '' , 'podpis zdjęcia', '' ) }"/>
+
+
+<!-- gallery -->
+<th:block th:insert="~{fragments/form :: galery( ${product.pictures} , 70 ) }"/>
 
 
 <th:block th:insert="~{fragments/form :: formE }"/>

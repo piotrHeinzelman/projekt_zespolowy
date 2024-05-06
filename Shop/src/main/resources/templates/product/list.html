@@ -5,7 +5,7 @@
 <h2>produkty</h2>
 <table class="padding5">
     <tbody>
-    <tr th:each="product: ${products}" th:class="${product.status}" >
+    <tr th:each="product: ${products}" th:class="${'status'+product.status}" >
         <td>
             <a th:href="@{'/crew/product/edit/'+${product.id}}" th:utext="${product.SKU}"></a>
         <td>

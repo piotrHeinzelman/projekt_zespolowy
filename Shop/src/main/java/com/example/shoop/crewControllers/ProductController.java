@@ -61,11 +61,71 @@ public class ProductController {
     }
 
     @RequestMapping(value = {"/crew/product/edit"}, method = RequestMethod.POST)
-    public String productEditPOST( Model model,  @RequestParam Map<String,String> paramMap )   {
-            System.out.println( paramMap.keySet() );
-            System.out.println( paramMap.values() );
-        prepareModelForProductList( model , null );
-        return "redirect:/crew/product/list";
+    public String productEditPOST( Model model,  @RequestParam Map<String,String> paramMap , @RequestParam(required = false)  MultipartFile uploadedFile )   {
+        Category category = null;
+        if ( paramMap.containsKey("id") ) {
+            Optional<Product> OProduct = productService.findById( Long.parseLong( paramMap.get("id")) );
+            if (OProduct.isPresent() ) {
+                Product product = OProduct.get();
+
+                    if ( paramMap.containsKey("name")) { product.setName( paramMap.get("name") ); }
+                    if ( paramMap.containsKey("description")) { product.setDescription( paramMap.get("description") ); }
+                    if ( paramMap.containsKey("status")) { product.setStatus( Status.getByLong( paramMap.get("status"))); }
+                    if ( paramMap.containsKey("category")) {
+                        Long categoryId = null;
+                        try { categoryId = Long.parseLong(paramMap.get("category")); } catch(Throwable th) {}
+                        Optional<Category> OCategory = categoryService.findById( categoryId );
+                        if (OCategory.isPresent() ){
+                            product.setCategory( OCategory.get() );
+                        }
+                    }
+
+                // parse Price & Promo
+                Double promoVal=null;
+                Double priceVal=null;
+                try {
+                    String Sp=paramMap.get("price"); if ( Sp.length()>0 && Sp.indexOf(".")==-1) { Sp = Sp+".0"; }
+                    String Sr=paramMap.get("promo"); if ( Sr.length()>0 && Sr.indexOf(".")==-1) { Sr = Sr+".0"; }
+                    priceVal = Double.parseDouble( Sp );
+                    promoVal = Double.parseDouble( Sr );
+                } catch (Throwable th ){}
+
+
+                // set Price if need
+                if (( product.getPriceVal()==null && priceVal==null ) || ( product.getPriceVal()!=null && product.getPriceVal().equals( priceVal ) )){ /* no change */}
+                else {
+                    if ( product.getPrice()==null ){ product.setPrice( new Price( product, priceVal ) ); if ( promoVal!=null && promoVal!=0.0 )  { product.getPrice().setPromo( promoVal ); }  }
+                    else {
+                        Optional<Price> OPrice = priceService.findById(product.getPrice().getId());
+                        if (OProduct.isPresent() ) { OPrice.get().setPrice( priceVal );
+                            if ( promoVal!=null && priceVal!=0.0 )  { OPrice.get().setPromo( promoVal ); }
+                            priceService.save( OPrice.get() );
+                        }
+                    }
+                }
+
+                // set Promo
+                if ( product.getPromoVal()!=promoVal && product.getPrice()!=null ){
+                    product.getPrice().setPromo( promoVal );
+                    priceService.save( product.getPrice() );
+                }
+
+                // add image
+                if( !uploadedFile.isEmpty() ){
+                    addPictureToProduct( product , paramMap.containsKey("caption") ? paramMap.get("caption") : "", uploadedFile );
+                }
+
+                //save Product
+                productService.save( product );
+
+
+
+                // post prepare list
+                category = product.getCategory();
+            }
+        }
+        prepareModelForProductList( model , category );
+        return "redirect:/crew/product/list"+((category!=null) ? "/"+category.getId() : "" ) ;
     }
 
 
@@ -101,7 +161,7 @@ public class ProductController {
     }
 
     public void prepareModelForProductEdit( Model model , Product product ){
-        System.out.println( product );
+        //System.out.println( product );
         model.addAttribute("product", product );
         model.addAttribute( "categoryList" , categoryService.findAll() );
         model.addAttribute( "statusList" , Status.getAsComboList() );
@@ -167,4 +227,9 @@ public class ProductController {
         }
         return "redirect:/crew/category/list";
     }
+
+
+
+
+
 }

@@ -25,8 +25,8 @@ public class Price {
     @Column(name = "price" )
     private Double price;
 
-//    @Column(name = "promo")
-//    private Double promo;
+    @Column(name = "promo")
+    private Double promo=null;
 
 
     public Price() {}
@@ -43,5 +43,10 @@ public class Price {
                 ", product=" + product.getId() +
                 ", price=" + price +
                 '}';
+    }
+
+    public Double getValue() {
+        if ( promo!=null && promo < price ) { return promo; }
+        return price;
     }
 }

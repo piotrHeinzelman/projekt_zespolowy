@@ -101,3 +101,17 @@
 
     </div>
 </th:block>
+
+
+
+
+
+<!--
+<th:block th:insert="~{fragments/form :: galery( items , size ) }"/>
+-->
+
+<th:block th:fragment="galery ( items , size )" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="galery" th:each="pict : ${items}">
+        <img th:src="${'/media/fimages/'+pict.pict_id}" th:style="${'height: '+size+'px; width: '+size+'px;'}"/>
+    </div>
+</th:block>
