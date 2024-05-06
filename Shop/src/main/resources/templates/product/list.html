@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
 
 <body>
-<h2>Products</h2>
+<h2>produkty</h2>
 <table class="padding5">
     <tbody>
     <tr th:each="product: ${products}" th:class="${product.status}" >
@@ -21,6 +21,16 @@
     </tr>
     </tbody>
 </table>
+
+<hr/>
+
+<h2>nowy produkt</h2>
+<!-- new category -->
+<th:block th:insert="~{fragments/form :: formS ( '/crew/product/new' ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'SKU' , '' , 'SKU produktu', '' ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'name' , '' , 'nazwa produktu', '' ) }"/>
+<th:block th:insert="~{fragments/form :: formE }"/>
+
 </body>
 </html>
 

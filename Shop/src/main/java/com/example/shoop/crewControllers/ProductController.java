@@ -41,6 +41,17 @@ public class ProductController {
     }
 
 
+    @RequestMapping(value = {"/crew/product/new"}, method = RequestMethod.POST)
+    public String crewProductNewPOST( Model model,  @RequestParam Map<String,String> paramMap )   {
+        if (paramMap.containsKey("SKU") && paramMap.containsKey("name")) {
+            String SKU=paramMap.get("SKU");
+            String name=paramMap.get("name");
+            Product product = new Product( SKU, name );
+            productService.save( product );
+        }
+        prepareModelForProductList( model , null );
+        return "redirect:/crew/product/list";
+    }
 
 
     public void addPriceToProduct( Product product, Double priceValue ){
@@ -69,7 +80,7 @@ public class ProductController {
             products=category.getProducts();
         }
         System.out.println( "Category:" + category );
-        System.out.println( products.iterator().next() );
+        if ( products.iterator().hasNext()) { System.out.println( products.iterator().next() ); }
         model.addAttribute( "products" , products );
     }
 
@@ -125,7 +136,11 @@ public class ProductController {
                 Category category=OCategory.get();
                 if ( paramMap.containsKey("name") ) { category.setName( paramMap.get("name") ); }
                 if ( paramMap.containsKey("description") ) { category.setDescription( paramMap.get("description") ); }
-                if ( paramMap.containsKey("ord3r") ) { category.setOrd3r( Long.parseLong(paramMap.get("ord3r"))); }
+                if ( paramMap.containsKey("ord3r") ) {
+                    Long order;
+                    try { order = Long.parseLong(paramMap.get("ord3r")); } catch( Throwable th ) { order=null; }
+                    category.setOrd3r( order );
+                }
                 categoryService.save( category );
             }
         }

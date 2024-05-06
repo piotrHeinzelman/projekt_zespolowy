@@ -16,6 +16,7 @@ a:hover > span { color: #191970; }
 
 div#top_menu a, div#crew_menu a  { padding: 12px; line-height: 40px; display: flex; justify-content: baseline; align-items: center; }
 div#top_menu a > span  { font-size: 200%; padding-left: 5px; padding-right: 5px; line-height: 0.7em;  font-family: 'Material Symbols Outlined'; /* https://fonts.google.com/icons 'Material Symbols Outlined'*/ }
+                 span.ico  { font-size: 150%; padding-left: 5px; padding-right: 5px; line-height: 0.7em;  font-family: 'Material Symbols Outlined'; /* https://fonts.google.com/icons 'Material Symbols Outlined'*/ }
 div#crew_menu a, div#admin_menu a { padding: 2px 12px; }
 
 

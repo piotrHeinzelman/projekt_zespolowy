@@ -12,13 +12,16 @@
     <tbody>
     <tr th:each="category: ${categories}">
         <td>
-            <a th:href="@{'/crew/category/edit/'+${category.id}}" th:utext="${category.name}"></a>
+            <a th:href="@{'/crew/category/edit/'+${category.id}}">edit</a>
+        <td>
+        <td>
+            <span th:utext="${category.name}"></span>
         <td>
         <td>
             <span th:utext="${category.description}"></span>
         <td>
         <td>
-            <a th:href="@{'/crew/product/list/'+${category.id}}" th:utext="${'zobacz produkty ('+category.getSize()+')'}" > zobacz produkty </a>
+            <a th:href="@{'/crew/product/list/'+${category.id}}" th:unless="${category.getSize() == '0'}" th:utext="${'zobacz produkty ('+category.getSize()+')'}" ></a>
         <td>
         <td> &nbsp; &nbsp; &nbsp; </td>
         <td>
@@ -28,6 +31,7 @@
     </tbody>
 </table>
 
+<hr/>
 
 <h2>nowa kategoria</h2>
 <!-- new category -->

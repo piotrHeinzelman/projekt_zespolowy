@@ -26,8 +26,6 @@ class ProductTest {
     @Test
     void createProduct() {
 
-
-
         priceService.deleteAll();
         pictureService.deleteAll();
         categoryService.deleteAll();
@@ -82,7 +80,8 @@ class ProductTest {
 
                 MF multipartFile = new MF();
                 try {
-                    multipartFile.setInputStream( new FileInputStream( "F:\\ProjektZespolowy\\Shop\\src\\test\\java\\resources\\600.png"  ));
+                    // multipartFile.setInputStream( new FileInputStream( "F:\\ProjektZespolowy\\Shop\\src\\test\\java\\resources\\600.png"  ));
+                    multipartFile.setInputStream( new FileInputStream( ".\\src\\test\\java\\resources\\600.png"  ));
                 } catch (FileNotFoundException e) { throw new RuntimeException(e); }
 
         productController.addPictureToProduct( product , " this is a picture ", multipartFile );
