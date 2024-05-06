@@ -1,10 +1,7 @@
 package com.example.shoop.crewControllers;
 
 import com.example.shoop.config.FileTool;
-import com.example.shoop.model.Category;
-import com.example.shoop.model.Picture;
-import com.example.shoop.model.Price;
-import com.example.shoop.model.Product;
+import com.example.shoop.model.*;
 import com.example.shoop.repo.CategoryService;
 import com.example.shoop.repo.PictureService;
 import com.example.shoop.repo.PriceService;
@@ -54,6 +51,26 @@ public class ProductController {
     }
 
 
+    @RequestMapping(value = {"/crew/product/edit/{productId}"}, method = RequestMethod.GET)
+    public String productEditGET( @PathVariable(required = false) Long productId, Model model ){
+        Optional<Product> OProduct = productService.findById( productId );
+        if ( OProduct.isPresent() ){
+            prepareModelForProductEdit( model, OProduct.get() );
+        }
+        return "product/edit";
+    }
+
+    @RequestMapping(value = {"/crew/product/edit"}, method = RequestMethod.POST)
+    public String productEditPOST( Model model,  @RequestParam Map<String,String> paramMap )   {
+            System.out.println( paramMap.keySet() );
+            System.out.println( paramMap.values() );
+        prepareModelForProductList( model , null );
+        return "redirect:/crew/product/list";
+    }
+
+
+
+
     public void addPriceToProduct( Product product, Double priceValue ){
         product.setPrice( new Price( product, priceValue ) );
         productService.save( product );
@@ -79,12 +96,16 @@ public class ProductController {
         } else {
             products=category.getProducts();
         }
-        System.out.println( "Category:" + category );
-        if ( products.iterator().hasNext()) { System.out.println( products.iterator().next() ); }
         model.addAttribute( "products" , products );
+        //model.addAttribute( "categoryList" , categoryService.findAll() );
     }
 
-
+    public void prepareModelForProductEdit( Model model , Product product ){
+        System.out.println( product );
+        model.addAttribute("product", product );
+        model.addAttribute( "categoryList" , categoryService.findAll() );
+        model.addAttribute( "statusList" , Status.getAsComboList() );
+    }
 
 
 

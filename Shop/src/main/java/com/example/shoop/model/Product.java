@@ -79,4 +79,15 @@ public class Product {
         }
         return "  ";
     }
+
+    public Long getCategoryId() {
+        if (category!=null){
+            return category.getId();
+        }
+        return null;
+    }
+
+    public Long getStatus() {
+        return Status.getAsLong( status );
+    }
 }

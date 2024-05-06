@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+<body>
+<h2>Kategorie</h2>
+
+
+
+
+<th:block th:insert="~{fragments/form :: formS ( '/crew/product/edit' ) }"/>
+
+
+<th:block th:insert="~{fragments/form :: hidden( id , ${product.id} ) }"/>
+<th:block th:insert="~{fragments/form :: textRO( 'SKU' , ${product.SKU} , 'kod produktu', '' ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'name' , ${product.name} , 'nazwa produktu', '' ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'description' , ${product.description} , 'opis produktu', '' ) }"/>
+
+<th:block th:insert="~{fragments/form :: combo( 'category' , ${categoryList} , ${product.getCategoryId()}, 'category' ) }"/>
+
+<th:block th:insert="~{fragments/form :: combo( 'status' , ${statusList} , ${product.getStatus()}, 'status' ) }"/>
+
+
+<th:block th:insert="~{fragments/form :: formE }"/>
+
+
+</body>
+</html>
+

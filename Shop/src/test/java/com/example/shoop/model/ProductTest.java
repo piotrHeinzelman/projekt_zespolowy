@@ -133,6 +133,13 @@ class ProductTest {
         productService.save( p3 );
 
 
+        Product p4 = new Product( "SH1021","winmodem 1200" );
+        p4.setStatus( Status.DISCONTINUED );
+        productService.save( p4 );
+        p4.setCategory( category3 );
+        productService.save( p4 );
+
+
 
 
    //     Price price=new Price(product, 0.2);
