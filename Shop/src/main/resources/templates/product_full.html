@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+<body>
+
+
+<body>
+    <th:block th:unless="${product == null}" th:insert="~{fragments/product ::oneFullBlock ( ${product} ) }"/>
+</body>

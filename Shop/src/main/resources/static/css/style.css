@@ -21,14 +21,15 @@ div#crew_menu a, div#admin_menu a { padding: 2px 12px; }
 
 
 
-div#top_menu, div#crew_menu, div#admin_menu {
+div#top_menu, div#top_menu > span,  div#crew_menu, div#admin_menu {
     display: flex;
     background-color: #f8f8f8;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     }
 
-div#crew_menu { background-color: #e8e8e8; }
-div#admin_menu { background-color: #c8c8c8; }
+div#crew_menu { background-color: #e8e8e8;     justify-content: flex-end; }
+div#admin_menu { background-color: #c8c8c8;    justify-content: flex-end; }
 
 
 
@@ -71,3 +72,14 @@ table.padding5 > tbody > tr.status0 { color: green; }
 table.padding5 > tbody > tr.status2 { color: gray; }
 table.padding5 > tbody > tr.status3 { color: gray; }
 a:hover < td { background-color: red; }
+
+
+span.ico  { font-size: 140%; padding: 2px; font-family: 'Material Symbols Outlined'; /* https://fonts.google.com/icons 'Material Symbols Outlined'*/ }
+div.simpleGrid { display: flex; }
+span.codeAndIcon > *:nth-child(5) { display: none; }
+span.codeAndIcon > *:nth-child(6) { display: none; }
+span.codeAndIcon > *:nth-child(7) { display: none; }
+div.oneBlock {  border: 1px dotted gray; padding: 15px; margin: 3px; display: inline-block; }
+div.oneBlock p  {   display: flex; flex-direction: row; justify-content: space-between; width: 200px;  }
+
+span.logo { background-image: url("../img/logo.png"); background-position: 50% 50%; width: 160px; height: 60px;  background-repeat: no-repeat; display: block;  }

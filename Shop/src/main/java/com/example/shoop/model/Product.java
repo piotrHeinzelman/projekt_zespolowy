@@ -103,9 +103,18 @@ public class Product {
         return price.getValue();
     }
 
+    public String getValueAsString00() {
+        if (price==null) return "";
+         return String.format("%,.2f", price.getValue() );
+    }
+
     public String getPictAddr(){
         if ( pictures!=null && pictures.size()>0) { return ""+pictures.iterator().next().getPict_id(); }
         return "blank";
+    }
+
+    public String getParameters(){
+        return "<ul><li>producent: sony</li><li>moc: 120</li></ul>";
     }
 
 }

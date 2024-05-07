@@ -2,18 +2,16 @@
 <html  xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
 
 <body>
+<th:block th:unless="${products == null}" th:insert="~{fragments/product :: simpleGrid ( ${gridProducts} ) }"/>
+</body>
 
+<!--<div>BOX REKLAMOWY</div>-->
 
-<div>BOX REKLAMOWY</div>
-<div>BOX PRODUKTOWY</div>
-<div>BOX PODSUMOWANIA</div>
+<!--<div>BOX PODSUMOWANIA</div>-->
 <!--
 <p th:text="${session.ShoppingCart.prop}" th:unless="${session == null}"> . </p>
 -->
-
+<!--
 <a href="/addToSession/name/value">/addToSession/name/value</a>
-
-<th:block th:unless="${products == null}" th:insert="~{fragments/product :: simpleGrid ( ${gridProducts} ) }"/>
-
-</body>
+-->
 </html>

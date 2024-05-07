@@ -2,6 +2,15 @@
 <html th:fragment="topmenu" lang="pl" xmlns:th="http://www.thymeleaf.org" >
 <div id="top_menu">
 
+  <span class="logo"></span>
+
+
+    <form th:action="@{'/product/find/'}" method="post" enctype="multipart/form-data" >
+       <input type="text" class="form-control" th:name="find_name" th:id="find_name" th:placeholder="szukaj"/>
+    </form>
+
+
+  <span>
   <a href="/user/login"> <span>&#xE7FD;</span> zaloguj się </a>
 
   <a href="/user/add"> <span>&#xE7FE;</span> zarejestruj się </a>
@@ -9,6 +18,7 @@
   <span sec:authorize="isAuthenticated()">
     <a href="/user/logout"> wyloguj </a>
   </span>
+</span>
 
 </div>
 
