@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+
+
+
+
+<!--
+<th:block th:insert="~{fragments/product :: oneBlock ( product ) }"/>
+-->
+
+<th:block th:fragment="oneBlock ( product ) " xmlns:th="http://www.w3.org/1999/xhtml">
+    <div>
+
+        <h2 th:text="${product.SKU+', '+product.name}" ></h2>
+        <img th:src="${'/media/fimages/'+product.getPictAddr()}" style="width:200px;height:200px;"/>
+
+    </div>
+</th:block>
+
+
+
+
+
+<!--
+<th:block th:insert="~{fragments/product :: simpleGrid ( products ) }"/>
+-->
+
+<th:block th:fragment="simpleGrid ( products )" xmlns:th="http://www.w3.org/1999/xhtml">
+    <th:block th:each="product : ${products}">
+        <th:block th:insert="~{ fragments/product :: oneBlock ( ${product} ) }" />
+    </th:block>
+</th:block>

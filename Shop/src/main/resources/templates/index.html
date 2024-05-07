@@ -12,5 +12,8 @@
 -->
 
 <a href="/addToSession/name/value">/addToSession/name/value</a>
+
+<th:block th:unless="${products == null}" th:insert="~{fragments/product :: simpleGrid ( ${gridProducts} ) }"/>
+
 </body>
 </html>

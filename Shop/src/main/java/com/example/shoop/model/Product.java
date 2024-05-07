@@ -102,4 +102,10 @@ public class Product {
         if (price==null) return null;
         return price.getValue();
     }
+
+    public String getPictAddr(){
+        if ( pictures!=null && pictures.size()>0) { return ""+pictures.iterator().next().getPict_id(); }
+        return "blank";
+    }
+
 }
