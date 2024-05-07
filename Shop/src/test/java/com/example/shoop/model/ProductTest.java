@@ -24,7 +24,7 @@ class ProductTest {
     @Autowired private CategoryService categoryService;
 
     @Test
-    void createProduct() {
+    void createProduct() throws FileNotFoundException {
 
         priceService.deleteAll();
         pictureService.deleteAll();
@@ -122,6 +122,8 @@ class ProductTest {
         p2.setStatus( Status.DESIGNED );
         productService.save( p2 );
         p2.setCategory( category );
+        multipartFile.setInputStream( new FileInputStream( ".\\src\\test\\java\\resources\\mousepad.png"  ));
+        productController.addPictureToProduct( p2 , " this is a picture ", multipartFile );
         productService.save( p2 );
 
 
@@ -130,6 +132,10 @@ class ProductTest {
         p3.setStatus( Status.DISCONTINUED );
         productService.save( p3 );
         p3.setCategory( category );
+        multipartFile.setInputStream( new FileInputStream( ".\\src\\test\\java\\resources\\modem300.png"  ));
+        productController.addPictureToProduct( p3 , " this is a picture ", multipartFile );
+        multipartFile.setInputStream( new FileInputStream( ".\\src\\test\\java\\resources\\winmodem1200.png"  ));
+        productController.addPictureToProduct( p3 , " this is a picture ", multipartFile );
         productService.save( p3 );
 
 
@@ -137,6 +143,8 @@ class ProductTest {
         p4.setStatus( Status.DISCONTINUED );
         productService.save( p4 );
         p4.setCategory( category3 );
+        multipartFile.setInputStream( new FileInputStream( ".\\src\\test\\java\\resources\\winmodem1200.png"  ));
+        productController.addPictureToProduct( p3 , " this is a picture ", multipartFile );
         productService.save( p4 );
 
 
