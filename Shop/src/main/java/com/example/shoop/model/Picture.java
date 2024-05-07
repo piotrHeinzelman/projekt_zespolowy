@@ -13,7 +13,7 @@ import lombok.ToString;
 public class Picture {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "pict_id")
     private Long pict_id;
 
@@ -23,7 +23,7 @@ public class Picture {
     private Product product;
 
 
-    @Column( name = "name" , unique = true )
+    @Column( name = "name" )
     private String name;
 
     @Column( name = "ord3r" )
