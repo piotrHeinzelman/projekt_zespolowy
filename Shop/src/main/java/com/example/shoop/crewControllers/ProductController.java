@@ -229,7 +229,9 @@ public class ProductController {
     }
 
 
-
+    public void addParameterToCategory( Category category , String parameterName, String unit ) {
+        System.out.println( "-- FAKE MOCKUP -- add: " + parameterName + ", with unit: " + unit + " to category: " + category );
+    }
 
 
 }
