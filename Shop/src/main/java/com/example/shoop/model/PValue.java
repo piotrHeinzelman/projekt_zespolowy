@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Table( name = "param")
+@Table( name = "paramVal")
 
 @IdClass( KeyProdParam.class )
 public class PValue {
@@ -23,19 +23,19 @@ public class PValue {
     @Column(name = "param_id")
     private Long param_id;
 
-    @Column(name = "value")
-    private String value;
+    @Column(name = "vale")
+    private String vale;
 
     public PValue() {}
-    public PValue(Long product_id, Long param_id, String value) {
+    public PValue(Long product_id, Long param_id, String vale) {
         this.product_id = product_id;
         this.param_id = param_id;
-        this.value = value;
+        this.vale = vale;
     }
-    public PValue(Product product, Param param, String value) {
+    public PValue(Product product, Parm param, String vale) {
         this.product_id = product.getId();
         this.param_id = param.getParam_id();
-        this.value = value;
+        this.vale = vale;
     }
 
 

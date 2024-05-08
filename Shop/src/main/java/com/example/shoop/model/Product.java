@@ -1,11 +1,15 @@
 package com.example.shoop.model;
 
+import com.example.shoop.crewControllers.ProductController;
+import com.example.shoop.repo.ProductService;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity()
@@ -14,6 +18,8 @@ import java.util.Set;
 @ToString
 @Table( name = "product")
 public class Product {
+
+    @Autowired private ProductController productController;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -113,8 +119,8 @@ public class Product {
         return "blank";
     }
 
-    public String getParameters(){
-        return "<ul><li>producent: sony</li><li>moc: 120</li></ul>";
+    public List<String> getParameters(){
+        return productController.getParametersAsStringByProduct( this );
     }
 
 }

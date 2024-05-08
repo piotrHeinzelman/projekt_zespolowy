@@ -31,7 +31,7 @@ public class ParamInCategory {
         this.parameter_id = parameter_id;
     }
 
-    public ParamInCategory( Category category, Param parameter ) {
+    public ParamInCategory( Category category, Parm parameter ) {
         this.category_id = category.getId();
         this.parameter_id = parameter.getParam_id();
     }

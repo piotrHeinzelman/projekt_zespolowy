@@ -9,8 +9,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table( name = "param")
-public class Param {
+@Table( name = "parm")
+public class Parm {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -21,18 +21,18 @@ public class Param {
     @Column( name = "name" )
     private String name;
 
-    @Column(name = "unit")
-    private String unit="";
+    @Column(name = "unt")
+    private String unt;
 
     @Column(name = "item_order")
-    private Long itemOrder;
+    private Long item_order;
 
-    public Param() {}
+    public Parm() {}
 
-    public Param(String name) { this.name = name; }
+    public Parm(String name) { this.name = name; }
 
-    public Param(String name, String unit) {
+    public Parm(String name, String unit) {
         this.name = name;
-        this.unit = unit;
+        this.unt = unit;
     }
 }

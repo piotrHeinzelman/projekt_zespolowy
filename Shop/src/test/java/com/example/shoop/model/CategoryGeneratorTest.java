@@ -9,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
-import java.util.Collections;
 import java.util.List;
 
 @SpringBootTest
@@ -79,7 +78,7 @@ class CategoryGeneratorTest {
 
         productService.deleteAll();
 
-        //if (true) return;
+//if (true) return;
 
         Category catDyski = new Category("Dyski SSD");
         categoryService.save(catDyski);
@@ -156,19 +155,19 @@ class CategoryGeneratorTest {
 
 
         // String name, Category category, Double price, List<String> pictureNames
-        Product dyskXAdata = createProductTest("Dysk M.2 AData 1TB", catDyski, 289.0, Collections.EMPTY_LIST);
-        if (true) return;
+      //  Product dyskXAdata = createProductTest("Dysk M.2 AData 1TB", catDyski, 289.0, Collections.EMPTY_LIST);
+      //  if (true) return;
         Product dysk1Adata = createProductTest("Dysk M.2 AData 1TB", catDyski, 289.0, List.of("DYSKI\\ADATA-1TB-M.png"));
         Product dysk2Crucial = createProductTest("Dysk Sata 2,5\" Crucial 0.5TB", catDyski, 299.0, List.of("DYSKI\\Crucial_500GB_2,5_SATA_SSD_MX500.png"));
         Product dysk3Crucial = createProductTest("Dysk M.2 Crucial 1.0TB", catDyski, 329.0, List.of("DYSKI\\Crucial-1TB-M.png"));
         Product dysk4Samsung = createProductTest("Dysk M.2 Samsung 1.0TB", catDyski, 489.0, List.of("DYSKI\\Samsung_1TB_M.png"));
         Product dysk5Western = createProductTest("Dysk M.2 Western Digital 2.0TB", catDyski, 719.0, List.of("DYSKI\\WD_2TB_M.png"));
 
-        Param paramDProducent = paramService.save( new Param( "producent" ));
-        Param paramDPojemnosc = paramService.save( new Param( "pojemność", "GB" ));
-        Param paramDInterfejs = paramService.save( new Param( "interfejs", "GB" ));
-        Param paramDpredkoscOdczytu = paramService.save( new Param( "prędkość odczytu", "MB/s" ));
-        Param paramDpredkoscZapisu = paramService.save( new Param( "prędkość zapisu", "MB/s" ));
+        Parm paramDProducent = paramService.save( new Parm( "producent" ));
+        Parm paramDPojemnosc = paramService.save( new Parm( "pojemność", "GB" ));
+        Parm paramDInterfejs = paramService.save( new Parm( "interfejs", "GB" ));
+        Parm paramDpredkoscOdczytu = paramService.save( new Parm( "prędkość odczytu", "MB/s" ));
+        Parm paramDpredkoscZapisu = paramService.save( new Parm( "prędkość zapisu", "MB/s" ));
 
 /*
         properties:()ADATA | WD | Crucial | Corsair
@@ -258,11 +257,11 @@ class CategoryGeneratorTest {
         properties:("rodzaj pamięci")GDDR6
         properties:("złącza")HDMI 2szt. DP 2szt.
 */
-        Param paramKGProducent = paramService.save( new Param( "producent" ));
-        Param paramKGUklad = paramService.save( new Param( "układ graficzny" ));
-        Param paramKGPamiec = paramService.save( new Param( "pamięc","GB" ));
-        Param paramKGTypPamiec = paramService.save( new Param( "rodzaj pamięci","" ));
-        Param paramKGZlacza = paramService.save( new Param( "rodzaj pamięci","" ));
+        Parm paramKGProducent = paramService.save( new Parm( "producent" ));
+        Parm paramKGUklad = paramService.save( new Parm( "układ graficzny" ));
+        Parm paramKGPamiec = paramService.save( new Parm( "pamięc","GB" ));
+        Parm paramKGTypPamiec = paramService.save( new Parm( "rodzaj pamięci","" ));
+        Parm paramKGZlacza = paramService.save( new Parm( "rodzaj pamięci","" ));
 
         paramInCategoryService.save( new ParamInCategory( catKartyG , paramKGProducent ));
         paramInCategoryService.save( new ParamInCategory( catKartyG , paramKGUklad ));
@@ -344,9 +343,6 @@ class CategoryGeneratorTest {
         productController.addPriceToProduct(  product, price );
         return product;
     }
-
-
-
 }
 
 

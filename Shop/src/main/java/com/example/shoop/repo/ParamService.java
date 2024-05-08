@@ -1,6 +1,6 @@
 package com.example.shoop.repo;
 
-import com.example.shoop.model.Param;
+import com.example.shoop.model.Parm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,17 +14,17 @@ public class ParamService implements ParamRepo {
     public ParamService(ParamRepo repo) { this.repo = repo; }
 
     @Override
-    public <S extends Param> S save(S entity) {
+    public <S extends Parm> S save(S entity) {
         return repo.save(entity);
     }
 
     @Override
-    public <S extends Param> Iterable<S> saveAll(Iterable<S> entities) {
+    public <S extends Parm> Iterable<S> saveAll(Iterable<S> entities) {
         return repo.saveAll(entities);
     }
 
     @Override
-    public Optional<Param> findById(Long aLong) {
+    public Optional<Parm> findById(Long aLong) {
         return repo.findById(aLong);
     }
 
@@ -34,12 +34,12 @@ public class ParamService implements ParamRepo {
     }
 
     @Override
-    public Iterable<Param> findAll() {
+    public Iterable<Parm> findAll() {
         return repo.findAll();
     }
 
     @Override
-    public Iterable<Param> findAllById(Iterable<Long> longs) {
+    public Iterable<Parm> findAllById(Iterable<Long> longs) {
         return repo.findAllById(longs);
     }
 
@@ -54,7 +54,7 @@ public class ParamService implements ParamRepo {
     }
 
     @Override
-    public void delete(Param entity) {
+    public void delete(Parm entity) {
         repo.delete(entity);
     }
 
@@ -64,7 +64,7 @@ public class ParamService implements ParamRepo {
     }
 
     @Override
-    public void deleteAll(Iterable<? extends Param> entities) {
+    public void deleteAll(Iterable<? extends Parm> entities) {
         repo.deleteAll(entities);
     }
 

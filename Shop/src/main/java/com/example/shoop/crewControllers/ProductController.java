@@ -2,10 +2,7 @@ package com.example.shoop.crewControllers;
 
 import com.example.shoop.config.FileTool;
 import com.example.shoop.model.*;
-import com.example.shoop.repo.CategoryService;
-import com.example.shoop.repo.PictureService;
-import com.example.shoop.repo.PriceService;
-import com.example.shoop.repo.ProductService;
+import com.example.shoop.repo.*;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,10 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 
 
 @Controller
@@ -27,6 +21,12 @@ public class ProductController {
     @Autowired private PictureService pictureService;
     @Autowired private PriceService priceService;
     @Autowired private CategoryService categoryService;
+
+
+    @Autowired private ParamService paramService;
+    @Autowired private ParamInCategoryService paramInCategoryService;
+    @Autowired private PValService pValService;
+
 
 
     @RequestMapping(value = {"/crew/product/list/{categoryId}","/crew/product/list"}, method = RequestMethod.GET)
@@ -229,9 +229,14 @@ public class ProductController {
     }
 
 
-    public void addParameterToCategory( Category category , String parameterName, String unit ) {
+    public void addParameter_ToCategory( Category category , String parameterName, String unit ) {
         System.out.println( "-- FAKE MOCKUP -- add: " + parameterName + ", with unit: " + unit + " to category: " + category );
     }
 
+
+    public List<String> getParametersAsStringByProduct( Product product ){
+        Long id=product.getId();
+        return Collections.EMPTY_LIST;
+    }
 
 }
