@@ -6,6 +6,7 @@ import com.example.shoop.repo.CategoryService;
 import com.example.shoop.repo.PictureService;
 import com.example.shoop.repo.PriceService;
 import com.example.shoop.repo.ProductService;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,13 +25,16 @@ class ProductTest {
     @Autowired private CategoryService categoryService;
 
     @Test
+    @Disabled
     void createProduct() throws FileNotFoundException {
 
         priceService.deleteAll();
         pictureService.deleteAll();
         categoryService.deleteAll();
         productService.deleteAll();
-        //if (true) return;
+// STOP !
+// !!!!!
+if (true) return;
 
         // add product
         String name="Mysz";

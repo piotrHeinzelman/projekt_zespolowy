@@ -1,7 +1,7 @@
 package com.example.shoop.model;
 
 
-import com.example.shoop.repo.KeyCatParam;
+import com.example.shoop.repo.KeyProdParam;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,30 +10,32 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Table( name = "param_in_category")
+@Table( name = "param")
 
-@IdClass( KeyCatParam.class )
-public class ParamInCategory {
-
-    @Id
-    @Column(name = "category_id")
-    private Long category_id;
+@IdClass( KeyProdParam.class )
+public class PValue {
 
     @Id
-    @Column(name = "parameter_id")
-    private Long parameter_id;
+    @Column(name = "product_id")
+    private Long product_id;
 
+    @Id
+    @Column(name = "param_id")
+    private Long param_id;
 
-    public ParamInCategory() {}
+    @Column(name = "value")
+    private String value;
 
-    public ParamInCategory( Long category_id, Long parameter_id ) {
-        this.category_id = category_id;
-        this.parameter_id = parameter_id;
+    public PValue() {}
+    public PValue(Long product_id, Long param_id, String value) {
+        this.product_id = product_id;
+        this.param_id = param_id;
+        this.value = value;
     }
-
-    public ParamInCategory( Category category, Param parameter ) {
-        this.category_id = category.getId();
-        this.parameter_id = parameter.getParam_id();
+    public PValue(Product product, Param param, String value) {
+        this.product_id = product.getId();
+        this.param_id = param.getParam_id();
+        this.value = value;
     }
 
 

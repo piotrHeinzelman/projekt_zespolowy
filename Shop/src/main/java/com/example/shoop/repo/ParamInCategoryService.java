@@ -1,5 +1,6 @@
-package com.example.shoop.model;
+package com.example.shoop.repo;
 
+import com.example.shoop.model.ParamInCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

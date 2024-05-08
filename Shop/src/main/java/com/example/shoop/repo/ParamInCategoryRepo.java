@@ -1,10 +1,11 @@
-package com.example.shoop.model;
+package com.example.shoop.repo;
 
+import com.example.shoop.model.ParamInCategory;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ParamRepo extends CrudRepository<Param, KeyProdParam> {
+public interface ParamInCategoryRepo extends CrudRepository<ParamInCategory, KeyCatParam> {
 /*
     @Query( value = " (( SELECT parent_id  FROM children_inline WHERE children_id = :childrenId ) UNION ( SELECT parent_id  FROM children_in_table WHERE children_id = :childrenId )) \n " , nativeQuery = true )
     List<String> getParentCountInTableAndInlineByChildrenId (@Param("childrenId") Long childrenId  );

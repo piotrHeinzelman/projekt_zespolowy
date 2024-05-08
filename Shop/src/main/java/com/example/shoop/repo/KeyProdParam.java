@@ -1,4 +1,4 @@
-package com.example.shoop.model;
+package com.example.shoop.repo;
 
 import lombok.Getter;
 import lombok.Setter;
