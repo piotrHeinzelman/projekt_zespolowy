@@ -9,24 +9,29 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Table( name = "children_inline")
+@Table( name = "param")
 
-@IdClass( LongLong.class )
-public class ChildrenInline {
-
-    @Id
-    @Column(name = "icon_id")
-    private Long icon_id;
+@IdClass( KeyProdParam.class )
+public class Param {
 
     @Id
-    @Column(name = "icon_group_id")
-    private Long icon_group_id;
+    @Column(name = "product_id")
+    private Long product_id;
 
-    @Column(name = "item_order")
-    private Long itemOrder;
+    @Id
+    @Column(name = "param_id")
+    private Long param_id;
 
-    public ChildrenInline() {}
-/*
+    @Column(name = "value")
+    private String value;
+
+    public Param() {}
+    public Param(Long product_id, Long param_id, String value) {
+        this.product_id = product_id;
+        this.param_id = param_id;
+        this.value = value;
+    }
+    /*
     public ChildrenInline( KeyParentChildren keyParentChildren ) {
         if ( keyParentChildren.getParentId()==keyParentChildren.getChildrenId() ){ throw new RuntimeException("ParentCode=ChildCode"); }
         this.parentId = keyParentChildren.getParentId();

@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ChildrenInlineRepo extends CrudRepository<ChildrenInline, LongLong> {
+public interface ParamRepo extends CrudRepository<Param, KeyProdParam> {
 /*
     @Query( value = " (( SELECT parent_id  FROM children_inline WHERE children_id = :childrenId ) UNION ( SELECT parent_id  FROM children_in_table WHERE children_id = :childrenId )) \n " , nativeQuery = true )
     List<String> getParentCountInTableAndInlineByChildrenId (@Param("childrenId") Long childrenId  );
