@@ -270,7 +270,13 @@ public class ProductController {
 
     public List<String> getParametersAsStringByProduct( Product product ){
         Long id=product.getId();
-        return List.of( "producent: Sony","moc: 120kW" );
+        List <String> outList = new ArrayList<>(5);
+        Iterable<Map<String, String>> allParams= paramService.findAllByProductId(product.getId());
+        for ( Map<String,String> map : allParams ){
+            String U = "";
+            if ( map.containsKey("UNIT") &&  map.get("UNIT")!=null && map.get("UNIT").length()>0 ) { U=" "+ map.get("UNIT"); }
+            outList.add( "" + map.get("NAME") + " : " + map.get("VAL") + U );
+        }
+        return outList  ;
     }
-
 }
