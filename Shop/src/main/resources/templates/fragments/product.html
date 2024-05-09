@@ -21,8 +21,9 @@
         <p th:utext="${product.getValue()}">cena 20.00</p>
         <p th:utext="${product.description}">opis...</p>
         <p th:utext="${product.getCategoryName()}">opis...</p>
-        <p th:utext="${product.getParameters()}"></p> <!-- tu będą parametry w li  <ul><li>producent: Sony</li><li>moc: 120</li></ul> -->
-
+        <p th:each="param : $${product.parameterList}">
+            <span class="dot" th:utext="param"></span> <!-- tu będą parametry w li  <ul><li>producent: Sony</li><li>moc: 120</li></ul> -->
+        </p>
         <a th:href="${'/cart/addTo/'+product.id}">do koszyka</a>
         <br/>
         <br/>

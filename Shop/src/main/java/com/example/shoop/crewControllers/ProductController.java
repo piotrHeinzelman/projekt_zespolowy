@@ -165,6 +165,8 @@ public class ProductController {
         model.addAttribute("product", product );
         model.addAttribute( "categoryList" , categoryService.findAll() );
         model.addAttribute( "statusList" , Status.getAsComboList() );
+        model.addAttribute( "parameterList" , getParametersAsStringByProduct(  product ) );
+
     }
 
 
@@ -236,7 +238,7 @@ public class ProductController {
 
     public List<String> getParametersAsStringByProduct( Product product ){
         Long id=product.getId();
-        return Collections.EMPTY_LIST;
+        return List.of( "producent: Sony","moc: 120kW" );
     }
 
 }

@@ -19,8 +19,6 @@ import java.util.Set;
 @Table( name = "product")
 public class Product {
 
-    @Autowired private ProductController productController;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -117,10 +115,6 @@ public class Product {
     public String getPictAddr(){
         if ( pictures!=null && pictures.size()>0) { return ""+pictures.iterator().next().getPict_id(); }
         return "blank";
-    }
-
-    public List<String> getParameters(){
-        return productController.getParametersAsStringByProduct( this );
     }
 
 }
