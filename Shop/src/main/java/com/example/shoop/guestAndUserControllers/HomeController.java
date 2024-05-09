@@ -1,6 +1,7 @@
 package com.example.shoop.guestAndUserControllers;
 
 import com.example.shoop.adminControllers.AccountService;
+import com.example.shoop.crewControllers.ProductController;
 import com.example.shoop.model.Product;
 import com.example.shoop.repo.CategoryService;
 import com.example.shoop.repo.ProductService;
@@ -26,12 +27,12 @@ public class HomeController {
     private AccountService accountService;
 
     @Autowired private ProductService productService;
+    @Autowired private ProductController productController;
     @Autowired private CategoryService categoryService;
 
 
     @RequestMapping( value={ "/","","/index","index","index.php","index.asp","/index.php","/index.asp" } ) // , method = RequestMethod.POST
     public String home( Model model ){
-        prepareIndex( model );
         return "index";
     }
 
@@ -76,11 +77,6 @@ public class HomeController {
 
 
 
-    public void prepareIndex( Model model ){
-        Iterable<Product> allProduct = productService.findAll();
-        // System.out.println( allProduct );
-        model.addAttribute( "gridProducts" , allProduct );
-        model.addAttribute( "allCategory" , categoryService.findAll() );
-    }
+
 
 }

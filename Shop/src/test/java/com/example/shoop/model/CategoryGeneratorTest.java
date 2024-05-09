@@ -1,6 +1,5 @@
 package com.example.shoop.model;
 
-import com.example.shoop.crewControllers.CrewController;
 import com.example.shoop.crewControllers.ProductController;
 import com.example.shoop.repo.*;
 import org.junit.jupiter.api.Test;
@@ -17,7 +16,6 @@ class CategoryGeneratorTest {
     @Autowired private ProductService productService;
     @Autowired private PriceService priceService;
     @Autowired private PictureService pictureService;
-    @Autowired private CrewController crewController;
     @Autowired private ProductController productController;
     @Autowired private CategoryService categoryService;
     @Autowired private ParamInCategoryService paramInCategoryService;

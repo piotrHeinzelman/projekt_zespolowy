@@ -2,42 +2,17 @@
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
 
 <body>
-<h2>Kategorie</h2>
+
+<div>
+   <div th:each="category: ${categories}"  class="categotyItem">
+   <a th:href="@{'/product/list/'+${category.id}}" >
+      <span th:utext="${category.name}"></span>
+      <img th:src="@{'/media/fimages/cat_'+${category.id}}"/>
+   </a>
+   </div>
+</div>
 
 
-
-
-<!-- list category -->
-<table class="padding5">
-    <tbody>
-    <tr th:each="category: ${categories}">
-        <td>
-            <a th:href="@{'/crew/category/edit/'+${category.id}}">edit</a>
-        <td>
-        <td>
-            <span th:utext="${category.name}"></span>
-        <td>
-        <td>
-            <span th:utext="${category.description}"></span>
-        <td>
-        <td>
-            <a th:href="@{'/crew/product/list/'+${category.id}}" th:unless="${category.getSize() == '0'}" th:utext="${'zobacz produkty ('+category.getSize()+')'}" ></a>
-        <td>
-        <td> &nbsp; &nbsp; &nbsp; </td>
-        <td>
-            <a th:href="@{'/crew/category/delete/'+${category.id}}" style="color: red;"> usuń </a>
-        <td>
-    </tr>
-    </tbody>
-</table>
-
-<hr/>
-
-<h2>nowa kategoria</h2>
-<!-- new category -->
-<th:block th:insert="~{fragments/form :: formS ( '/crew/category/new' ) }"/>
-<th:block th:insert="~{fragments/form :: text( 'name' , '' , 'nazwa kategorii', '' ) }"/>
-<th:block th:insert="~{fragments/form :: formE }"/>
 
 </body>
 </html>

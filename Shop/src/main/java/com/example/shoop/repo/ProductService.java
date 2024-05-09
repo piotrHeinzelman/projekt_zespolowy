@@ -16,6 +16,10 @@ public class ProductService implements ProductRepo {
         return repo.save(entity);
     }
 
+
+    // public Iterable<Product> findAllOfCategory( Long categoryId ) { return repo.findAllOfCategory( categoryId ); }
+
+
     @Override
     public <S extends Product> Iterable<S> saveAll(Iterable<S> entities) {
         return repo.saveAll(entities);

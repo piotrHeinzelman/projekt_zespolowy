@@ -5,5 +5,5 @@
 
 
 <body>
-    <th:block th:unless="${product == null}" th:insert="~{fragments/product ::oneFullBlock ( ${product} ) }"/>
+    <th:block th:unless="${product == null}" th:insert="~{fragments/product ::oneFullBlock ( ${product}, ${paramList} ) }"/>
 </body>

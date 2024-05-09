@@ -4,16 +4,13 @@
 
 
 <body>
-<th:block th:unless="${products == null}" th:insert="~{fragments/product :: simpleGrid ( ${gridProducts} ) }"/>
+index
+<a href="/product/list">/product/list</a>
 </body>
 
-<!--<div>BOX REKLAMOWY</div>-->
 
-<!--<div>BOX PODSUMOWANIA</div>-->
-<!--
-<p th:text="${session.ShoppingCart.prop}" th:unless="${session == null}"> . </p>
--->
-<!--
-<a href="/addToSession/name/value">/addToSession/name/value</a>
--->
 </html>
+
+<!--
+<th:block th:unless="${products == null}" th:insert="~{fragments/product :: simpleGrid ( ${gridProducts} ) }"/>
+-->

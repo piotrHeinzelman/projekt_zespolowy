@@ -20,22 +20,23 @@ import java.util.Optional;
 public class CartController {
 
     @Autowired private ProductService productService;
+    @Autowired private ProductController productController;
 
-    @Autowired private HomeController homeController;
+
 
 
     @RequestMapping(value = {"/cart/productinfo/{productId}"}, method = RequestMethod.GET)
-    public String crewImgSendGET(Model model, @PathVariable Long productId ){
+    public String crewImgSendGET( Model model, @PathVariable Long productId ){
 
-        homeController.prepareIndex( model );
-
-        Optional<Product> OProduct = productService.findById(productId);
+        Optional<Product> OProduct = productService.findById( productId );
         if (OProduct.isPresent()  ){
             Product product = OProduct.get();
             // System.out.println( ">>>" + productId + " : " + product );
-            model.addAttribute("product", product );
-            return "product_full";
+            productController.prepareModelForProductEdit( model ,  product );
+            return "product/product_full";
         }
+
+        productController.prepareIndex( model );
         return "redirect:/index";
     }
 

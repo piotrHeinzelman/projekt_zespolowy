@@ -30,11 +30,11 @@ public class ProductController {
 
 
     @RequestMapping(value = {"/crew/product/list/{categoryId}","/crew/product/list"}, method = RequestMethod.GET)
-    public String productListGET( @PathVariable(required = false) Long categoryId, Model model ){
+    public String crewProductListGET( @PathVariable(required = false) Long categoryId, Model model ){
         Category category=null;
         if ( categoryId!=null ) { Optional<Category> OC=categoryService.findById( categoryId ); if (OC.isPresent()) { category=OC.get();} }
         prepareModelForProductList( model , category );
-        return "product/list";
+        return "product/crew_list";
     }
 
 
@@ -149,25 +149,7 @@ public class ProductController {
     }
 
 
-    public void prepareModelForProductList( Model model , Category category ){
-        Iterable<Product> products= Collections.EMPTY_SET;
-        if ( category==null ) {
-            products=productService.findAll();
-        } else {
-            products=category.getProducts();
-        }
-        model.addAttribute( "products" , products );
-        //model.addAttribute( "categoryList" , categoryService.findAll() );
-    }
 
-    public void prepareModelForProductEdit( Model model , Product product ){
-        //System.out.println( product );
-        model.addAttribute("product", product );
-        model.addAttribute( "categoryList" , categoryService.findAll() );
-        model.addAttribute( "statusList" , Status.getAsComboList() );
-        model.addAttribute( "parameterList" , getParametersAsStringByProduct(  product ) );
-
-    }
 
 
 
@@ -198,7 +180,7 @@ public class ProductController {
             model.addAttribute("category", byId.get());
             return "product/category_edit";
         }
-        return "product/category_list";
+        return "product/crew_category_list";
     }
 
     @RequestMapping(value = {"/crew/category/new"}, method = RequestMethod.POST)
@@ -231,8 +213,58 @@ public class ProductController {
     }
 
 
-    public void addParameter_ToCategory( Category category , String parameterName, String unit ) {
-        System.out.println( "-- FAKE MOCKUP -- add: " + parameterName + ", with unit: " + unit + " to category: " + category );
+
+
+
+
+
+
+    @RequestMapping(value = {"/product/list/{categoryId}","/product/list"}, method = RequestMethod.GET)
+    public String productList_GET( @PathVariable(required = false) Long categoryId, Model model ){
+
+        Category category=null;
+        if ( categoryId!=null ) { Optional<Category> OC=categoryService.findById( categoryId ); if (OC.isPresent()) { category=OC.get();} }
+        if ( category!=null ) {
+            prepareModelForProductList(model, category);
+            return "product/product_list";
+        }
+        model.addAttribute("categories",categoryService.findAll());
+        return "product/category_list";
+    }
+
+
+
+
+    public void prepareIndex( Model model ){ prepareIndex( model , null ); }
+
+    public void prepareIndex( Model model , Long categoryId ){
+        Iterable<Product> allProducts=null;
+        Category category=null;
+        if ( categoryId!=null ) {
+            Optional<Category> OCategory = categoryService.findById(categoryId);
+                if (OCategory.isPresent() ){ category=OCategory.get();}
+        }
+        /* products */    prepareModelForProductList(  model ,  category );
+        model.addAttribute( "gridProducts" , allProducts );
+        model.addAttribute( "allCategory" , categoryService.findAll() );
+    }
+
+
+    public void prepareModelForProductList( Model model , Category category ){
+        Iterable<Product> products= Collections.EMPTY_SET;
+        if ( category==null ) {
+            products=productService.findAll();
+        } else {
+            products=category.getProducts();
+        }
+        model.addAttribute( "products" , products );
+    }
+
+    public void prepareModelForProductEdit( Model model , Product product ){
+        model.addAttribute("product", product );
+        model.addAttribute( "categoryList" , categoryService.findAll() );
+        model.addAttribute( "statusList" , Status.getAsComboList() );
+        model.addAttribute( "paramList" , getParametersAsStringByProduct(  product ) );
     }
 
 
