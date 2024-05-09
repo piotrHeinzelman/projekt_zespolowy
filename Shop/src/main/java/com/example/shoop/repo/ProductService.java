@@ -19,8 +19,8 @@ public class ProductService implements ProductRepo {
 
 
     @Override
-    public List<Product> getAllItemFromCartByCartId(Long cartId) {
-        return repo.getAllItemFromCartByCartId(cartId);
+    public List<Product> getAllProductsFromCartByCartId(Long cartId) {
+        return repo.getAllProductsFromCartByCartId(cartId);
     }
 
     @Override public <S extends Product> Iterable<S> saveAll(Iterable<S> entities) {

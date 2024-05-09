@@ -11,9 +11,7 @@ import java.util.List;
 @Repository
 public interface ProductRepo extends CrudRepository<Product, Long> {
 
-    @Query( value = " SELECT * FROM product WHERE id=:cartId " , nativeQuery = true )
-    public List<Product> getAllItemFromCartByCartId(@Param("cartId") Long cartId   );
-
-
+    @Query( value = " SELECT * FROM PRODUCT AS P JOIN CART_ITEM AS CI  ON (  CI.CART_ID=:cartId AND  CI.ID=P.ID ) " , nativeQuery = true )
+    public List<Product> getAllProductsFromCartByCartId(@Param("cartId") Long cartId   );
 
 }

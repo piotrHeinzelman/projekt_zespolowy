@@ -4,7 +4,6 @@ import com.example.shoop.crewControllers.ProductController;
 import com.example.shoop.model.Cart;
 import com.example.shoop.model.CartItem;
 import com.example.shoop.model.Product;
-import com.example.shoop.model.UA;
 import com.example.shoop.repo.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,21 +63,36 @@ public class CartController {
 
 
     @RequestMapping(value = {"/cart/view"}, method = RequestMethod.GET)
-    public String crewImgSendGET( Model model, @PathVariable Long productId, HttpServletRequest request ){
+    public String crewImgSendGET( Model model, HttpServletRequest request ){
         Long cartId = getActiveCartId( request );
         if ( cartId==null ) return "redirect:/index";
-
-        Map<Long,Product> cartProductList = new HashMap<>();
-        List<Product> allProduct = productService.getAllItemFromCartByCartId(cartId);//.iterator().forEachRemaining( f->{ cartProductList.put( f.getId(), f ); } );
-        System.out.println( allProduct );
-        /*
         Optional<Cart> OCart = cartService.findById(cartId);
         if (OCart.isPresent() ) {
             Cart cart = OCart.get();
-            cart.setItems(  );
+            List<CartItem> items = cart.getItems();
+
+            Map<Long, Product> cartProductList = new HashMap<>();
+            productService.getAllProductsFromCartByCartId(cartId).iterator().forEachRemaining(f -> {
+                cartProductList.put(f.getId(), f);
+            });
+
+            cartItemService.getAllItemByCartId(cartId).iterator().forEachRemaining( f->{
+                        CartItem c = f;
+                        c.setProduct_name( cartProductList.get(f.getProduct_id()).getName() );
+                        c.setPricePerItem( cartProductList.get(f.getProduct_id()).getValue() );
+                        c.setProduct_SKU( cartProductList.get(f.getProduct_id()).getSKU() );
+                        items.add( c ); } );
+
+            Double sum=0.0;
+            for ( CartItem ci : cart.getItems() ){
+                sum+=ci.getQuantity()*ci.getPricePerItem();
+            }
+            cart.setSum( sum );
+            System.out.println( cart );
+            model.addAttribute( "cart", cart );
+            return "cart/view";
         }
-        */
-        return "cart/view";
+        return "redirect:/index";
     }
 
 
@@ -94,8 +108,8 @@ public class CartController {
     public Long getActiveCartIdByUserNam_orCreateNew( String userName ) {
         if ( users.userExists( userName )){
             Optional<Long> OCartId=cartService.findOpenIdByUserName(userName);
-            if (OCartId.isPresent()) { return OCartId.get();}
-            else{Cart cart=cartService.save(new Cart(userName));return cart.getId();}
+            if ( OCartId.isPresent() ) { return OCartId.get();}
+            else{ Cart cart=cartService.save( new Cart( userName )); return cart.getId(); }
         }
         return null;
         }
