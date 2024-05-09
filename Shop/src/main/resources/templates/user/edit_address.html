@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+<body>
+
+<h2>edycja użytkownika</h2>
+
+
+<th:block th:insert="~{fragments/form :: formS ( '/admin/user/edit' ) }"/>
+    <th:block th:insert="~{fragments/form :: hidden( 'username' , ${user_name} ) }"/>
+    <th:block th:insert="~{fragments/form :: textRO( 'username' , ${user_name} , 'nazwa użytkownia',  '' ) }"/>
+
+        <th:block th:each="key : ${user_grants.keySet()}">
+            <th:block th:insert="~{fragments/form :: bool( ${key} , ${user_grants.get( key ) } , ${key}  ) }"/>
+        </th:block>
+
+    <th:block th:insert="~{fragments/form :: bool( 'enabled' , ${user_enabled} , 'konto aktywne'  ) }"/>
+<th:block th:insert="~{fragments/form :: formE }"/>
+
+
+
+
+<th:block th:insert="~{fragments/form :: formS ( '/admin/user/delete' ) }"/>
+<th:block th:insert="~{fragments/form :: hidden( 'username' , ${user_name} ) }"/>
+<div class="form-group">
+    <button type="submit" class="btn btn-default" style="backgroud-color: red !important;">!! usuń !! </button>
+</div>
+</form >
+
+    <!--
+    <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+    </div>
+    -->
+
+
+</body>
+</html>
+

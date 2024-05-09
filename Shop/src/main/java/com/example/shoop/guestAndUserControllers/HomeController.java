@@ -5,6 +5,7 @@ import com.example.shoop.crewControllers.ProductController;
 import com.example.shoop.model.Product;
 import com.example.shoop.repo.CategoryService;
 import com.example.shoop.repo.ProductService;
+import com.example.shoop.repo.UAService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class HomeController {
     @Autowired private ProductService productService;
     @Autowired private ProductController productController;
     @Autowired private CategoryService categoryService;
+
+    @Autowired private UAService uaService;
 
 
     @RequestMapping( value={ "/","","/index","index","index.php","index.asp","/index.php","/index.asp" } ) // , method = RequestMethod.POST
@@ -76,7 +79,17 @@ public class HomeController {
     }
 
 
+    @RequestMapping( value={ "/my_user/address" } , method = RequestMethod.GET )
+    public String homeUserAddress( Model model , HttpServletRequest request  ){
+        String userName = request.getUserPrincipal().getName();
+        System.out.println( userName );
+        model.addAttribute("success", userName);
 
+        //uaService.findById( userName );
+
+        return "index";
+        //return "user/edit_address";
+    }
 
 
 }
