@@ -18,7 +18,7 @@ public class UA {
     private Long ua_id;
 
     @Column(name = "email" , unique = true)
-    private Long email;
+    private String email;
 
     @Column(name = "first_Name" )
     private String first_Name;
@@ -42,6 +42,6 @@ public class UA {
     private String mobil;
 
     public UA() {}
-    public UA(Long email) { this.email = email; }
+    public UA( String email ) { this.email = email; }
 
 }

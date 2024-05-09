@@ -13,7 +13,7 @@ public class UAService implements UARepo {
     public UAService(UARepo uaRepo) { this.uaRepo = uaRepo; }
 
 
-    @Override  public Optional<UA> findByUA_ID(String email) { return uaRepo.findByUA_ID(email);  }
+    @Override  public Iterable<UA> findByEmail(String email ) { return uaRepo.findByEmail(email);  }
 
 
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+<body>
+<h2>produkty</h2>
+<table class="padding5">
+    <tbody>
+    <tr th:each="product: ${products}" th:class="${'status'+product.status}" >
+        <td>
+            <a th:href="@{'/crew/product/edit/'+${product.id}}" th:utext="${product.SKU}"></a>
+        <td>
+        <td>
+            <span th:utext="${product.name}" ></span>
+        </td>
+        <td>
+            <span  ></span>
+        </td>
+        <td>
+            <span th:utext="${product.getCategoryName()}" ></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<hr/>
+
+<h2>nowy produkt</h2>
+<!-- new category -->
+<th:block th:insert="~{fragments/form :: formS ( '/crew/product/new' ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'SKU' , '' , 'SKU produktu', '' ) }"/>
+<th:block th:insert="~{fragments/form :: text( 'name' , '' , 'nazwa produktu', '' ) }"/>
+<th:block th:insert="~{fragments/form :: formE }"/>
+
+
+</body>
+</html>
+

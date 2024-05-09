@@ -3,36 +3,27 @@
 
 <body>
 
-<h2>edycja użytkownika</h2>
+<h2>adres użytkownika</h2>
+<!--
+userAddress
+UA(ua_id=1, email=user, first_Name=null, last_Name=null, postal_Code=null,
+Stre3t=null, numb=null, theCity=null, mobil=null)
+-->
 
+<th:block th:insert="~{fragments/form :: formS ( '/my_user/address' ) }"/>
+    <th:block th:insert="~{fragments/form :: textRO( '_lock_' , ${userAddress.email} , 'nazwa użytkownia',  '' ) }"/>
+    <th:block th:insert="~{fragments/form :: text( first_Name , ${userAddress.first_Name} , 'Imię', 'Imię' ) }"/>
+    <th:block th:insert="~{fragments/form :: text( last_Name , ${userAddress.last_Name} , 'Nazwisko', 'Nazwisko' ) }"/>
+    <th:block th:insert="~{fragments/form :: text( postal_Code , ${userAddress.postal_Code} , 'kod pocztowy', '00-123' ) }"/>
+    <th:block th:insert="~{fragments/form :: text( Stre3t , ${userAddress.Stre3t} , 'ulica', 'ulica' ) }"/>
+    <th:block th:insert="~{fragments/form :: text( numb , ${userAddress.numb} , 'numer domu i mieszkania', '4 m 16' ) }"/>
+    <th:block th:insert="~{fragments/form :: text( theCity , ${userAddress.theCity} , 'Miasto', 'Gniezno' ) }"/>
+    <th:block th:insert="~{fragments/form :: text( mobil , ${userAddress.mobil} , 'telefon kontaktory', '501234567' ) }"/>
 
-<th:block th:insert="~{fragments/form :: formS ( '/admin/user/edit' ) }"/>
-    <th:block th:insert="~{fragments/form :: hidden( 'username' , ${user_name} ) }"/>
-    <th:block th:insert="~{fragments/form :: textRO( 'username' , ${user_name} , 'nazwa użytkownia',  '' ) }"/>
-
-        <th:block th:each="key : ${user_grants.keySet()}">
-            <th:block th:insert="~{fragments/form :: bool( ${key} , ${user_grants.get( key ) } , ${key}  ) }"/>
-        </th:block>
-
-    <th:block th:insert="~{fragments/form :: bool( 'enabled' , ${user_enabled} , 'konto aktywne'  ) }"/>
 <th:block th:insert="~{fragments/form :: formE }"/>
 
 
-
-
-<th:block th:insert="~{fragments/form :: formS ( '/admin/user/delete' ) }"/>
-<th:block th:insert="~{fragments/form :: hidden( 'username' , ${user_name} ) }"/>
-<div class="form-group">
-    <button type="submit" class="btn btn-default" style="backgroud-color: red !important;">!! usuń !! </button>
-</div>
 </form >
-
-    <!--
-    <div class="checkbox">
-        <label><input type="checkbox"> Remember me</label>
-    </div>
-    -->
-
 
 </body>
 </html>

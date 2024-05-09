@@ -6,10 +6,14 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ProductRepo extends CrudRepository<Product, Long> {
 
-  //  @Query( value = " SELECT * FROM PRODUCT WHERE CATEGORY_ID=:categoryId " , nativeQuery = true )
-  //   public Iterable<Product> findAllOfCategory( @Param("categoryId") Long categoryId   );
+    @Query( value = " SELECT * FROM product WHERE id=:cartId " , nativeQuery = true )
+    public List<Product> getAllItemFromCartByCartId(@Param("cartId") Long cartId   );
+
+
 
 }

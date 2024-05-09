@@ -6,12 +6,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
 public interface UARepo extends CrudRepository<UA, Long> {
 
-    @Query( value = " SELECT * FROM ADRS  WHERE UA_ID =:email " , nativeQuery = true )
-    public Optional<UA> findByUA_ID( @Param("email") String email );
+    @Query( value = " SELECT * FROM ADRS WHERE EMAIL=:email_add " , nativeQuery = true )
+    public Iterable<UA> findByEmail(@Param("email_add") String email_add );
 
 }

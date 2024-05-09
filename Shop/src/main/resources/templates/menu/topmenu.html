@@ -16,8 +16,12 @@
   <a href="/user/add"> <span>&#xE7FE;</span> zarejestruj się </a>
 
   <span sec:authorize="isAuthenticated()">
-    <a href="/user/logout"> wyloguj </a>
+    <a href="/my_user/address"> adres dostawy </a>
   </span>
+  <span sec:authorize="isAuthenticated()">
+    <a href="/user/logout"> wyloguj </a>
+    <span>
+
 </span>
 
 </div>
