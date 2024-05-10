@@ -2,6 +2,7 @@ package com.example.shoop.repo;
 
 import com.example.shoop.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +22,11 @@ public class ProductService implements ProductRepo {
     @Override
     public List<Product> getAllProductsFromCartByCartId(Long cartId) {
         return repo.getAllProductsFromCartByCartId(cartId);
+    }
+
+    @Override
+    public List<Product> findByFragName(String find_name) {
+        return repo.findByFragName(find_name);
     }
 
     @Override public <S extends Product> Iterable<S> saveAll(Iterable<S> entities) {

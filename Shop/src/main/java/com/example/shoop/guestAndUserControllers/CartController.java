@@ -3,6 +3,7 @@ package com.example.shoop.guestAndUserControllers;
 import com.example.shoop.crewControllers.ProductController;
 import com.example.shoop.model.Cart;
 import com.example.shoop.model.CartItem;
+import com.example.shoop.model.Category;
 import com.example.shoop.model.Product;
 import com.example.shoop.repo.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -26,6 +24,13 @@ public class CartController {
     @Autowired private JdbcUserDetailsManager users;
     @Autowired private CartService cartService;
     @Autowired private CartItemService cartItemService;
+
+
+    @RequestMapping(value = {"/product/find"}, method = RequestMethod.POST)
+    public String crewProductListGET( @RequestParam String find_name, Model model ){
+        model.addAttribute( "products" , productService.findByFragName( find_name ) );
+        return "product/product_list";
+    }
 
     @RequestMapping(value = {"/cart/productinfo/{productId}"}, method = RequestMethod.GET)
     public String crewImgSendGET( Model model, @PathVariable Long productId ){

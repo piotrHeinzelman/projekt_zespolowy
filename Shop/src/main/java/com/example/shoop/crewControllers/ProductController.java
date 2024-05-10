@@ -30,6 +30,8 @@ public class ProductController {
 
 
 
+
+
     @RequestMapping(value = {"/crew/product/list/{categoryId}","/crew/product/list"}, method = RequestMethod.GET)
     public String crewProductListGET( @PathVariable(required = false) Long categoryId, Model model ){
         Category category=null;
