@@ -66,20 +66,14 @@ public class CartController {
 */
     @RequestMapping(value = {"/cart/addOne/{productId}"}, method = RequestMethod.GET)
     public String addOneProductToCartGET( Model model, @PathVariable Long productId , HttpServletRequest request ){
-        Optional<Product> OProduct = productService.findById( productId );
-        if ( OProduct.isPresent() ) {
-            Cart cart = getActiveCart( request );
-            if ( cart!=null ) {
-                Product product = OProduct.get();
-
-                System.out.println( cart );
-                System.out.println( product );
-
-                //cartItemService.save(new CartItem(product.getId(), cartId, product.getValue()));
-                return "redirect:/cart/view";
-            }
+        CartItem cartItem = null;
+        cartItem = getCartItem(  request ,  productId );
+        if ( cartItem==null ) {
+            createONEcartItem( request ,  productId );
+        } else {
+            cartItem.setQuantity(1 + cartItem.getQuantity());
         }
-        return "redirect:/user/add";
+        return "redirect:/cart/view";
     }
 
     @RequestMapping(value = {"/cart/view"}, method = RequestMethod.GET)
@@ -153,6 +147,33 @@ public class CartController {
         if ( cartId==null ) return null;
         Optional<Cart> OCart = cartService.findById(cartId);
         if (OCart.isPresent()) { return OCart.get(); }
+        return null;
+    }
+
+    public CartItem getCartItem( HttpServletRequest request , Long productId ){
+    Optional<Product> OProduct = productService.findById( productId );
+        if ( OProduct.isPresent() ) {
+        Cart cart = getActiveCart( request );
+        if ( cart!=null ) {
+            Product product = OProduct.get();
+            Optional<CartItem> OCartItem = cartItemService.getByCartIdProdId(cart.getId(), product.getId());
+            if (OCartItem.isPresent() ) return OCartItem.get();
+    }}
+    return null;
+    }
+
+    public CartItem createONEcartItem( HttpServletRequest request , Long productId ) {
+        Optional<Product> OProduct = productService.findById(productId);
+        if (OProduct.isPresent()) {
+            Cart cart = getActiveCart(request);
+            if (cart != null) {
+                Product product = OProduct.get();
+                Optional<CartItem> OCartItem = cartItemService.getByCartIdProdId(cart.getId(), product.getId());
+                if ( OCartItem.isEmpty() ){
+                    return cartItemService.save( new CartItem( product.getId(),  cart.getId(), product.getValue() ) );
+                }
+            }
+        }
         return null;
     }
 

@@ -2,7 +2,14 @@
 <html th:fragment="topmenu" lang="pl" xmlns:th="http://www.thymeleaf.org" >
 <div id="top_menu">
 
-  <span class="logo"></span>
+  <span>
+  <span class="logo">
+  </span>
+  <span>
+      <a href="/product/list">kategorie</a>
+  </span>
+  </span>
+
 
 
     <form th:action="@{'/product/find/'}" method="post" enctype="multipart/form-data" >

@@ -87,7 +87,7 @@ span.codeAndIcon > *:nth-child(7) { display: none; }
 div.oneBlock, div.categotyItem { display: inline-flex; flex-direction: column; border: 1px dotted gray; padding: 15px; margin: 3px;  }
 div.oneBlock p , div.categotyItem span {   display: flex; flex-direction: row; justify-content: space-between; width: 200px;  }
 
-span.logo { background-image: url("../img/logo.png"); background-position: 50% 50%; width: 160px; height: 60px;  background-repeat: no-repeat; display: block;  }
+span.logo { background-image: url("../img/logo.png"); background-position: 100% 100%; width: 60px; height: 60px; padding-left: 90px; background-repeat: no-repeat; display: block;  }
 
 
 a.likeButton { display: block; padding: 5px 10px;  border: 1px solid gray;  }

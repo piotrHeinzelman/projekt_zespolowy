@@ -18987,3 +18987,21 @@ The object is already closed [90007-214]
 2024-05-10 11:35:05 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: Obiekt jest zamknięty
 The object is already closed [90007-214]
+2024-05-10 12:49:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "CART_ITEM" nie istnieje
+Table "CART_ITEM" not found; SQL statement:
+ SELECT P.* FROM PRODUCT AS P JOIN CART_ITEM AS CI  ON (  CI.PRODUCT_ID=P.ID ) WHERE CI.CART_ID=?  [42102-214]
+2024-05-10 12:49:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "CART_ITEM" nie istnieje
+Table "CART_ITEM" not found; SQL statement:
+ SELECT P.* FROM PRODUCT AS P JOIN CART_ITEM AS CI  ON (  CI.PRODUCT_ID=P.ID ) WHERE CI.CART_ID=?  [42102-214]
+2024-05-10 12:49:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "CART_ITEM" nie istnieje
+Table "CART_ITEM" not found; SQL statement:
+ SELECT P.* FROM PRODUCT AS P JOIN CART_ITEM AS CI  ON (  CI.PRODUCT_ID=P.ID ) WHERE CI.CART_ID=?  [42102-214]
+2024-05-10 12:59:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Obiekt jest zamknięty
+The object is already closed [90007-214]
+2024-05-10 12:59:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Obiekt jest zamknięty
+The object is already closed [90007-214]

@@ -20,4 +20,7 @@ public interface CartItemRepo extends CrudRepository<CartItem, Long> {
     @Query( value = " SELECT * FROM CART_ITEM WHERE CART_ID=:cartId " , nativeQuery = true )
     public List<CartItem> getAllItemByCartId(@Param("cartId") Long cartId   );
 
+    @Query( value = " SELECT * FROM CART_ITEM WHERE CART_ID=:cartId AND PRODUCT_ID=:productId" , nativeQuery = true )
+    public Optional<CartItem> getByCartIdProdId( @Param("cartId") Long cartId , @Param("productId") Long productId );
+
 }
