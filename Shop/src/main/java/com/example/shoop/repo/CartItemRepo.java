@@ -1,8 +1,8 @@
 package com.example.shoop.repo;
 
-import com.example.shoop.model.Cart;
 import com.example.shoop.model.CartItem;
-import com.example.shoop.model.Product;
+import jakarta.transaction.Transactional;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -24,7 +24,9 @@ public interface CartItemRepo extends CrudRepository<CartItem, Long> {
     public Optional<CartItem> getByCartIdProdId( @Param("cartId") Long cartId , @Param("productId") Long productId );
 
 
-    @Query( value = " DELETE FROM CART_ITEM WHERE CART_ID=:cartId ; SELECT * FROM CART_ITEM ;  " ,   nativeQuery = true  )
+    @Transactional
+    @Modifying
+    @Query( value = " DELETE FROM CART_ITEM WHERE CART_ID=:cartId " , nativeQuery = true )
     public void clearCart( @Param("cartId") Long cartId );
 
 }
