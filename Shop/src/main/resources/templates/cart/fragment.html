@@ -11,7 +11,7 @@
 -->
 
 <div class="cartrow" th:fragment="cartRow ( row )" xmlns:th="http://www.w3.org/1999/xhtml">
-  <p th:text="${row}"></p>
+  <!--<p th:text="${row}"></p>-->
 
   <td>
     <a th:href="${'/cart/productinfo/'+row.product_id}" Xtarget="_blank">
@@ -25,16 +25,14 @@
   <td th:text="${row.quantity*row.pricePerItem}"/>
 
   <td>
-    <a th:href="@{'/cart/addOne/'+${row.id}'}"/>[ +1 ]</a>
+    <a th:href="@{'/cart/addOne/'+row.product_id}"/>[ +1 ]</a>
   </td>
   <td>
-    <a th:href="@{'/cart/subOne/'+${row.id}'}"/>[ -1 ]</a>
+    <a th:href="@{'/cart/subOne/'+row.product_id}"/>[ -1 ]</a>
   </td>
   <td>
-    <a th:href="@{'/cart/clearRow/'+${row.id}'}"/>[ clear ]</a>
+    <a th:href="@{'/cart/clearRow/'+row.product_id}"/>[ clear ]</a>
   </td>
-  <form></form>
-
 
   <!--<th:block th:each="product : ${products}" th:insert="~{ fragments/product :: oneBlock ( ${product} ) }" />-->
 </div>

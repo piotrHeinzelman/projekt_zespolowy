@@ -4,9 +4,6 @@
 <body>
 <h2>w koszyku:</h2>
 <table class="padding5">
-    <p th:text="${cart.status}"></p>
-    <p th:text="${cart.id}"></p>
-    <p th:text="${cart}"></p>
     <tbody>
 
     <tr th:each="cart_row: ${cart.items}" th_class="${'status'+product.status}" >
@@ -25,5 +22,7 @@
 </body>
 </html>
 
-
+<!--    <p th:text="${cart.status}"></p>
+    <p th:text="${cart.id}"></p>
+    <p th:text="${cart}"></p> -->
 

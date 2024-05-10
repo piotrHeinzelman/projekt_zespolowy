@@ -44,6 +44,8 @@ public class CartController {
 
     @RequestMapping(value = {"/cart/addTo/{productId}"}, method = RequestMethod.GET)
     public String addToCartGET( Model model, @PathVariable Long productId , HttpServletRequest request ){
+        return addOneProductToCartGET( model, productId, request );
+        /*
         Long cartId = getActiveCartId( request );
         if ( cartId!=null ) {
             Optional<Product> OProduct = productService.findById(productId);
@@ -54,10 +56,31 @@ public class CartController {
             }
         }
         return "redirect:/user/add";
+         */
     }
 
+/*
+<a th:href="@{'/cart/addOne/'+row.id}"/>[ +1 ]</a>
+<a th:href="@{'/cart/subOne/'+row.id}"/>[ -1 ]</a>
+<a th:href="@{'/cart/clearRow/'+row.id}"/>[ clear ]</a>
+*/
+    @RequestMapping(value = {"/cart/addOne/{productId}"}, method = RequestMethod.GET)
+    public String addOneProductToCartGET( Model model, @PathVariable Long productId , HttpServletRequest request ){
+        Optional<Product> OProduct = productService.findById( productId );
+        if ( OProduct.isPresent() ) {
+            Cart cart = getActiveCart( request );
+            if ( cart!=null ) {
+                Product product = OProduct.get();
 
+                System.out.println( cart );
+                System.out.println( product );
 
+                //cartItemService.save(new CartItem(product.getId(), cartId, product.getValue()));
+                return "redirect:/cart/view";
+            }
+        }
+        return "redirect:/user/add";
+    }
 
     @RequestMapping(value = {"/cart/view"}, method = RequestMethod.GET)
     public String crewImgSendGET( Model model, HttpServletRequest request ){
@@ -93,7 +116,7 @@ public class CartController {
                 sum+=ci.getQuantity()*ci.getPricePerItem();
             }
             cart.setSum( sum );
-            System.out.println( cart );
+//            System.out.println( cart );
             model.addAttribute( "cart", cart );
             return "cart/view";
         }
@@ -130,6 +153,14 @@ public class CartController {
         String userName = getUsernameByRequest(request);
             if ( userName ==null ) return  null;
         return getActiveCartIdByUserNam_orCreateNew(userName);
+    }
+
+    public Cart getActiveCart(  HttpServletRequest request ){
+        Long cartId = getActiveCartId( request );
+        if ( cartId==null ) return null;
+        Optional<Cart> OCart = cartService.findById(cartId);
+        if (OCart.isPresent()) { return OCart.get(); }
+        return null;
     }
 
 
