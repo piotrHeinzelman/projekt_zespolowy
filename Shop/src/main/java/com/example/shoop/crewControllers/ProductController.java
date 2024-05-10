@@ -3,7 +3,13 @@ package com.example.shoop.crewControllers;
 import com.example.shoop.config.FileTool;
 import com.example.shoop.model.*;
 import com.example.shoop.repo.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +34,7 @@ public class ProductController {
     @Autowired private ParamInCategoryService paramInCategoryService;
     @Autowired private PValService pValService;
 
-
+    @Autowired private HttpServletRequest httpServletRequest;
 
 
 
@@ -254,13 +260,36 @@ public class ProductController {
 
 
     public void prepareModelForProductList( Model model , Category category ){
+        // System.out.println( "prepareModelForProductList(SORT,PAGEABLE)" );
+        // Pageable firstPageWithTwoElements = PageRequest.of(0, 2);
+        // Pageable secondPageWithFiveElements = PageRequest.of(1, 5);
+        // Sort sortByName = Sort.by("name");
+
+        /*
+        Pageable sortedByName =
+        PageRequest.of(0, 3, Sort.by("name"));
+
+        Pageable sortedByPriceDesc =
+        PageRequest.of(0, 3, Sort.by("price").descending());
+
+        Pageable sortedByPriceDescNameAsc =
+        PageRequest.of(0, 5, Sort.by("price").descending().and(Sort.by("name")));
+         */
+
         Iterable<Product> products= Collections.EMPTY_SET;
         if ( category==null ) {
             products=productService.findAll();
+            // products=productService.findAll( sortByName ) ;
+            // products=productService.findAll(firstPageWithTwoElements);
+            // products=productService.findAll(firstPageWithTwoElements);
         } else {
             products=category.getProducts();
         }
-        model.addAttribute( "products" , products );
+
+        List<Product> sorted = pagineAndSort( products );
+
+        model.addAttribute( "products" , sorted );
+        //model.addAttribute( "products" , products );
     }
 
     public void prepareModelForProductEdit( Model model , Product product ){
@@ -282,4 +311,20 @@ public class ProductController {
         }
         return outList  ;
     }
+
+
+    List <Product> pagineAndSort( Iterable<Product> productsUnsorted ){
+        HttpSession session = httpServletRequest.getSession();
+        String sort = session.getAttribute("sort").toString();
+        System.out.println( "SORT BY:" + sort );
+
+
+        ArrayList< Product > products = new ArrayList<>(10);
+        Iterator<Product> it = productsUnsorted.iterator();
+        while  ( it.hasNext() ){
+          products.add( it.next() );
+        }
+        return products;
+    }
+
 }

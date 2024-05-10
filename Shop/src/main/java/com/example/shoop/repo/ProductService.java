@@ -2,6 +2,9 @@ package com.example.shoop.repo;
 
 import com.example.shoop.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +21,12 @@ public class ProductService implements ProductRepo {
         return repo.save(entity);
     }
 
+
+    @Override
+    public Iterable<Product> findAll(Sort sort) { return repo.findAll(sort); }
+
+    @Override
+    public Page<Product> findAll(Pageable pageable) { return repo.findAll(pageable); }
 
     @Override
     public List<Product> getAllProductsFromCartByCartId(Long cartId) {
