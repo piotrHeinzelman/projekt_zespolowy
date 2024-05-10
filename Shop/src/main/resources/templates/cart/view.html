@@ -2,36 +2,28 @@
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
 
 <body>
-<h2>produkty</h2>
+<h2>w koszyku:</h2>
 <table class="padding5">
+    <p th:text="${cart.status}"></p>
+    <p th:text="${cart.id}"></p>
+    <p th:text="${cart}"></p>
     <tbody>
-    <tr th:each="product: ${products}" th:class="${'status'+product.status}" >
-        <td>
-            <a th:href="@{'/crew/product/edit/'+${product.id}}" th:utext="${product.SKU}"></a>
-        <td>
-        <td>
-            <span th:utext="${product.name}" ></span>
-        </td>
-        <td>
-            <span  ></span>
-        </td>
-        <td>
-            <span th:utext="${product.getCategoryName()}" ></span>
-        </td>
+
+    <tr th:each="cart_row: ${cart.items}" th_class="${'status'+product.status}" >
+        <th:block th:insert="~{cart/fragment :: cartRow ( ${cart_row} ) }"/>
     </tr>
+
     </tbody>
 </table>
 
-<hr/>
 
-<h2>nowy produkt</h2>
-<!-- new category -->
-<th:block th:insert="~{fragments/form :: formS ( '/crew/product/new' ) }"/>
-<th:block th:insert="~{fragments/form :: text( 'SKU' , '' , 'SKU produktu', '' ) }"/>
-<th:block th:insert="~{fragments/form :: text( 'name' , '' , 'nazwa produktu', '' ) }"/>
-<th:block th:insert="~{fragments/form :: formE }"/>
+<a class="likeButton" th:href="${'/cart/convert_to_order/_'+cart.id}" > przejdz do dostawy </a>
+<a class="likeButton" href="/?" > powrót do zakupów </a>
+<a class="likeButton" th:href="${'/cart/clearCart/'+cart.id}" > wyczyść koszyk </a>
 
 
 </body>
 </html>
+
+
 

@@ -13,11 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 
 @Controller
@@ -35,11 +33,10 @@ public class CartController {
         Optional<Product> OProduct = productService.findById( productId );
         if (OProduct.isPresent()  ){
             Product product = OProduct.get();
-             System.out.println( ">>>" + productId + " : " + product.getPictures() );
+            // System.out.println( ">>>" + productId + " : " + product.getPictures() );
             productController.prepareModelForProductEdit( model ,  product );
             return "product/product_full";
         }
-
         productController.prepareIndex( model );
         return "redirect:/index";
     }
@@ -65,11 +62,14 @@ public class CartController {
     @RequestMapping(value = {"/cart/view"}, method = RequestMethod.GET)
     public String crewImgSendGET( Model model, HttpServletRequest request ){
         Long cartId = getActiveCartId( request );
+
         if ( cartId==null ) return "redirect:/index";
-        Optional<Cart> OCart = cartService.findById(cartId);
-        if (OCart.isPresent() ) {
+        Optional<Cart> OCart = cartService.findById( cartId );
+        if ( OCart.isPresent() ) {
             Cart cart = OCart.get();
-            List<CartItem> items = cart.getItems();
+//            List<CartItem> items = cart.getItems();
+    List<CartItem> items = new ArrayList<>();
+    cart.setItems( items );
 
             Map<Long, Product> cartProductList = new HashMap<>();
             productService.getAllProductsFromCartByCartId(cartId).iterator().forEachRemaining(f -> {
@@ -82,6 +82,11 @@ public class CartController {
                         c.setPricePerItem( cartProductList.get(f.getProduct_id()).getValue() );
                         c.setProduct_SKU( cartProductList.get(f.getProduct_id()).getSKU() );
                         items.add( c ); } );
+
+//            System.out.println( cart );
+//            System.out.println( productService.getAllProductsFromCartByCartId(cartId) );
+//            System.out.println( cartItemService.getAllItemByCartId(cartId) );
+//            if (true) return "redirect:/index";
 
             Double sum=0.0;
             for ( CartItem ci : cart.getItems() ){
@@ -107,12 +112,16 @@ public class CartController {
 
     public Long getActiveCartIdByUserNam_orCreateNew( String userName ) {
         if ( users.userExists( userName )){
-            System.out.println( "numbersOfCart: " + cartService.countCartBelongsToUserName( userName ) );
-
-
-            Optional<Long> OCartId=cartService.findOpenIdByUserName(userName);
-            if ( OCartId.isPresent() ) { return OCartId.get();}
-            else{ Cart cart=cartService.save( new Cart( userName )); return cart.getId(); }
+            Long numberOfCarts=cartService.countCartBelongsToUserName( userName );
+            if ( numberOfCarts==1L ){
+                // cart exists
+                Optional<Long> OCartId=cartService.findOpenIdByUserName(userName);
+                if ( OCartId.isPresent() ) { return OCartId.get();}
+            }
+            if ( numberOfCarts==0L ) {
+                // cart NOT exists
+                Cart cart=cartService.save( new Cart( userName )); return cart.getId();
+            }
         }
         return null;
         }

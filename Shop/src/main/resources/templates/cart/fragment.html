@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+
+<!--  CART ROW CartItem(id=1, product_id=3, cart_id=1, quantity=1, pricePerItem=329.0, product_name=Dysk M.2 Crucial 1.0TB, product_SKU=SH0025)
+           -->
+
+<!--
+<th:block th:insert="~{cart/view :: cartRow ( row ) }"/>
+-->
+
+<div class="cartrow" th:fragment="cartRow ( row )" xmlns:th="http://www.w3.org/1999/xhtml">
+  <p th:text="${row}"></p>
+
+  <td>
+    <a th:href="${'/cart/productinfo/'+row.product_id}" target="_blank">
+      <th:block th:insert="~{fragments/form :: image( ${row.product_id} ) }"/>
+    </a>
+  </td>
+  <td th:text="${row.product_SKU}"/>
+  <td th:text="${row.product_name}"/>
+  <td th:text="${row.pricePerItem}"/>
+  <td th:text="${' x'+row.quantity}"/>
+  <td th:text="${row.quantity*row.pricePerItem}"/>
+
+  <td>
+    <a th:href="@{'/cart/addOne/'+${row.id}'}"/>[ +1 ]</a>
+  </td>
+  <td>
+    <a th:href="@{'/cart/subOne/'+${row.id}'}"/>[ -1 ]</a>
+  </td>
+  <td>
+    <a th:href="@{'/cart/clearRow/'+${row.id}'}"/>[ clear ]</a>
+  </td>
+  <form></form>
+
+
+  <!--<th:block th:each="product : ${products}" th:insert="~{ fragments/product :: oneBlock ( ${product} ) }" />-->
+</div>
+
+
+</html>

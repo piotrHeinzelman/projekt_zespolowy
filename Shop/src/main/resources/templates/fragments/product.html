@@ -49,7 +49,9 @@
         </p>
 
        <a th:href="${'/cart/productinfo/'+product.id}">
-        <img th:src="${'/media/fimages/'+product.getPictAddr()}" style="width: 150px; height: 150px;" />
+
+           <th:block th:insert="~{fragments/form :: image( ${product.getPictAddr()} ) }"/>
+        <!--<img th:src="${'/media/fimages/'+}" style="width: 150px; height: 150px;" />-->
        </a>
 
         <!-- <p th:text="${product.id}" >id</p> -->
@@ -94,3 +96,6 @@
     <a th:href="${'/cart/vote_plus/'+product.id}"><span class="ico">&#xE8DC;</span></a>
     <a th:href="${'/cart/vote_minus/'+product.id}"><span class="ico">&#xE8DB;</span></a>
 </span>
+
+
+
