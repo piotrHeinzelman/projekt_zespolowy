@@ -5,3 +5,12 @@ function clickProduct( me ){
     $( me ).load( adr );
 }
 
+function sendSort( me ){
+
+    var adr="/addToSession/sort/"+me.value;
+    $.get( adr );
+    //alert( adr );
+
+ //   alert( adr );
+ //   $( me ).load( adr );
+}

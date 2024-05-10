@@ -3,6 +3,10 @@ package com.example.shoop.crewControllers;
 import com.example.shoop.config.FileTool;
 import com.example.shoop.model.*;
 import com.example.shoop.repo.*;
+import com.example.shoop.session.NameComparator;
+import com.example.shoop.session.NameComparatorR;
+import com.example.shoop.session.PriceComparator;
+import com.example.shoop.session.PriceComparatorR;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -314,16 +318,26 @@ public class ProductController {
 
 
     List <Product> pagineAndSort( Iterable<Product> productsUnsorted ){
-        HttpSession session = httpServletRequest.getSession();
-        String sort = session.getAttribute("sort").toString();
-        System.out.println( "SORT BY:" + sort );
-
 
         ArrayList< Product > products = new ArrayList<>(10);
         Iterator<Product> it = productsUnsorted.iterator();
         while  ( it.hasNext() ){
-          products.add( it.next() );
+            products.add( it.next() );
         }
+
+
+        HttpSession session = httpServletRequest.getSession();
+        String sortType = session.getAttribute("sort").toString();
+
+        Comparator<Product> comparator=null;
+        switch ( sortType ){
+            case "NA": comparator=new NameComparator();  break;
+            case "ND": comparator=new NameComparatorR();  break;
+            case "PA": comparator=new PriceComparator(); break;
+            case "PD": comparator=new PriceComparatorR(); break;
+        }
+        products.sort( comparator );
+        // paginate ?
         return products;
     }
 

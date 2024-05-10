@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:fragment="topmenu" lang="pl" xmlns:th="http://www.thymeleaf.org" >
+<html th:fragment="topmenu" lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <div id="top_menu">
 
   <span>
@@ -8,7 +8,20 @@
   <span>
       <a href="/product/list">kategorie</a>
   </span>
+
+
+    <select class="form-control" name="sort" id="sort" onchange="sendSort(this)" />
+    <option > </option>
+    <option value="NA">Name ASC</option>
+    <option value="ND">Name DESC</option>
+    <option value="PA">Price ASC</option>
+    <option value="PD">Price DESC</option>
+    </select>
+
+
   </span>
+
+
 
 
 
