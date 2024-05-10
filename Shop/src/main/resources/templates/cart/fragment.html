@@ -14,7 +14,7 @@
   <p th:text="${row}"></p>
 
   <td>
-    <a th:href="${'/cart/productinfo/'+row.product_id}" target="_blank">
+    <a th:href="${'/cart/productinfo/'+row.product_id}" Xtarget="_blank">
       <th:block th:insert="~{fragments/form :: image( ${row.product_id} ) }"/>
     </a>
   </td>
