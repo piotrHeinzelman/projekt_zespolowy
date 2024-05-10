@@ -38,6 +38,7 @@ div#admin_menu { background-color: #c8c8c8;    justify-content: flex-end; }
 
 
 div#container { min-height: 700px;
+    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -83,8 +84,8 @@ div.simpleGrid { display: flex; }
 span.codeAndIcon > *:nth-child(5) { display: none; }
 span.codeAndIcon > *:nth-child(6) { display: none; }
 span.codeAndIcon > *:nth-child(7) { display: none; }
-div.oneBlock {  border: 1px dotted gray; padding: 15px; margin: 3px; display: inline-block; }
-div.oneBlock p  {   display: flex; flex-direction: row; justify-content: space-between; width: 200px;  }
+div.oneBlock, div.categotyItem { display: inline-flex; flex-direction: column; border: 1px dotted gray; padding: 15px; margin: 3px;  }
+div.oneBlock p , div.categotyItem span {   display: flex; flex-direction: row; justify-content: space-between; width: 200px;  }
 
 span.logo { background-image: url("../img/logo.png"); background-position: 50% 50%; width: 160px; height: 60px;  background-repeat: no-repeat; display: block;  }
 

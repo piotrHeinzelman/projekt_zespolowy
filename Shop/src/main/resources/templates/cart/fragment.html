@@ -25,13 +25,13 @@
   <td th:text="${row.quantity*row.pricePerItem}"/>
 
   <td>
-    <a th:href="@{'/cart/addOne/'+row.product_id}"/>[ +1 ]</a>
+    <a th:href="@{'/cart/addOne/'+${row.product_id}}"/>[ +1 ]</a>
   </td>
   <td>
-    <a th:href="@{'/cart/subOne/'+row.product_id}"/>[ -1 ]</a>
+    <a th:href="@{'/cart/subOne/'+${row.product_id}}"/>[ -1 ]</a>
   </td>
   <td>
-    <a th:href="@{'/cart/clearRow/'+row.product_id}"/>[ clear ]</a>
+    <a th:href="@{'/cart/clearRow/'+${row.product_id}}"/>[ clear ]</a>
   </td>
 
   <!--<th:block th:each="product : ${products}" th:insert="~{ fragments/product :: oneBlock ( ${product} ) }" />-->

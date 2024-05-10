@@ -37,9 +37,9 @@ public class HomeController {
 
     @RequestMapping( value={ "/","","/index.php","/index.asp","/index.php","/index.asp" } ) // , method = RequestMethod.POST
     public String home( Model model ){
-        return "index";
+        return "redirect:/product/list";
+        //return "index";
     }
-
 
     @RequestMapping( value={ "/user/add" } , method = RequestMethod.GET )
     public String homeAddUser(){

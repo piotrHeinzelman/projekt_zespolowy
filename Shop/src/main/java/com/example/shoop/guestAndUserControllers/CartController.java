@@ -90,9 +90,8 @@ public class CartController {
         Optional<Cart> OCart = cartService.findById( cartId );
         if ( OCart.isPresent() ) {
             Cart cart = OCart.get();
-//            List<CartItem> items = cart.getItems();
-    List<CartItem> items = new ArrayList<>();
-    cart.setItems( items );
+        List<CartItem> items = new ArrayList<>();
+        cart.setItems( items );
 
             Map<Long, Product> cartProductList = new HashMap<>();
             productService.getAllProductsFromCartByCartId(cartId).iterator().forEachRemaining(f -> {
@@ -106,17 +105,11 @@ public class CartController {
                         c.setProduct_SKU( cartProductList.get(f.getProduct_id()).getSKU() );
                         items.add( c ); } );
 
-//            System.out.println( cart );
-//            System.out.println( productService.getAllProductsFromCartByCartId(cartId) );
-//            System.out.println( cartItemService.getAllItemByCartId(cartId) );
-//            if (true) return "redirect:/index";
-
             Double sum=0.0;
             for ( CartItem ci : cart.getItems() ){
                 sum+=ci.getQuantity()*ci.getPricePerItem();
             }
             cart.setSum( sum );
-//            System.out.println( cart );
             model.addAttribute( "cart", cart );
             return "cart/view";
         }
@@ -162,6 +155,9 @@ public class CartController {
         if (OCart.isPresent()) { return OCart.get(); }
         return null;
     }
+
+
+
 
 
 }
