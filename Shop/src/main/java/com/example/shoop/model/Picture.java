@@ -8,7 +8,6 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString
 @Table( name = "picture")
 public class Picture {
 

@@ -35,7 +35,7 @@ public class CartController {
         Optional<Product> OProduct = productService.findById( productId );
         if (OProduct.isPresent()  ){
             Product product = OProduct.get();
-            // System.out.println( ">>>" + productId + " : " + product );
+             System.out.println( ">>>" + productId + " : " + product.getPictures() );
             productController.prepareModelForProductEdit( model ,  product );
             return "product/product_full";
         }
@@ -107,6 +107,9 @@ public class CartController {
 
     public Long getActiveCartIdByUserNam_orCreateNew( String userName ) {
         if ( users.userExists( userName )){
+            System.out.println( "numbersOfCart: " + cartService.countCartBelongsToUserName( userName ) );
+
+
             Optional<Long> OCartId=cartService.findOpenIdByUserName(userName);
             if ( OCartId.isPresent() ) { return OCartId.get();}
             else{ Cart cart=cartService.save( new Cart( userName )); return cart.getId(); }

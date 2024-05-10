@@ -2,6 +2,7 @@ package com.example.shoop.repo;
 
 import com.example.shoop.model.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,6 +18,11 @@ public class CartService implements CartRepo {
     @Override
     public Optional<Long> findOpenIdByUserName(String user_name) {
         return repo.findOpenIdByUserName(user_name);
+    }
+
+    @Override
+    public Long countCartBelongsToUserName(String user_name) {
+        return repo.countCartBelongsToUserName(user_name);
     }
 
     @Override public <S extends Cart> S save(S entity) {return repo.save(entity);}

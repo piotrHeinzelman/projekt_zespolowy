@@ -35,7 +35,7 @@ public class HomeController {
     @Autowired private UAService uaService;
 
 
-    @RequestMapping( value={ "/","","/index","index","index.php","index.asp","/index.php","/index.asp" } ) // , method = RequestMethod.POST
+    @RequestMapping( value={ "/","","/index","/index.php","/index.asp","/index.php","/index.asp" } ) // , method = RequestMethod.POST
     public String home( Model model ){
         return "index";
     }

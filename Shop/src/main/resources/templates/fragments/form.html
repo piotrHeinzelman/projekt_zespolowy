@@ -111,7 +111,9 @@
 -->
 
 <th:block th:fragment="galery ( items , size )" xmlns:th="http://www.w3.org/1999/xhtml">
+    <th:block th:if="${pict == null}">
     <div class="galery" th:each="pict : ${items}">
-        <img th:if="${pict == null}" th:src="${'/media/fimages/'+pict.pict_id}" th:style="${'height: '+size+'px; width: '+size+'px;'}"/>
+        <img  th:src="${'/media/fimages/'+pict.pict_id}" th:style="${'height: '+size+'px; width: '+size+'px;'}"/>
     </div>
+    </th:block>
 </th:block>

@@ -27,9 +27,9 @@
         <a th:href="${'/cart/addTo/'+product.id}">do koszyka</a>
         <br/>
         <br/>
-        <th:block th:insert="~{fragments/product :: icons_row ( products ) }"/>
+        <!--<th:block th:insert="~{fragments/product :: icons_row ( products ) }"/>-->
 
-        <th:block th:insert="~{fragments/form :: galery( product.pictures , 200 ) }"/>
+        <th:block th:insert="~{fragments/form :: galery( ${product.getPictures()} , '200' ) }"/>
 
     </div>
 </th:block>

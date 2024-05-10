@@ -31,31 +31,8 @@ public class Cart {
     @Transient
     private List<CartItem> items;
 
-
     @Column(name = "req_timestamp" )
     private Timestamp requestTime_stamp;
-
-
-    @Column(name = "first_Name" )
-    private String first_Name;
-
-    @Column(name = "last_Name" )
-    private String last_Name;
-
-    @Column(name = "postal_Code" )
-    private String postal_Code;
-
-    @Column(name = "Stre3t" )
-    private String Stre3t;
-
-    @Column(name = "numb" )
-    private String numb;
-
-    @Column(name = "theCity" )
-    private String theCity;
-
-    @Column(name = "mobil" )
-    private String mobil;
 
     @Column(name="sum")
     private Double sum;

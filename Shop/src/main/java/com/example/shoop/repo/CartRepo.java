@@ -17,4 +17,7 @@ public interface CartRepo extends CrudRepository<Cart, Long> {
     @Query( value = " SELECT id FROM cart WHERE user_name=:user_name AND status = 0 " , nativeQuery = true )
     public Optional<Long> findOpenIdByUserName(@Param("user_name") String user_name );
 
+    @Query( value = " SELECT COUNT(id) FROM cart WHERE user_name=:user_name AND status = 0 " , nativeQuery = true )
+    public Long countCartBelongsToUserName(@Param("user_name") String user_name );
+
 }
