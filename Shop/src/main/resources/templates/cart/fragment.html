@@ -10,12 +10,10 @@
 <th:block th:insert="~{cart/view :: cartRow ( row ) }"/>
 -->
 
-<div class="cartrow" th:fragment="cartRow ( row )" xmlns:th="http://www.w3.org/1999/xhtml">
-  <!--<p th:text="${row}"></p>-->
-
+<th:block class="cartrow" th:fragment="cartRow ( row , cartProductList )" xmlns:th="http://www.w3.org/1999/xhtml">
   <td>
     <a th:href="${'/cart/productinfo/'+row.product_id}" Xtarget="_blank">
-      <th:block th:insert="~{fragments/form :: image( ${row.product_id} ) }"/>
+      <th:block th:insert="~{fragments/form :: image( ${ cartProductList.get( row.product_id ).pictures[0].pict_id } ) }"/>
     </a>
   </td>
   <td th:text="${row.product_SKU}"/>
@@ -35,7 +33,7 @@
   </td>
 
   <!--<th:block th:each="product : ${products}" th:insert="~{ fragments/product :: oneBlock ( ${product} ) }" />-->
-</div>
+</th:block>
 
 
 </html>

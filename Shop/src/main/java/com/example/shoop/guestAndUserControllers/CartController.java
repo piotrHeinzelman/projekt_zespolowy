@@ -38,25 +38,13 @@ public class CartController {
             return "product/product_full";
         }
         productController.prepareIndex( model );
-        return "redirect:/index";
+        return "redirect:/user/add";
     }
 
 
     @RequestMapping(value = {"/cart/addTo/{productId}"}, method = RequestMethod.GET)
     public String addToCartGET( Model model, @PathVariable Long productId , HttpServletRequest request ){
         return addOneProductToCartGET( model, productId, request );
-        /*
-        Long cartId = getActiveCartId( request );
-        if ( cartId!=null ) {
-            Optional<Product> OProduct = productService.findById(productId);
-            if ( OProduct.isPresent() ) {
-                Product product = OProduct.get();
-                cartItemService.save(new CartItem(product.getId(), cartId, product.getValue()));
-                return "redirect:/cart/view";
-            }
-        }
-        return "redirect:/user/add";
-         */
     }
 
 /*
@@ -64,6 +52,43 @@ public class CartController {
 <a th:href="@{'/cart/subOne/'+row.id}"/>[ -1 ]</a>
 <a th:href="@{'/cart/clearRow/'+row.id}"/>[ clear ]</a>
 */
+
+    @RequestMapping(value = {"/cart/clearCart"}, method = RequestMethod.GET)
+    public String removeProductFromCartGET( Model model, HttpServletRequest request ){
+        Cart cart = getActiveCart( request );
+        if ( cart!=null ){
+            cartItemService.clearCart( cart.getId() );
+        }
+        return "redirect:/product/list";
+    }
+
+    @RequestMapping(value = {"/cart/clearRow/{productId}"}, method = RequestMethod.GET)
+    public String removeProductFromCartGET( Model model, @PathVariable Long productId , HttpServletRequest request ){
+        CartItem cartItem = null;
+        cartItem = getCartItem(  request ,  productId );
+        if ( cartItem!=null ) {
+            cartItemService.delete( cartItem );
+        }
+        return "redirect:/cart/view";
+    }
+
+@RequestMapping(value = {"/cart/subOne/{productId}"}, method = RequestMethod.GET)
+public String subOneProductToCartGET( Model model, @PathVariable Long productId , HttpServletRequest request ){
+    CartItem cartItem = null;
+    cartItem = getCartItem(  request ,  productId );
+    if ( cartItem!=null ) {
+        Long Q=cartItem.getQuantity();
+        Q--;
+        if ( Q==0 ){
+            cartItemService.delete( cartItem );
+        } else {
+        cartItem.setQuantity( Q );
+        cartItemService.save( cartItem );
+        }
+    }
+    return "redirect:/cart/view";
+}
+
     @RequestMapping(value = {"/cart/addOne/{productId}"}, method = RequestMethod.GET)
     public String addOneProductToCartGET( Model model, @PathVariable Long productId , HttpServletRequest request ){
         CartItem cartItem = null;
@@ -72,6 +97,7 @@ public class CartController {
             createONEcartItem( request ,  productId );
         } else {
             cartItem.setQuantity(1 + cartItem.getQuantity());
+            cartItemService.save( cartItem );
         }
         return "redirect:/cart/view";
     }
@@ -80,7 +106,7 @@ public class CartController {
     public String crewImgSendGET( Model model, HttpServletRequest request ){
         Long cartId = getActiveCartId( request );
 
-        if ( cartId==null ) return "redirect:/index";
+        if ( cartId==null ) return "redirect:/user/add";
         Optional<Cart> OCart = cartService.findById( cartId );
         if ( OCart.isPresent() ) {
             Cart cart = OCart.get();
@@ -105,9 +131,10 @@ public class CartController {
             }
             cart.setSum( sum );
             model.addAttribute( "cart", cart );
+            model.addAttribute( "cartProductList", cartProductList );
             return "cart/view";
         }
-        return "redirect:/index";
+        return "redirect:/user/add";
     }
 
 

@@ -13,7 +13,7 @@ body { display: flex;
 
 img { height: 150px; width: 150px;  }
 img.galeryItem { height: 50px; width: 50px;  }
-div.cartrow img { height: 50px; width: 50px; padding: 5px; }
+tr.cartrow  img { height: 50px; width: 50px; padding: 5px; }
 
 a, a:visited { color: #4169E1;  text-decoration: none !important; }
 a:hover > span { color: #191970; }
@@ -92,3 +92,4 @@ span.logo { background-image: url("../img/logo.png"); background-position: 100% 
 
 a.likeButton { display: block; padding: 5px 10px;  border: 1px solid gray;  }
 a.likeButton:hover { background-color: blue;  }
+

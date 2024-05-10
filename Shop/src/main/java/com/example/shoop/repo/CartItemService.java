@@ -25,6 +25,9 @@ public class CartItemService implements CartItemRepo {
         return repo.getByCartIdProdId(cartId, productId);
     }
 
+    @Override
+    public void clearCart(Long cartId) { repo.clearCart(cartId); }
+
     @Override public <S extends CartItem> S save(S entity) {return repo.save(entity);}
     @Override public <S extends CartItem> Iterable<S> saveAll(Iterable<S> entities) {return repo.saveAll(entities);}
     @Override public Optional<CartItem> findById(Long aLong) {return repo.findById(aLong);}

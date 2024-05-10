@@ -6,8 +6,8 @@
 <table class="padding5">
     <tbody>
 
-    <tr th:each="cart_row: ${cart.items}" th_class="${'status'+product.status}" >
-        <th:block th:insert="~{cart/fragment :: cartRow ( ${cart_row} ) }"/>
+    <tr th:each="cart_row: ${cart.items}" th_class="${'status'+product.status}"  class="cartrow" >
+        <th:block th:insert="~{cart/fragment :: cartRow ( ${cart_row} , ${cartProductList} ) }"/>
     </tr>
 
     </tbody>
@@ -16,7 +16,7 @@
 
 <a class="likeButton" th:href="${'/cart/convert_to_order/_'+cart.id}" > przejdz do dostawy </a>
 <a class="likeButton" href="/?" > powrót do zakupów </a>
-<a class="likeButton" th:href="${'/cart/clearCart/'+cart.id}" > wyczyść koszyk </a>
+<a class="likeButton" th:href="${'/cart/clearCart'}" > wyczyść koszyk </a>
 
 
 </body>
