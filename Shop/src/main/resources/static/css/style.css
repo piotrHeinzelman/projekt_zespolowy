@@ -80,7 +80,7 @@ a:hover < td { background-color: red; }
 
 
 span.ico  { font-size: 140%; padding: 2px; font-family: 'Material Symbols Outlined'; /* https://fonts.google.com/icons 'Material Symbols Outlined'*/ }
-div.simpleGrid { display: flex; }
+div.simpleGrid { display: flex; flex-wrap: wrap;}
 span.codeAndIcon > *:nth-child(5) { display: none; }
 span.codeAndIcon > *:nth-child(6) { display: none; }
 span.codeAndIcon > *:nth-child(7) { display: none; }

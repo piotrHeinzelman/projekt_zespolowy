@@ -1,0 +1,10 @@
+1) Raport jest ważny.
+2) Musi coś być w archiwach.
+3) Skład osobowy - podział ról.
+4) wykazać że są podobne aplikacje, oraz że coś wymyśliliśmy od siebie.
+5) opis aplikacji, kod nie bardzo potrzebny.
+6) zrzuty ekranu.
+7) testy - ktoś wszedł w rolę i wykazał błędy.
+8) co robiliśmy, gdzie były kłopoty, gdzie narzędzia programistyczne
+9) wersja edytowalna
+- hostowanie gdzieś

@@ -327,7 +327,10 @@ public class ProductController {
 
 
         HttpSession session = httpServletRequest.getSession();
-        String sortType = session.getAttribute("sort").toString();
+        String sortType="NA";
+        if ( session.getAttribute("sort")!=null ) {
+            sortType = session.getAttribute("sort").toString();
+        }
 
         Comparator<Product> comparator=null;
         switch ( sortType ){
