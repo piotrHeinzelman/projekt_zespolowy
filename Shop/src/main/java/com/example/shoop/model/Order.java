@@ -26,7 +26,7 @@ public class Order {
     @Column(name = "status")
     private OrderStatus status;
 
-    @OneToMany(mappedBy = "orderItem")
+    @OneToMany(mappedBy = "order")
     //private Set<Picture> pictures = new HashSet<>();
     private Set<OrderItem> orderItems = new HashSet<>();
 
