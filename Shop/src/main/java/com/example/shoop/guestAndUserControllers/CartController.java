@@ -136,6 +136,7 @@ public String subOneProductToCartGET( Model model, @PathVariable Long productId 
             }
             cart.setSum( sum );
             model.addAttribute( "cart", cart );
+            model.addAttribute( "cart_sum", cart.getSum() );
             model.addAttribute( "cartProductList", cartProductList );
             return "cart/view";
         }

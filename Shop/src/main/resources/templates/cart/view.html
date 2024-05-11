@@ -3,20 +3,36 @@
 
 <body>
 <h2>w koszyku:</h2>
-<table class="padding5">
+<table class="padding5 cart_table">
     <tbody>
 
     <tr th:each="cart_row: ${cart.items}" th_class="${'status'+product.status}"  class="cartrow" >
         <th:block th:insert="~{cart/fragment :: cartRow ( ${cart_row} , ${cartProductList} ) }"/>
     </tr>
-
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td> suma: </td>
+        <td colspan="3" th:utext="${cart_sum}" class="BOLD"></td>
+        <td></td>
+        <td></td>
+    </tr>
+<hr/>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>  <a class="likeButton" href="/?" > powrót do zakupów </a> </td>
+        <td colspan="4"> <a class="likeButton likeButton2" th:href="${'/cart/convert_to_order/_'+cart.id}" > przejdz do dostawy </a> </td>
+        <td colspan="2">             <a class="likeButton" th:href="${'/cart/clearCart'}" > wyczyść koszyk </a> </td>
+    </tr>
     </tbody>
 </table>
 
 
-<a class="likeButton" th:href="${'/cart/convert_to_order/_'+cart.id}" > przejdz do dostawy </a>
-<a class="likeButton" href="/?" > powrót do zakupów </a>
-<a class="likeButton" th:href="${'/cart/clearCart'}" > wyczyść koszyk </a>
+
+
+
 
 
 </body>

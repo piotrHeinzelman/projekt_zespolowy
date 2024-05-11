@@ -90,6 +90,11 @@ div.oneBlock p , div.categotyItem span {   display: flex; flex-direction: row; j
 span.logo { background-image: url("../img/logo.png"); background-position: 100% 100%; width: 60px; height: 60px; padding-left: 90px; background-repeat: no-repeat; display: block;  }
 
 
-a.likeButton { display: block; padding: 5px 10px;  border: 1px solid gray;  }
-a.likeButton:hover { background-color: blue;  }
+a.likeButton { display: block; padding: 5px 10px;  border: 1px solid gray; border-radius: 5px; color: gray; }
+a.likeButton2 { color: #2271b1; font-weight: 600; }
+a.likeButton:hover { background-color: #2271b1; color: white; }
+
+.BOLD {font-weight: 600; font-size: 150%; }
+
+table.cart_table tr.cartrow:nth-child(even) { background-color: #f0f6fc;}
 
