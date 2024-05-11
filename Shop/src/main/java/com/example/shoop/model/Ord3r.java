@@ -14,8 +14,8 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-@Table(name = "order")
-public class Order {
+@Table(name = "ord3r")
+public class Ord3r {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +26,7 @@ public class Order {
     @Column(name = "status")
     private OrderStatus status;
 
-    @OneToMany(mappedBy = "order")
-    //private Set<Picture> pictures = new HashSet<>();
+    @OneToMany(mappedBy = "ord3r")
     private Set<OrderItem> orderItems = new HashSet<>();
 
     @Column(name = "req_timestamp")
@@ -36,6 +35,7 @@ public class Order {
     @Column(name = "sum")
     private Double sum;
 
+ // address
 
     @Column(name = "email")
     private String email;
@@ -62,12 +62,14 @@ public class Order {
     private String mobil;
 
 
-    public Order() {
+    public Ord3r() {
     }
 
-    public Order(String email) {
+    public Ord3r(String email) {
         this.email = email;
         this.status = OrderStatus.InProgress;
         this.requestTime_stamp = Timestamp.from(Instant.now());
     }
+
+
 }

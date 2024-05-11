@@ -9,14 +9,18 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table( name = "orderItem")
+@Table( name = "orderitem")
 public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    @Column(name = "orderItem_id")
-    private Long orderItem_id;
+    @Column(name = "orderitem_id")
+    private Long orderitem_id;
 
+    @ManyToOne
+    @JoinColumn(name="order_id", nullable=false)
+    private Ord3r ord3r;
+/*
     @Column(name = "product_id")
     private Long product_id;
 
@@ -31,7 +35,7 @@ public class OrderItem {
 
     @Column(name = "priceSum")
     private String priceSum;
-
+*/
     public OrderItem() {}
 
 }

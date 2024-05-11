@@ -8,3 +8,6 @@
 8) co robiliśmy, gdzie były kłopoty, gdzie narzędzia programistyczne
 9) wersja edytowalna
 - hostowanie gdzieś
+
+
+problems - order in DB is keyword
