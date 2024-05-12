@@ -3,16 +3,35 @@
 
 <body>
 
-<div>
-   <div th:each="category: ${categories}"  class="categotyItem">
-   <a th:href="@{'/product/list/'+${category.id}}" >
-      <span th:utext="${category.name}"></span>
-      <img th:src="@{'/media/fimages/cat_'+${category.id}}"/>
-   </a>
+   <div class="flex py-10 justify-center items-center h-screen w-full">
+      <div class="relative overflow-x-auto cart shadow-md sm:rounded-lg w-3/4 h-full">
+         <table class="h-full w-full text-xl text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+               <th scope="col" class="px-16 py-3">
+                  <span class="sr-only">Image</span>
+               </th>
+               <th scope="col" class="px-6 py-3">
+                  Kategoria
+               </th>
+            </tr>
+            </thead>
+            <tbody>
+               <div th:each="category: ${categories}" class="categotyItem">
+                  <tr
+                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 cursor-pointer"
+                    th:onclick="'window.location.href=\'/product/list/' + ${category.id} + '\''"
+                  >
+                     <td class="p-4">
+                        <img th:src="@{'/media/fimages/cat_'+${category.id}}" class="w-16 md:w-32 max-w-full max-h-full" alt="Category Image">
+                     </td>
+                     <td th:utext="${category.name}" class="px-6 py-4 font-semibold text-gray-900 dark:text-white"></td>
+                  </tr>
+               </div>
+            </tbody>
+         </table>
+      </div>
    </div>
-</div>
-
-
 
 </body>
 </html>

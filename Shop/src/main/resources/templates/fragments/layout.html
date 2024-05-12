@@ -20,7 +20,7 @@
   <!-- CSS  -->
 
   <link href="/css/style.css" type="text/css" rel="stylesheet" />
-  <link href="/css/product.css" type="text/css" rel="stylesheet" />
+  <link href="/css/tailwind_output.css" type="text/css" rel="stylesheet" />
 
 
   <!-- JS -->
@@ -31,11 +31,9 @@
 
 <th:block th:insert="~{ menu/topmenu :: topmenu }" />
 
-<div id="container" >
-  <h4 th:if="${errorMsg!=null}" class="errorMsg" th:text="${errorMsg}"> </h4>
-  <h4 th:if="${success!=null}"  class="success"  th:text="${success}">  </h4>
-    <th:block th:insert="${template}" />
-</div>
+<h4 th:if="${errorMsg!=null}" class="errorMsg" th:text="${errorMsg}"> </h4>
+<h4 th:if="${success!=null}"  class="success"  th:text="${success}">  </h4>
+<th:block th:insert="${template}" />
 
 <th:block th:insert="~{ menu/foot :: foot }" />
 

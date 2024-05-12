@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
-
-
-
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
 <body>
-<th:block th:unless="${products == null}" th:insert="~{fragments/product :: simpleGrid ( ${products} ) }"/>
+<div class="flex py-10 justify-center items-center h-screen w-full">
+    <div class="relative overflow-x-auto cart shadow-md sm:rounded-lg w-3/4 h-full">
+        <table class="h-full w-full text-xl text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-16 py-3">
+                    <span class="sr-only">Image</span>
+                </th>
+                <th scope="col" class="px-6 py-3">Produkt</th>
+                <th scope="col" class="px-6 py-3">SKU</th>
+                <th scope="col" class="px-6 py-3">Cena</th>
+                <th scope="col" class="px-6 py-3">Ocena</th>
+                <th scope="col" class="px-6 py-3">Koszyk</th>
+            </tr>
+            </thead>
+            <tbody>
+                <div th:fragment="simpleGrid(products)">
+                    <div th:each="product : ${products}">
+                        <tr
+                            class="bg-white border-b cursor-pointer dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                            th:onclick="'window.location.href=\'/cart/productinfo/' + ${product.id} + '\''"
+                        >
+                            <td class="p-4">
+                                <img th:src="${'/media/fimages/'+product.getPictAddr()}" class="w-16 md:w-32 max-w-full max-h-full" alt="Img.jpg">
+                            </td>
+                            <td th:utext="${product.name}" class="px-6 py-4 font-semibold text-gray-900 dark:text-white" />
+                            <td th:utext="${product.SKU}" class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                            <td th:utext="${product.getValue()}" class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                zł
+                            </td>
+                            <td class="px-6 py-4">
+                                <a th:href="${'/cart/vote_plus/'+product.id}" class="font-medium text-blue-500 hover:underline">
+                                    <span class="ico">&#xE8DC;</span>
+                                </a>
+                                <a th:href="${'/cart/vote_minus/'+product.id}" class="font-medium text-blue-500 hover:underline">
+                                    <span class="ico">&#xE8DB;</span>
+                                </a>
+                            </td>
+                            <td class="px-6 py-4">
+                                <a th:href="${'/cart/addTo/'+product.id}" class="font-medium text-blue-500 hover:underline">
+                                    <span class="ico">&#xEB88;</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </div>
+                </div>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
-
 </html>
