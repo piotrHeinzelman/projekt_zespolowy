@@ -3,30 +3,49 @@
 
 <body>
 
-    <h2>rejestracja użytkownika</h2>
-    <form th:action="@{/user/add}" method="post">
-        <div class="form-group">
-            <label for="username">adres email:</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="e-mail">
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-        </div>
-        <div class="form-group">
-            <label for="password">Retype password:</label>
-            <input type="password" class="form-control" id="password2" name="password2" placeholder="Retype password">
+<div class="h-screen w-full flex items-center justify-center">
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                Utwórz konto w naszym sklepie
+            </h2>
         </div>
 
-        <div class="form-group">
-            <button type="submit" class="btn btn-default">Submit</button>
-        </div>
+        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <form class="space-y-6" th:action="@{/user/add}" method="post">
+                <div>
+                    <label for="email" class="block text-2xl font-medium leading-6 text-gray-900">Address Email</label>
+                    <div class="mt-2">
+                        <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-2xl sm:leading-6">
+                    </div>
+                </div>
 
-        <!--
-        <div class="checkbox">
-            <label><input type="checkbox"> Remember me</label>
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-2xl font-medium leading-6 text-gray-900">Hasło</label>
+                    </div>
+                    <div class="mt-2">
+                        <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-2xl sm:leading-6">
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-2xl font-medium leading-6 text-gray-900">Potwierdzenie hasła</label>
+                    </div>
+                    <div class="mt-2">
+                        <input id="password2" name="password2" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-2xl sm:leading-6">
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-2xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Zarejestruj się</button>
+                </div>
+            </form>
         </div>
-        -->
-    </form>
+    </div>
+</div>
+
 </body>
 </html>
