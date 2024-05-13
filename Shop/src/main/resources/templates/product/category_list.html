@@ -8,16 +8,13 @@
          <table class="h-full w-full text-xl text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-               <th scope="col" class="px-16 py-3">
-                  <span class="sr-only">Image</span>
-               </th>
                <th scope="col" class="px-6 py-3">
                   Kategoria
                </th>
             </tr>
             </thead>
             <tbody>
-               <div th:each="category: ${categories}" class="categotyItem">
+               <div th:each="category: ${categories}" class="categotyItem" style="display: none;">
                   <tr
                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 cursor-pointer"
                     th:onclick="'window.location.href=\'/product/list/' + ${category.id} + '\''"

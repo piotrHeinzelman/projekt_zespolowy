@@ -51,7 +51,7 @@ public class HomeController {
         try {
             accountService.addUser(paramMap);
         } catch ( Throwable th ){ model.addAttribute("errorMsg", th.getMessage() ); return "/user/add"; }
-        return "index";
+        return "redirect:/user/login";
     }
 
 
